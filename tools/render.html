@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Render a mark</title>
+<!-- Used by export-marks.sh. Draws one SVG from brand/marks/ full-window so Chrome can screenshot it. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@900&display=block">
+<style>
+  html, body { margin: 0; background: transparent; }
+  #mark svg { width: 100vw; height: 100vh; display: block; }
+</style>
+</head>
+<body>
+<div id="mark"></div>
+<script>
+  const name = new URLSearchParams(location.search).get('m');
+  fetch(`../brand/marks/${name}.svg`).then(r => r.text()).then(svg => {
+    document.getElementById('mark').innerHTML = svg;
+  });
+</script>
+</body>
+</html>

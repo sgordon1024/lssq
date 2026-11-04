@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+  <title>LSSQ mark D: Last Saturday Patch (full patch)</title>
+  <defs>
+    <path id="arc-top" d="M22 100 A78 78 0 0 1 178 100"/>
+    <path id="arc-bottom" d="M10 100 A90 90 0 0 0 190 100"/>
+    <clipPath id="c-sunset-small"><circle cx="50" cy="50" r="41.5"/></clipPath>
+  </defs>
+  <circle cx="100" cy="100" r="96" fill="#E2397A"/>
+  <circle cx="100" cy="100" r="66" fill="#141818"/>
+  <text font-family="Urbanist, system-ui, sans-serif" font-weight="900" font-size="18" letter-spacing="2.5" fill="#141818" text-anchor="middle"><textPath href="#arc-top" xlink:href="#arc-top" startOffset="50%">LAST SATURDAY</textPath></text>
+  <text font-family="Urbanist, system-ui, sans-serif" font-weight="900" font-size="18" letter-spacing="2.5" fill="#141818" text-anchor="middle"><textPath href="#arc-bottom" xlink:href="#arc-bottom" startOffset="50%">SIDE QUEST</textPath></text>
+  <circle cx="16" cy="100" r="4" fill="#141818"/>
+  <circle cx="184" cy="100" r="4" fill="#141818"/>
+  <!-- The small sunset mark, scaled by 1.28 and centred -->
+  <g transform="translate(36 36) scale(1.28)">
+    <circle cx="50" cy="50" r="44" fill="#141818" stroke="#36E2E6" stroke-width="5"/>
+    <g clip-path="url(#c-sunset-small)">
+      <circle cx="50" cy="60" r="25" fill="#F2C230"/>
+      <rect x="0" y="47" width="100" height="2.6" fill="#141818"/>
+      <rect x="0" y="53.5" width="100" height="3.4" fill="#141818"/>
+      <path d="M4 84 L28 60 L40 71 L58 53 L96 84 V100 H4 Z" fill="#E2397A"/>
+      <path d="M42 100 L49 75 H51 L58 100 Z" fill="#141818"/>
+      <line x1="50" y1="78" x2="50" y2="99" stroke="#F2C230" stroke-width="1.6" stroke-dasharray="3 3"/>
+    </g>
+  </g>
+</svg>

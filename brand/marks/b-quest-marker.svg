@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title>LSSQ mark B: Quest Marker</title>
+  <path d="M50 12 L88 50 L50 88 L12 50 Z" transform="translate(4 4)" fill="#36E2E6" stroke="#36E2E6" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M50 12 L88 50 L50 88 L12 50 Z" fill="#E2397A" stroke="#E2397A" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M43.5 25 H56.5 L53 56 H47 Z" fill="#F2C230" stroke="#F2C230" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="50" cy="69" r="6.5" fill="#F2C230"/>
+</svg>

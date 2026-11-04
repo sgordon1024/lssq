@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title>LSSQ mark D: Last Saturday Patch (small version)</title>
+  <defs><clipPath id="c-sunset"><circle cx="50" cy="50" r="41.5"/></clipPath></defs>
+  <circle cx="50" cy="50" r="44" fill="#141818" stroke="#36E2E6" stroke-width="5"/>
+  <g clip-path="url(#c-sunset)">
+    <circle cx="50" cy="60" r="25" fill="#F2C230"/>
+    <rect x="0" y="47" width="100" height="2.6" fill="#141818"/>
+    <rect x="0" y="53.5" width="100" height="3.4" fill="#141818"/>
+    <path d="M4 84 L28 60 L40 71 L58 53 L96 84 V100 H4 Z" fill="#E2397A"/>
+    <path d="M42 100 L49 75 H51 L58 100 Z" fill="#141818"/>
+    <line x1="50" y1="78" x2="50" y2="99" stroke="#F2C230" stroke-width="1.6" stroke-dasharray="3 3"/>
+  </g>
+</svg>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Logo marks, round 1 · LSSQ Workshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monoton&family=Urbanist:wght@400;500;700;800;900&display=swap">
+<style>
+/* Layout: one column of options. Each pairs a big mark on a dark stage with its idea, a lockup and a strip of the sizes it has to survive. Single dark look, matching LSSQ's own site. */
+:root{
+  --ink:#141818; --ink-2:#1c2323; --ink-3:#2a3333; --cream:#FFF6E8; --muted:#a9b7b4;
+  --pink:#E2397A; --sun:#F2C230; --cyan:#36E2E6; --lav:#B79CF0;
+  --display:"Urbanist","Avenir Next",system-ui,sans-serif;
+  --body:"Urbanist","Avenir Next",system-ui,sans-serif;
+  --neon:"Monoton","Urbanist",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);font-size:17px;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:48px 80px;display:grid;gap:64px}
+header{display:grid;gap:18px;max-width:70ch}
+.kicker{margin:0;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+h1{margin:0;font-family:var(--display);font-weight:900;font-size:clamp(38px,6.4vw,64px);line-height:1;text-wrap:balance}
+h1 em{font-style:normal;color:var(--pink)}
+.lede{margin:0;font-size:19px;color:var(--muted)}
+.lede b{color:var(--cream);font-weight:700}
+.swatches{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:4px 0 0;list-style:none}
+.swatches li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);padding:6px 12px 6px 6px;border-radius:999px;background:var(--ink-2)}
+.swatches i{width:20px;height:20px;border-radius:50%;display:block}
+
+.opt{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;align-items:center;padding-top:40px;border-top:1px solid var(--ink-3)}
+.stage{aspect-ratio:1;max-width:100%;border-radius:24px;display:grid;place-items:center;background-color:var(--ink-2);background-image:radial-gradient(var(--ink-3) 1.3px,transparent 1.4px);background-size:20px 20px}
+.stage svg{width:64%;height:auto;display:block}
+.info{display:grid;gap:18px;min-width:0}
+.letter{margin:0;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--sun)}
+h2{margin:-10px 0 0;font-family:var(--display);font-weight:900;font-size:clamp(30px,4vw,40px);line-height:1.05}
+.info p.idea{margin:0;max-width:56ch}
+.info p.idea + p{margin:0;max-width:56ch;color:var(--muted);font-size:16px}
+
+.lockup{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:16px;background:var(--ink-2);flex-wrap:wrap}
+.lockup svg{width:64px;height:64px;flex:none;display:block}
+.wm{font-family:var(--neon);font-size:clamp(20px,3vw,27px);line-height:1.2;color:var(--cream);letter-spacing:.02em;text-transform:uppercase;min-width:0}
+.lockup.patch svg{width:168px;height:168px}
+.lockup.patch .note{font-size:14px;color:var(--muted);max-width:30ch;min-width:0}
+
+.sizes{display:flex;flex-wrap:wrap;align-items:flex-end;gap:22px 26px;margin:0;padding:0;list-style:none}
+.sizes li{display:grid;justify-items:start;gap:8px}
+.sizes small{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.ig{width:84px;height:84px;border-radius:50%;background:var(--ink);display:grid;place-items:center;box-shadow:0 0 0 3px var(--ink),0 0 0 6px var(--pink)}
+.ig svg{width:66%;height:66%}
+.wa{width:44px;height:44px;border-radius:50%;background:var(--ink-3);display:grid;place-items:center}
+.wa svg{width:72%;height:72%}
+.tab{display:inline-flex;align-items:center;gap:8px;padding:9px 14px 9px 12px;border-radius:10px 10px 0 0;background:var(--ink-3);font-size:13px;color:var(--cream);white-space:nowrap}
+.tab svg{width:16px;height:16px;flex:none}
+.light{width:64px;height:64px;border-radius:14px;background:var(--cream);display:grid;place-items:center}
+.light svg{width:74%;height:74%}
+.patch-mark .ig svg,.patch-mark .wa svg,.patch-mark .light svg{width:100%;height:100%}
+.patch-mark .ig,.patch-mark .wa{background:transparent}
+
+footer{display:grid;gap:12px;max-width:68ch;padding-top:40px;border-top:1px solid var(--ink-3)}
+footer h2{margin:0;font-size:28px}
+footer p{margin:0;color:var(--muted)}
+
+@media (max-width:760px){
+  .opt{grid-template-columns:1fr;gap:24px}
+  .stage{max-width:420px;width:100%}
+}
+.back{margin:0;font-size:15px;font-weight:700}
+.back a{color:var(--muted);text-decoration:none}
+.back a:hover{color:var(--cream)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="c-sunset"><circle cx="50" cy="50" r="41.5"/></clipPath>
+
+    <!-- A: the record from today's badge, drawn as the Q of LSSQ. The tonearm is the tail. -->
+    <symbol id="m-record" viewBox="0 0 100 100">
+      <circle cx="46" cy="46" r="38" fill="#F2C230" stroke="#141818" stroke-width="3"/>
+      <circle cx="46" cy="46" r="30" fill="none" stroke="#141818" stroke-opacity=".22" stroke-width="2"/>
+      <circle cx="46" cy="46" r="22.5" fill="none" stroke="#141818" stroke-opacity=".22" stroke-width="2"/>
+      <path d="M22.6 31.4 A27.5 27.5 0 0 1 35.5 20.6" fill="none" stroke="#FFF6E8" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="46" cy="46" r="13" fill="#E2397A"/>
+      <circle cx="46" cy="46" r="3.4" fill="#141818"/>
+      <line x1="60" y1="60" x2="87" y2="87" stroke="#141818" stroke-width="18" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="87" y2="87" stroke="#36E2E6" stroke-width="9.5" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- B: the "!" that marks a side quest in a video game. -->
+    <symbol id="m-marker" viewBox="0 0 100 100">
+      <path d="M50 12 L88 50 L50 88 L12 50 Z" transform="translate(4 4)" fill="#36E2E6" stroke="#36E2E6" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M50 12 L88 50 L50 88 L12 50 Z" fill="#E2397A" stroke="#E2397A" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M43.5 25 H56.5 L53 56 H47 Z" fill="#F2C230" stroke="#F2C230" stroke-width="4" stroke-linejoin="round"/>
+      <circle cx="50" cy="69" r="6.5" fill="#F2C230"/>
+    </symbol>
+
+    <!-- C: a compass star. One point per pillar. -->
+    <symbol id="m-compass" viewBox="0 0 100 100">
+      <path d="M50 4 L61 39 L50 50 L39 39 Z" fill="#E2397A"/>
+      <path d="M50 4 L61 39 L50 50 L39 39 Z" fill="#F2C230" transform="rotate(90 50 50)"/>
+      <path d="M50 4 L61 39 L50 50 L39 39 Z" fill="#36E2E6" transform="rotate(180 50 50)"/>
+      <path d="M50 4 L61 39 L50 50 L39 39 Z" fill="#B79CF0" transform="rotate(270 50 50)"/>
+      <g fill="#141818" fill-opacity=".2">
+        <path d="M50 4 L61 39 L50 50 Z"/>
+        <path d="M50 4 L61 39 L50 50 Z" transform="rotate(90 50 50)"/>
+        <path d="M50 4 L61 39 L50 50 Z" transform="rotate(180 50 50)"/>
+        <path d="M50 4 L61 39 L50 50 Z" transform="rotate(270 50 50)"/>
+      </g>
+      <g fill="#FFF6E8">
+        <circle cx="74" cy="26" r="2.4"/><circle cx="74" cy="74" r="2.4"/><circle cx="26" cy="74" r="2.4"/><circle cx="26" cy="26" r="2.4"/>
+      </g>
+      <circle cx="50" cy="50" r="9" fill="#141818"/>
+      <circle cx="50" cy="50" r="3.6" fill="#FFF6E8"/>
+    </symbol>
+
+    <!-- D: the centre of the patch. A striped sunset over the mountains, with the road in. -->
+    <symbol id="m-sunset" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="44" fill="#141818" stroke="#36E2E6" stroke-width="5"/>
+      <g clip-path="url(#c-sunset)">
+        <circle cx="50" cy="60" r="25" fill="#F2C230"/>
+        <rect x="0" y="47" width="100" height="2.6" fill="#141818"/>
+        <rect x="0" y="53.5" width="100" height="3.4" fill="#141818"/>
+        <path d="M4 84 L28 60 L40 71 L58 53 L96 84 V100 H4 Z" fill="#E2397A"/>
+        <path d="M42 100 L49 75 H51 L58 100 Z" fill="#141818"/>
+        <line x1="50" y1="78" x2="50" y2="99" stroke="#F2C230" stroke-width="1.6" stroke-dasharray="3 3"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<main class="wrap">
+  <p class="back"><a href="../../">&larr; LSSQ Workshop</a></p>
+  <header>
+    <p class="kicker">Last Saturday Side Quest &middot; logo marks</p>
+    <h1>One shape that still reads <em>at 16 pixels.</em></h1>
+    <p class="lede">Today's badge packs a turntable, a banner, the full name and eight confetti shapes into one image. It's fun at full size, but as an Instagram avatar or a WhatsApp group icon it turns into a smudge. <b>Each option below keeps the colors and the 80s feel</b> and gives LSSQ a simple mark that works from a browser tab up to a banner.</p>
+    <ul class="swatches" aria-label="Colors carried over from the current logo">
+      <li><i style="background:var(--pink)"></i>Banner pink</li>
+      <li><i style="background:var(--sun)"></i>Record yellow</li>
+      <li><i style="background:var(--cyan)"></i>Outline cyan</li>
+      <li><i style="background:var(--lav)"></i>Confetti lavender</li>
+      <li><i style="background:var(--ink);box-shadow:inset 0 0 0 1px var(--ink-3)"></i>Turntable black</li>
+    </ul>
+  </header>
+
+  <section class="opt" id="record">
+    <div class="stage"><svg viewBox="0 0 100 100" role="img" aria-label="Record Q mark: a yellow record with a pink label and a cyan tonearm as the tail of a Q"><use href="#m-record"/></svg></div>
+    <div class="info">
+      <p class="letter">Option A</p>
+      <h2>Record Q</h2>
+      <p class="idea">The record from today's badge becomes the Q in LSSQ, and the tonearm becomes its tail.</p>
+      <p>This is the closest to what people already know, so it reads as a cleanup rather than a rebrand. Music is the pillar it puts first.</p>
+      <div class="lockup"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-record"/></svg><span class="wm">Last Saturday<br>Side Quest</span></div>
+      <ul class="sizes" aria-label="Record Q at real sizes">
+        <li><span class="ig"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-record"/></svg></span><small>Instagram</small></li>
+        <li><span class="wa"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-record"/></svg></span><small>WhatsApp</small></li>
+        <li><span class="tab"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-record"/></svg>Last Saturday Side Quest</span><small>Browser tab</small></li>
+        <li><span class="light"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-record"/></svg></span><small>On light</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="opt" id="marker">
+    <div class="stage"><svg viewBox="0 0 100 100" role="img" aria-label="Quest marker mark: a yellow exclamation point on a pink diamond with a cyan shadow"><use href="#m-marker"/></svg></div>
+    <div class="info">
+      <p class="letter">Option B</p>
+      <h2>Quest Marker</h2>
+      <p class="idea">The "!" that floats over a side quest in a video game. It means there's something worth doing over here.</p>
+      <p>It's the boldest and simplest of the four, and the easiest to spot in a feed. It leans into "Side Quest" and drops the record.</p>
+      <div class="lockup"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-marker"/></svg><span class="wm">Last Saturday<br>Side Quest</span></div>
+      <ul class="sizes" aria-label="Quest Marker at real sizes">
+        <li><span class="ig"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-marker"/></svg></span><small>Instagram</small></li>
+        <li><span class="wa"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-marker"/></svg></span><small>WhatsApp</small></li>
+        <li><span class="tab"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-marker"/></svg>Last Saturday Side Quest</span><small>Browser tab</small></li>
+        <li><span class="light"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-marker"/></svg></span><small>On light</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="opt" id="pillars">
+    <div class="stage"><svg viewBox="0 0 100 100" role="img" aria-label="Four pillars mark: a four-point compass star in pink, yellow, cyan and lavender"><use href="#m-compass"/></svg></div>
+    <div class="info">
+      <p class="letter">Option C</p>
+      <h2>Four Pillars</h2>
+      <p class="idea">A compass star for a gathering that lands somewhere new every month. Each point is one pillar: music, play, wellness and connection.</p>
+      <p>It tells the whole LSSQ story in one shape, and each pillar's color can carry through to the site and event pages.</p>
+      <div class="lockup"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-compass"/></svg><span class="wm">Last Saturday<br>Side Quest</span></div>
+      <ul class="sizes" aria-label="Four Pillars at real sizes">
+        <li><span class="ig"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-compass"/></svg></span><small>Instagram</small></li>
+        <li><span class="wa"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-compass"/></svg></span><small>WhatsApp</small></li>
+        <li><span class="tab"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-compass"/></svg>Last Saturday Side Quest</span><small>Browser tab</small></li>
+        <li><span class="light"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-compass"/></svg></span><small>On light</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="opt patch-mark" id="patch">
+    <div class="stage"><svg viewBox="0 0 100 100" role="img" aria-label="Last Saturday patch mark: a striped yellow sunset over pink mountains with a road, in a cyan ring"><use href="#m-sunset"/></svg></div>
+    <div class="info">
+      <p class="letter">Option D</p>
+      <h2>Last Saturday Patch</h2>
+      <p class="idea">A striped sunset over the mountains with the road in, ringed like a patch you'd sew on a jacket.</p>
+      <p>It's the most outdoorsy and nomad-feeling of the four. The small version is just the sunset; the full patch with the name goes on stickers and merch.</p>
+      <div class="lockup patch">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <defs>
+            <path id="arc-top" d="M22 100 A78 78 0 0 1 178 100"/>
+            <path id="arc-bottom" d="M10 100 A90 90 0 0 0 190 100"/>
+          </defs>
+          <circle cx="100" cy="100" r="96" fill="#E2397A"/>
+          <circle cx="100" cy="100" r="66" fill="#141818"/>
+          <text font-family="Urbanist, system-ui, sans-serif" font-weight="900" font-size="18" letter-spacing="2.5" fill="#141818" text-anchor="middle"><textPath href="#arc-top" startOffset="50%">LAST SATURDAY</textPath></text>
+          <text font-family="Urbanist, system-ui, sans-serif" font-weight="900" font-size="18" letter-spacing="2.5" fill="#141818" text-anchor="middle"><textPath href="#arc-bottom" startOffset="50%">SIDE QUEST</textPath></text>
+          <circle cx="16" cy="100" r="4" fill="#141818"/>
+          <circle cx="184" cy="100" r="4" fill="#141818"/>
+          <use href="#m-sunset" x="36" y="36" width="128" height="128"/>
+        </svg>
+        <span class="note">The full patch, for stickers, shirts and the top of the site.</span>
+      </div>
+      <ul class="sizes" aria-label="Last Saturday Patch at real sizes">
+        <li><span class="ig"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-sunset"/></svg></span><small>Instagram</small></li>
+        <li><span class="wa"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-sunset"/></svg></span><small>WhatsApp</small></li>
+        <li><span class="tab"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-sunset"/></svg>Last Saturday Side Quest</span><small>Browser tab</small></li>
+        <li><span class="light"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-sunset"/></svg></span><small>On light</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <h2>Picking one</h2>
+    <p>These are first sketches meant to set a direction. Pick a letter, or mix two (for example, A's record in C's four colors). The chosen mark then gets refined, plus a one-color version for stamps and screen prints, before it goes to Jake.</p>
+  </footer>
+</main>
+
+</body>
+</html>

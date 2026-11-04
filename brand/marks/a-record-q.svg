@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title>LSSQ mark A: Record Q</title>
+  <circle cx="46" cy="46" r="38" fill="#F2C230" stroke="#141818" stroke-width="3"/>
+  <circle cx="46" cy="46" r="30" fill="none" stroke="#141818" stroke-opacity=".22" stroke-width="2"/>
+  <circle cx="46" cy="46" r="22.5" fill="none" stroke="#141818" stroke-opacity=".22" stroke-width="2"/>
+  <path d="M22.6 31.4 A27.5 27.5 0 0 1 35.5 20.6" fill="none" stroke="#FFF6E8" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="46" cy="46" r="13" fill="#E2397A"/>
+  <circle cx="46" cy="46" r="3.4" fill="#141818"/>
+  <line x1="60" y1="60" x2="87" y2="87" stroke="#141818" stroke-width="18" stroke-linecap="round"/>
+  <line x1="60" y1="60" x2="87" y2="87" stroke="#36E2E6" stroke-width="9.5" stroke-linecap="round"/>
+</svg>
