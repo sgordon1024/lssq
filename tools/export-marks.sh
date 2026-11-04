@@ -18,7 +18,7 @@ for svg in brand/marks/*.svg; do
   name="${svg:t:r}"
   "$CHROME" --headless=new --disable-gpu --hide-scrollbars \
     --default-background-color=00000000 \
-    --window-size=$SIZE,$SIZE --virtual-time-budget=5000 \
+    --window-size=$SIZE,$SIZE --virtual-time-budget=10000 \
     --screenshot="$PWD/brand/marks/png/$name.png" \
     "http://127.0.0.1:$PORT/tools/render.html?m=$name" >/dev/null 2>&1
   echo "brand/marks/png/$name.png"

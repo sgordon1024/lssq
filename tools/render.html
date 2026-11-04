@@ -14,9 +14,12 @@
 <div id="mark"></div>
 <script>
   const name = new URLSearchParams(location.search).get('m');
-  fetch(`../brand/marks/${name}.svg`).then(r => r.text()).then(svg => {
-    document.getElementById('mark').innerHTML = svg;
-  });
+  // Wait for Urbanist first, so marks with lettering never export with blank text.
+  document.fonts.load('900 20px Urbanist')
+    .then(() => fetch(`../brand/marks/${name}.svg`))
+    .then(r => r.text()).then(svg => {
+      document.getElementById('mark').innerHTML = svg;
+    });
 </script>
 </body>
 </html>

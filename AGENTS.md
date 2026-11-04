@@ -9,7 +9,7 @@ Last updated: November 4, 2026.
 - **What:** an open, public workshop where Steve Gordon designs a new logo, an easier website and event tools for Last Saturday Side Quest (LSSQ).
 - **Why:** Steve loves LSSQ and wants a regular back-and-forth with Jake, who runs it, and to show what he can do for them if they want it.
 - **Done when:** Jake has seen a logo direction and a working site he can edit himself, and he and Steve have a regular check-in.
-- **Right now:** round 1 logo marks are drawn, and the review deck is built. Waiting on Steve to review each mark and pick a direction.
+- **Right now:** round 1 logo marks are drawn and the review deck is built. Steve's first notes are in (see Decisions). Waiting on him to pick a direction.
 - **Live site:** https://sgordon1024.github.io/lssq/
 - **Repo:** https://github.com/sgordon1024/lssq (public, `main` is live)
 
@@ -59,9 +59,10 @@ Steve also wants a regular check-in with Jake. Setting that up is Steve's job.
 | --- | --- | --- |
 | Review the current site and logo | Done | Findings above |
 | Sketch logo mark options (round 1) | Done | `prototypes/logo-marks/`, `brand/marks/` |
+| Steve's first review notes (A, D, new E) | Done | See Decisions |
 | Public repo and project site | Done | This repo, GitHub Pages |
 | Logo marks review deck | Done | `presentations/2026-11-04-logo-marks/` |
-| Steve reviews each mark and picks a direction | **Waiting on Steve** | Deck slide 7 has a "Your call" column |
+| Steve reviews each mark and picks a direction | **Waiting on Steve** | Deck slide 8 has a "Your call" column |
 | Refine the chosen mark, plus a one-color version | Not started | |
 | Show Jake the logo | Not started (Steve) | |
 | Set a regular check-in with Jake | Not started (Steve) | |
@@ -73,16 +74,19 @@ Steve also tracks this in his own task app (Master Tasker). You can't see it, so
 
 ## Round 1 logo marks
 
-All four keep LSSQ's colors. SVGs are in `brand/marks/`, PNG exports in `brand/marks/png/`.
+All five keep LSSQ's colors. SVGs are in `brand/marks/`, PNG exports in `brand/marks/png/`. A to D are marks; E is a badge for stickers and patches.
 
 | Option | File | Idea | Why it could work | Watch out |
 | --- | --- | --- | --- | --- |
-| A, Record Q | `a-record-q.svg` | The record from today's badge becomes the Q in LSSQ; the tonearm is its tail. | Closest to what people know, so it reads as a cleanup, not a rebrand. | Yellow needs its dark outline on light backgrounds. |
+| A, Record Q | `a-record-q.svg` | The record from today's badge becomes the Q in LSSQ; the tonearm (pivot, arm, angled headshell and needle) is its tail. | Closest to what people know, so it reads as a cleanup, not a rebrand. | Yellow needs its dark outline on light backgrounds. |
 | B, Quest Marker | `b-quest-marker.svg` | The "!" that floats over a side quest in a video game. | Boldest and simplest; easiest to spot in a feed. | Drops the record, so music isn't in the mark. |
 | C, Four Pillars | `c-four-pillars.svg` | A compass star, one point per pillar (pink music, yellow play, cyan wellness, lavender connection). | Tells the whole LSSQ story; colors can carry into the site. | Hard to print in one ink; needs a one-color version. |
 | D, Last Saturday Patch | `d-patch.svg` (full), `d-sunset.svg` (small) | A striped sunset over mountains with the road in, ringed like a camp patch. | Most outdoors and nomad. Small version is just the sunset. | The full patch's text is too small for avatars. |
+| E, Record Sunset | `e-record-sunset.svg` | A's record sets like a sun behind pink mountains, in a cyan arch that reads LAST SATURDAY, under a yellow SIDE QUEST banner like today's. Cream die-cut border. | Made for stickers and embroidered patches: thick outlines, flat colors, big type. Steve loves the badge idea. | Merch only. Pair it with A for avatars and the browser tab. |
 
-The starting recommendation is **A**. It isn't decided; Steve picks. Mixes are fine (for example, A in C's four colors).
+The starting recommendation is **A for the mark and E for stickers and patches**. It isn't decided; Steve picks. Mixes are fine (for example, A in C's four colors).
+
+Lettering in the badges (D and E) sits on curved paths. To center it in a band, put the baseline half a cap height off the band's middle radius (Urbanist's cap height is 0.7 of the font size): inward for text on top, outward for text along the bottom.
 
 ## Brand
 
@@ -109,8 +113,8 @@ The starting recommendation is **A**. It isn't decided; Steve picks. Mixes are f
 | `presentations/index.html` | List of every deck, newest first |
 | `presentations/YYYY-MM-DD-name/index.html` | One deck. Self-contained HTML slides |
 | `prototypes/logo-marks/index.html` | The current prototype: all four marks at real sizes |
-| `brand/marks/*.svg` | Each mark, 100 × 100 viewBox (the full patch is 200 × 200) |
-| `brand/marks/png/*.png` | 1024px transparent PNG exports of each SVG |
+| `brand/marks/*.svg` | Each mark, 100 × 100 viewBox (D's full patch is 200 × 200, and E is 222 × 222 to leave room for its die-cut border) |
+| `brand/marks/png/*.png` | 1024px transparent PNG exports of each SVG. Use these, not the SVGs, wherever a mark with lettering (D's patch, E) is shown as an image, since an SVG in an `<img>` can't load Urbanist |
 | `assets/site.css` | Shared styles for the home and presentations pages |
 | `tools/export-marks.sh` | Re-exports every SVG to PNG (needs Google Chrome and python3, macOS) |
 | `tools/render.html` | Used by the export script |
@@ -168,10 +172,11 @@ Edit the `<!-- Keep this card pointed at whatever is being worked on right now. 
 | Nov 4, 2026 | Decks are HTML pages in `presentations/`, not Google Slides. |
 | Nov 4, 2026 | Every mark keeps the current logo's colors and 80s feel. Urbanist is the type. |
 | Nov 4, 2026 | Coordinate with Jake through Steve only. |
+| Nov 4, 2026 | Steve's first notes: make A's tonearm smaller and look like an arm with a needle, not a pill; center D's lettering in the pink ring; he loves the badge idea, so add one made for stickers and patches (became E). All three are done. |
 
 ## Open questions
 
-- **Which mark?** Steve is reviewing round 1. The recommendation is A.
+- **Which mark?** Steve is reviewing round 1. The recommendation is A for the mark, with E for stickers and patches.
 - **How will Jake edit the site?** It needs to be very simple, with a preview and a pull request. Options to compare when step 2 starts: editing a content file in GitHub's web editor, or a Git-based editor such as Pages CMS, Decap CMS or TinaCMS. Nothing is decided.
 - **Where will the rebuilt site live?** It could stay on GitHub Pages, with or without a custom domain. Jake decides.
 - **Event chat:** WhatsApp Communities, Discord, Geneva or something custom. Decide with Jake later.

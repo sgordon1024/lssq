@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-11 -10 222 222">
+  <title>LSSQ mark E: Record Sunset (sticker and patch)</title>
+  <defs>
+    <path id="e-arch" d="M18 96 A82 82 0 0 1 182 96 V164 H18 Z"/>
+    <path id="e-window" d="M42 96 A58 58 0 0 1 158 96 V164 H42 Z"/>
+    <path id="e-tail-l" d="M30 146 H0 L9 163 L0 180 H30 Z"/>
+    <path id="e-tail-r" d="M170 146 H200 L191 163 L200 180 H170 Z"/>
+    <rect id="e-face" x="16" y="134" width="168" height="34" rx="2"/>
+    <path id="e-arc" d="M35.6 96 A64.4 64.4 0 0 1 164.4 96"/>
+    <clipPath id="e-clip"><use href="#e-window" xlink:href="#e-window"/></clipPath>
+  </defs>
+  <g transform="translate(0 4)">
+    <!-- Die-cut border: cream, then a dark outline, around the whole shape -->
+    <g fill="#FFF6E8" stroke="#FFF6E8" stroke-width="20" stroke-linejoin="round">
+      <use href="#e-arch" xlink:href="#e-arch"/><use href="#e-tail-l" xlink:href="#e-tail-l"/><use href="#e-tail-r" xlink:href="#e-tail-r"/><use href="#e-face" xlink:href="#e-face"/>
+    </g>
+    <g fill="#141818" stroke="#141818" stroke-width="6" stroke-linejoin="round">
+      <use href="#e-arch" xlink:href="#e-arch"/><use href="#e-tail-l" xlink:href="#e-tail-l"/><use href="#e-tail-r" xlink:href="#e-tail-r"/><use href="#e-face" xlink:href="#e-face"/>
+    </g>
+    <!-- Cyan band with the name -->
+    <use href="#e-arch" xlink:href="#e-arch" fill="#36E2E6"/>
+    <text font-family="Urbanist, system-ui, sans-serif" font-weight="900" font-size="16" letter-spacing="2" fill="#141818" text-anchor="middle"><textPath href="#e-arc" xlink:href="#e-arc" startOffset="50%">LAST SATURDAY</textPath></text>
+    <circle cx="30" cy="118" r="3.5" fill="#141818"/>
+    <circle cx="170" cy="118" r="3.5" fill="#141818"/>
+    <!-- The window: the record setting like a sun behind the mountains -->
+    <use href="#e-window" xlink:href="#e-window" fill="#141818" stroke="#141818" stroke-width="5"/>
+    <g clip-path="url(#e-clip)">
+      <circle cx="100" cy="110" r="36" fill="#F2C230"/>
+      <circle cx="100" cy="110" r="28" fill="none" stroke="#141818" stroke-opacity=".22" stroke-width="2"/>
+      <circle cx="100" cy="110" r="20.5" fill="none" stroke="#141818" stroke-opacity=".22" stroke-width="2"/>
+      <path d="M77.9 96.6 A25.5 25.5 0 0 1 89.6 86.8" fill="none" stroke="#FFF6E8" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="100" cy="110" r="11.5" fill="#E2397A"/>
+      <circle cx="100" cy="110" r="3" fill="#141818"/>
+      <path d="M36 134 L64 110 L100 140 L138 104 L164 126 V170 H36 Z" fill="#E2397A" stroke="#141818" stroke-width="3" stroke-linejoin="round"/>
+      <g fill="#FFF6E8" stroke-linejoin="round">
+        <path d="M64 71 L66.1 75.9 L71 78 L66.1 80.1 L64 85 L61.9 80.1 L57 78 L61.9 75.9 Z" fill="#B79CF0" stroke="#B79CF0" stroke-width="1.2"/>
+        <path d="M136 65 L137.8 69.2 L142 71 L137.8 72.8 L136 77 L134.2 72.8 L130 71 L134.2 69.2 Z" stroke="#FFF6E8" stroke-width="1.2"/>
+        <path d="M87 49.5 L88.35 52.65 L91.5 54 L88.35 55.35 L87 58.5 L85.65 55.35 L82.5 54 L85.65 52.65 Z" stroke="#FFF6E8" stroke-width="1.2"/>
+      </g>
+    </g>
+    <!-- The banner, after the one on today's badge -->
+    <g stroke="#141818" stroke-width="4" stroke-linejoin="round">
+      <use href="#e-tail-l" xlink:href="#e-tail-l" fill="#F2C230"/>
+      <use href="#e-tail-r" xlink:href="#e-tail-r" fill="#F2C230"/>
+      <path d="M16 168 H30 V180 Z" fill="#141818"/>
+      <path d="M184 168 H170 V180 Z" fill="#141818"/>
+      <use href="#e-face" xlink:href="#e-face" fill="#F2C230"/>
+    </g>
+    <text x="100" y="158.7" font-family="Urbanist, system-ui, sans-serif" font-weight="900" font-size="22" letter-spacing="1.5" fill="#141818" text-anchor="middle">SIDE QUEST</text>
+  </g>
+</svg>
