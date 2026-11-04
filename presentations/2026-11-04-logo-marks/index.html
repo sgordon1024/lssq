@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Logo marks, round 1 · LSSQ Workshop</title>
+<meta name="description" content="Four first-sketch logo marks for Last Saturday Side Quest, one per slide, for review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700;800;900&display=swap">
+<style>
+/* A 1280 x 720 stage scaled to fit the window, one slide at a time.
+   Under 760px wide the stage turns off and the slides stack as a normal scrolling page. */
+:root {
+  --ink: #141818; --panel: #1c2323; --line: #2a3333;
+  --cream: #FFF6E8; --muted: #a9b7b4;
+  --pink: #E2397A; --sun: #F2C230; --cyan: #36E2E6; --lav: #B79CF0;
+  --font: "Urbanist", "Avenir Next", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--ink); color: var(--cream); font-family: var(--font); line-height: 1.4; }
+img { display: block; max-width: 100%; }
+p, h1, h2, ul { margin: 0; }
+a { color: var(--cyan); }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+
+.app { height: 100%; display: grid; grid-template-rows: minmax(0, 1fr) auto; }
+.viewport { position: relative; overflow: hidden; }
+.stage { position: absolute; left: 50%; top: 50%; width: 1280px; height: 720px; transform: translate(-50%, -50%); transform-origin: center; }
+.slide { position: absolute; inset: 0; padding: 64px; display: grid; background: var(--ink); }
+.slide[hidden] { display: none; }
+
+/* Shared type */
+.kicker { font-size: 17px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--cyan); }
+.label { font-size: 15px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.sun { color: var(--sun); } .cyan { color: var(--cyan); } .pink { color: var(--pink); }
+h1 { font-size: 92px; font-weight: 900; line-height: .98; }
+h2 { font-size: 52px; font-weight: 900; line-height: 1.04; text-wrap: balance; }
+.panel { background: var(--panel); border-radius: 28px; }
+
+/* 1. Cover */
+.cover { grid-template-rows: auto 1fr; gap: 40px; }
+.cover-text { display: grid; gap: 16px; }
+.cover-text .sub { font-size: 24px; color: var(--muted); }
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; align-self: end; margin: 0; padding: 0; list-style: none; }
+.tiles li { position: relative; aspect-ratio: 1; display: grid; place-items: center; }
+.tiles img { width: 58%; }
+.tiles b { position: absolute; left: 18px; top: 14px; font-size: 18px; font-weight: 900; color: var(--muted); }
+
+/* 2. The problem */
+.why { grid-template-rows: auto 1fr; gap: 40px; }
+.two { display: grid; grid-template-columns: minmax(0, 1fr) 470px; gap: 56px; align-items: start; }
+.why .body { font-size: 24px; color: var(--muted); max-width: 30ch; }
+.why .col { display: grid; gap: 28px; }
+.list { display: grid; gap: 12px; padding: 0; list-style: none; font-size: 24px; font-weight: 700; }
+.list li { display: flex; gap: 14px; align-items: baseline; }
+.list li::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--sun); transform: translateY(-3px); }
+.colors { padding: 32px 36px; display: grid; gap: 20px; }
+.swatches { display: grid; gap: 14px; padding: 0; list-style: none; font-size: 21px; font-weight: 700; }
+.swatches li { display: flex; align-items: center; gap: 16px; }
+.swatches i { width: 40px; height: 40px; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 2px var(--line); flex: none; }
+.swatches code { margin-left: auto; font: 500 16px/1 ui-monospace, "SF Mono", Menlo, monospace; color: var(--muted); }
+
+/* 3-6. One mark per slide */
+.mark { grid-template-columns: 540px minmax(0, 1fr); gap: 60px; }
+.mark .panel { display: grid; grid-template-rows: minmax(0, 1fr) auto; justify-items: center; align-items: center; padding: 36px 36px 30px; }
+.mark .big { width: 320px; }
+.sizes { display: flex; align-items: flex-end; gap: 26px; padding: 0; list-style: none; justify-self: stretch; }
+.sizes li { display: grid; justify-items: start; gap: 8px; }
+.sizes small { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ig { width: 64px; height: 64px; border-radius: 50%; background: var(--ink); display: grid; place-items: center; box-shadow: 0 0 0 3px var(--panel), 0 0 0 5px var(--pink); }
+.ig img { width: 68%; }
+.wa { width: 40px; height: 40px; border-radius: 50%; background: var(--ink); display: grid; place-items: center; }
+.wa img { width: 70%; }
+.tab { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px 9px 12px; border-radius: 10px 10px 0 0; background: var(--line); font-size: 13px; white-space: nowrap; }
+.tab img { width: 16px; height: 16px; }
+.mark.patch .ig, .mark.patch .wa { background: transparent; }
+.mark.patch .ig img, .mark.patch .wa img { width: 100%; }
+.mark-text { display: grid; align-content: center; gap: 22px; min-width: 0; }
+.mark-text .idea { font-size: 26px; line-height: 1.3; max-width: 26ch; }
+.point { display: grid; gap: 6px; }
+.point p:last-child { font-size: 21px; color: var(--muted); max-width: 34ch; }
+
+/* 7. Pick */
+.pick { grid-template-rows: auto auto 1fr; gap: 32px; }
+.pick table { width: 100%; border-collapse: collapse; font-size: 21px; }
+.pick th { text-align: left; font-size: 14px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 0 16px 12px 0; }
+.pick td { padding: 14px 16px 14px 0; border-top: 1px solid var(--line); vertical-align: middle; }
+.pick td:first-child { font-weight: 800; }
+.opt { display: flex; align-items: center; gap: 14px; }
+.opt img { width: 40px; height: 40px; }
+.call { display: block; width: 120px; height: 36px; border: 2px dashed var(--line); border-radius: 10px; }
+.rec { align-self: end; font-size: 23px; max-width: 64ch; color: var(--muted); }
+.rec b { color: var(--cream); }
+
+/* Bottom bar */
+.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; padding-block: 12px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-top: 1px solid var(--line); font-size: 15px; }
+.bar a { color: var(--muted); text-decoration: none; font-weight: 700; }
+.bar a:hover { color: var(--cream); }
+.controls { display: flex; align-items: center; gap: 12px; }
+.controls button { font: inherit; font-weight: 800; color: var(--cream); background: var(--panel); border: 2px solid var(--line); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+.controls button:hover:not(:disabled) { border-color: var(--muted); }
+.controls button:disabled { opacity: .4; cursor: default; }
+.count { min-width: 4.5ch; text-align: center; font-variant-numeric: tabular-nums; color: var(--muted); }
+.hint { color: var(--muted); }
+
+/* Phone: no stage, slides stack */
+@media (max-width: 760px) {
+  html, body { height: auto; }
+  .app { display: block; height: auto; }
+  .viewport { overflow: visible; }
+  .stage { position: static; width: auto; height: auto; transform: none !important; }
+  .slide { position: static; padding: 40px 16px; border-bottom: 1px solid var(--line); gap: 28px; }
+  .slide[hidden] { display: grid; }
+  h1 { font-size: 48px; } h2 { font-size: 34px; }
+  .cover-text .sub, .why .body, .list, .mark-text .idea, .rec { font-size: 19px; }
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .two, .mark { grid-template-columns: 1fr; gap: 28px; }
+  .mark .big { width: 200px; }
+  .mark .panel { padding: 28px 20px 22px; gap: 28px; }
+  .sizes { flex-wrap: wrap; gap: 18px; }
+  .point p:last-child { font-size: 18px; }
+  .swatches { font-size: 18px; }
+  .pick .table-wrap { overflow-x: auto; }
+  .pick table { font-size: 16px; min-width: 560px; }
+  .controls, .hint { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <main class="viewport" id="viewport">
+    <div class="stage" id="stage">
+
+      <section class="slide cover" aria-label="Slide 1 of 7: Logo marks, round 1">
+        <div class="cover-text">
+          <p class="kicker">Last Saturday Side Quest</p>
+          <h1>Logo marks, round 1</h1>
+          <p class="sub">Four first sketches, one per slide, for review. November 4, 2026.</p>
+        </div>
+        <ul class="tiles">
+          <li class="panel"><b>A</b><img src="../../brand/marks/a-record-q.svg" alt="Option A, Record Q"></li>
+          <li class="panel"><b>B</b><img src="../../brand/marks/b-quest-marker.svg" alt="Option B, Quest Marker"></li>
+          <li class="panel"><b>C</b><img src="../../brand/marks/c-four-pillars.svg" alt="Option C, Four Pillars"></li>
+          <li class="panel"><b>D</b><img src="../../brand/marks/d-sunset.svg" alt="Option D, Last Saturday Patch"></li>
+        </ul>
+      </section>
+
+      <section class="slide why" aria-label="Slide 2 of 7: Today's badge gets lost at small sizes" hidden>
+        <h2>Today's badge gets lost at small sizes</h2>
+        <div class="two">
+          <div class="col">
+            <p class="body">The current badge packs a turntable, a banner, the full name and eight confetti shapes into one image. As an Instagram avatar or a WhatsApp group icon, it turns into a smudge.</p>
+            <p class="label sun">Every option</p>
+            <ul class="list">
+              <li>Keeps LSSQ's colors and 80s feel</li>
+              <li>Reads as one simple shape at 16px</li>
+              <li>Pairs with the full name when there's room</li>
+            </ul>
+          </div>
+          <div class="panel colors">
+            <p class="label cyan">Colors we keep</p>
+            <ul class="swatches">
+              <li><i style="--c: var(--pink)"></i>Banner pink<code>#E2397A</code></li>
+              <li><i style="--c: var(--sun)"></i>Record yellow<code>#F2C230</code></li>
+              <li><i style="--c: var(--cyan)"></i>Outline cyan<code>#36E2E6</code></li>
+              <li><i style="--c: var(--lav)"></i>Confetti lavender<code>#B79CF0</code></li>
+              <li><i style="--c: var(--ink)"></i>Turntable black<code>#141818</code></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide mark" aria-label="Slide 3 of 7: Option A, Record Q" hidden>
+        <div class="panel">
+          <img class="big" src="../../brand/marks/a-record-q.svg" alt="Record Q: a yellow record with a pink label and a cyan tonearm as the tail of a Q">
+          <ul class="sizes" aria-label="At real sizes">
+            <li><span class="ig"><img src="../../brand/marks/a-record-q.svg" alt=""></span><small>Instagram</small></li>
+            <li><span class="wa"><img src="../../brand/marks/a-record-q.svg" alt=""></span><small>WhatsApp</small></li>
+            <li><span class="tab"><img src="../../brand/marks/a-record-q.svg" alt="">Last Saturday Side Quest</span><small>Browser tab, 16px</small></li>
+          </ul>
+        </div>
+        <div class="mark-text">
+          <p class="kicker sun">Option A</p>
+          <h2>Record Q</h2>
+          <p class="idea">The record from today's badge becomes the Q in LSSQ, and the tonearm is its tail.</p>
+          <div class="point"><p class="label cyan">Why it could work</p><p>Closest to what people know, so it reads as a cleanup, not a rebrand.</p></div>
+          <div class="point"><p class="label pink">Watch out</p><p>Yellow needs its dark outline to hold up on light backgrounds.</p></div>
+        </div>
+      </section>
+
+      <section class="slide mark" aria-label="Slide 4 of 7: Option B, Quest Marker" hidden>
+        <div class="panel">
+          <img class="big" src="../../brand/marks/b-quest-marker.svg" alt="Quest Marker: a yellow exclamation point on a pink diamond with a cyan shadow">
+          <ul class="sizes" aria-label="At real sizes">
+            <li><span class="ig"><img src="../../brand/marks/b-quest-marker.svg" alt=""></span><small>Instagram</small></li>
+            <li><span class="wa"><img src="../../brand/marks/b-quest-marker.svg" alt=""></span><small>WhatsApp</small></li>
+            <li><span class="tab"><img src="../../brand/marks/b-quest-marker.svg" alt="">Last Saturday Side Quest</span><small>Browser tab, 16px</small></li>
+          </ul>
+        </div>
+        <div class="mark-text">
+          <p class="kicker sun">Option B</p>
+          <h2>Quest Marker</h2>
+          <p class="idea">The "!" that floats over a side quest in a video game: something worth doing over here.</p>
+          <div class="point"><p class="label cyan">Why it could work</p><p>Boldest and simplest of the four, and the easiest to spot in a feed.</p></div>
+          <div class="point"><p class="label pink">Watch out</p><p>It drops the record, so music isn't in the mark.</p></div>
+        </div>
+      </section>
+
+      <section class="slide mark" aria-label="Slide 5 of 7: Option C, Four Pillars" hidden>
+        <div class="panel">
+          <img class="big" src="../../brand/marks/c-four-pillars.svg" alt="Four Pillars: a four-point compass star in pink, yellow, cyan and lavender">
+          <ul class="sizes" aria-label="At real sizes">
+            <li><span class="ig"><img src="../../brand/marks/c-four-pillars.svg" alt=""></span><small>Instagram</small></li>
+            <li><span class="wa"><img src="../../brand/marks/c-four-pillars.svg" alt=""></span><small>WhatsApp</small></li>
+            <li><span class="tab"><img src="../../brand/marks/c-four-pillars.svg" alt="">Last Saturday Side Quest</span><small>Browser tab, 16px</small></li>
+          </ul>
+        </div>
+        <div class="mark-text">
+          <p class="kicker sun">Option C</p>
+          <h2>Four Pillars</h2>
+          <p class="idea">A compass star for a gathering that moves every month, with one point per pillar: music, play, wellness and connection.</p>
+          <div class="point"><p class="label cyan">Why it could work</p><p>Tells the whole LSSQ story, and the four colors can carry into the site.</p></div>
+          <div class="point"><p class="label pink">Watch out</p><p>Four colors are hard to print in one ink, so it needs a one-color version.</p></div>
+        </div>
+      </section>
+
+      <section class="slide mark patch" aria-label="Slide 6 of 7: Option D, Last Saturday Patch" hidden>
+        <div class="panel">
+          <img class="big" src="../../brand/marks/png/d-patch.png" alt="Last Saturday Patch: a striped sunset over pink mountains, ringed by the words Last Saturday Side Quest">
+          <ul class="sizes" aria-label="At real sizes, using the small sunset version">
+            <li><span class="ig"><img src="../../brand/marks/d-sunset.svg" alt=""></span><small>Instagram</small></li>
+            <li><span class="wa"><img src="../../brand/marks/d-sunset.svg" alt=""></span><small>WhatsApp</small></li>
+            <li><span class="tab"><img src="../../brand/marks/d-sunset.svg" alt="">Last Saturday Side Quest</span><small>Browser tab, 16px</small></li>
+          </ul>
+        </div>
+        <div class="mark-text">
+          <p class="kicker sun">Option D</p>
+          <h2>Last Saturday Patch</h2>
+          <p class="idea">A striped sunset over the mountains, ringed like a patch you'd sew on a jacket.</p>
+          <div class="point"><p class="label cyan">Why it could work</p><p>Feels the most outdoors and nomad. The small version is just the sunset.</p></div>
+          <div class="point"><p class="label pink">Watch out</p><p>The full patch has small text, so it's for merch, not avatars.</p></div>
+        </div>
+      </section>
+
+      <section class="slide pick" aria-label="Slide 7 of 7: Pick one, or mix two" hidden>
+        <h2>Pick one, or mix two</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Option</th><th scope="col">Best at</th><th scope="col">Watch out</th><th scope="col">Your call</th></tr></thead>
+            <tbody>
+              <tr><td><span class="opt"><img src="../../brand/marks/a-record-q.svg" alt="">A, Record Q</span></td><td>Familiar, reads at 16px</td><td>Needs its outline on light</td><td><span class="call" aria-label="Blank, for your call"></span></td></tr>
+              <tr><td><span class="opt"><img src="../../brand/marks/b-quest-marker.svg" alt="">B, Quest Marker</span></td><td>Boldest, easiest to spot</td><td>No music in the mark</td><td><span class="call" aria-label="Blank, for your call"></span></td></tr>
+              <tr><td><span class="opt"><img src="../../brand/marks/c-four-pillars.svg" alt="">C, Four Pillars</span></td><td>Tells the whole story</td><td>Needs a one-color version</td><td><span class="call" aria-label="Blank, for your call"></span></td></tr>
+              <tr><td><span class="opt"><img src="../../brand/marks/d-sunset.svg" alt="">D, Patch</span></td><td>Great on merch</td><td>Text too small for avatars</td><td><span class="call" aria-label="Blank, for your call"></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="rec"><b>Starting point: A, Record Q.</b> It keeps the record people know and still reads at 16px. Mixes work too, like A in C's four colors.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <nav class="bar" aria-label="Deck">
+    <a href="../">&larr; Presentations</a>
+    <span class="hint">Use the arrow keys to move between slides</span>
+    <div class="controls">
+      <button type="button" id="prev" aria-label="Previous slide">Back</button>
+      <span class="count" id="count" aria-live="polite">1 / 7</span>
+      <button type="button" id="next" aria-label="Next slide">Next</button>
+    </div>
+  </nav>
+</div>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const stage = document.getElementById('stage');
+  const viewport = document.getElementById('viewport');
+  const count = document.getElementById('count');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const phone = matchMedia('(max-width: 760px)');
+  let current = 0;
+
+  function show(n) {
+    current = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, i) => { s.hidden = !phone.matches && i !== current; });
+    count.textContent = `${current + 1} / ${slides.length}`;
+    prev.disabled = current === 0;
+    next.disabled = current === slides.length - 1;
+    if (!phone.matches) history.replaceState(null, '', `#${current + 1}`);
+  }
+
+  function fit() {
+    if (phone.matches) { stage.style.transform = ''; return; }
+    const scale = Math.min(viewport.clientWidth / 1280, viewport.clientHeight / 720);
+    stage.style.transform = `translate(-50%, -50%) scale(${scale})`;
+  }
+
+  prev.addEventListener('click', () => show(current - 1));
+  next.addEventListener('click', () => show(current + 1));
+  document.addEventListener('keydown', e => {
+    if (phone.matches || e.altKey || e.metaKey || e.ctrlKey) return;
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(current + 1); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(current - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+  const fromHash = () => (parseInt(location.hash.slice(1), 10) || 1) - 1;
+  addEventListener('hashchange', () => show(fromHash()));
+  addEventListener('resize', fit);
+  phone.addEventListener('change', () => { show(current); fit(); });
+
+  show(fromHash());
+  fit();
+</script>
+</body>
+</html>
