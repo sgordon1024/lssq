@@ -58,6 +58,8 @@ h2{margin:-10px 0 0;font-family:var(--display);font-weight:900;font-size:clamp(3
 .light svg{width:74%;height:74%}
 .patch-mark .ig svg,.patch-mark .wa svg,.patch-mark .light svg{width:100%;height:100%}
 .patch-mark .ig,.patch-mark .wa{background:transparent}
+.laptop{width:132px;height:96px;border-radius:12px;background:var(--ink-3);display:grid;place-items:center}
+.laptop svg{width:76px;height:76px}
 
 footer{display:grid;gap:12px;max-width:68ch;padding-top:40px;border-top:1px solid var(--ink-3)}
 footer h2{margin:0;font-size:28px}
@@ -86,8 +88,16 @@ footer p{margin:0;color:var(--muted)}
       <path d="M22.6 31.4 A27.5 27.5 0 0 1 35.5 20.6" fill="none" stroke="#FFF6E8" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"/>
       <circle cx="46" cy="46" r="13" fill="#E2397A"/>
       <circle cx="46" cy="46" r="3.4" fill="#141818"/>
-      <line x1="60" y1="60" x2="87" y2="87" stroke="#141818" stroke-width="18" stroke-linecap="round"/>
-      <line x1="60" y1="60" x2="87" y2="87" stroke="#36E2E6" stroke-width="9.5" stroke-linecap="round"/>
+      <g transform="translate(84 84) rotate(225)" stroke-linejoin="round">
+        <line x1="0" y1="0" x2="20" y2="0" stroke="#141818" stroke-width="8" stroke-linecap="round"/>
+        <line x1="0" y1="0" x2="20" y2="0" stroke="#36E2E6" stroke-width="3.6" stroke-linecap="round"/>
+        <g transform="translate(19 0) rotate(-22)">
+          <path d="M13 -2 L19 0 L13 2 Z" fill="#141818" stroke="#141818" stroke-width="1.6"/>
+          <path d="M0 -4.8 H11 Q13 -4.8 13 -2.8 V2.8 Q13 4.8 11 4.8 H0 Z" fill="#36E2E6" stroke="#141818" stroke-width="2.6"/>
+        </g>
+        <circle r="7.5" fill="#36E2E6" stroke="#141818" stroke-width="3"/>
+        <circle r="2.4" fill="#141818"/>
+      </g>
     </symbol>
 
     <!-- B: the "!" that marks a side quest in a video game. -->
@@ -129,6 +139,52 @@ footer p{margin:0;color:var(--muted)}
         <line x1="50" y1="78" x2="50" y2="99" stroke="#F2C230" stroke-width="1.6" stroke-dasharray="3 3"/>
       </g>
     </symbol>
+
+    <!-- E: a sticker and patch. A's record sets like a sun behind the mountains, under the banner from today's badge. -->
+    <path id="e-arch" d="M18 96 A82 82 0 0 1 182 96 V164 H18 Z"/>
+    <path id="e-window" d="M42 96 A58 58 0 0 1 158 96 V164 H42 Z"/>
+    <path id="e-tail-l" d="M30 146 H0 L9 163 L0 180 H30 Z"/>
+    <path id="e-tail-r" d="M170 146 H200 L191 163 L200 180 H170 Z"/>
+    <rect id="e-face" x="16" y="134" width="168" height="34" rx="2"/>
+    <path id="e-arc" d="M35.6 96 A64.4 64.4 0 0 1 164.4 96"/>
+    <clipPath id="e-clip"><use href="#e-window"/></clipPath>
+    <symbol id="m-badge" viewBox="-11 -10 222 222">
+      <g transform="translate(0 4)">
+        <g fill="#FFF6E8" stroke="#FFF6E8" stroke-width="20" stroke-linejoin="round">
+          <use href="#e-arch"/><use href="#e-tail-l"/><use href="#e-tail-r"/><use href="#e-face"/>
+        </g>
+        <g fill="#141818" stroke="#141818" stroke-width="6" stroke-linejoin="round">
+          <use href="#e-arch"/><use href="#e-tail-l"/><use href="#e-tail-r"/><use href="#e-face"/>
+        </g>
+        <use href="#e-arch" fill="#36E2E6"/>
+        <text font-family="Urbanist, system-ui, sans-serif" font-weight="900" font-size="16" letter-spacing="2" fill="#141818" text-anchor="middle"><textPath href="#e-arc" startOffset="50%">LAST SATURDAY</textPath></text>
+        <circle cx="30" cy="118" r="3.5" fill="#141818"/>
+        <circle cx="170" cy="118" r="3.5" fill="#141818"/>
+        <use href="#e-window" fill="#141818" stroke="#141818" stroke-width="5"/>
+        <g clip-path="url(#e-clip)">
+          <circle cx="100" cy="110" r="36" fill="#F2C230"/>
+          <circle cx="100" cy="110" r="28" fill="none" stroke="#141818" stroke-opacity=".22" stroke-width="2"/>
+          <circle cx="100" cy="110" r="20.5" fill="none" stroke="#141818" stroke-opacity=".22" stroke-width="2"/>
+          <path d="M77.9 96.6 A25.5 25.5 0 0 1 89.6 86.8" fill="none" stroke="#FFF6E8" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="110" r="11.5" fill="#E2397A"/>
+          <circle cx="100" cy="110" r="3" fill="#141818"/>
+          <path d="M36 134 L64 110 L100 140 L138 104 L164 126 V170 H36 Z" fill="#E2397A" stroke="#141818" stroke-width="3" stroke-linejoin="round"/>
+          <g fill="#FFF6E8" stroke-linejoin="round">
+            <path d="M64 71 L66.1 75.9 L71 78 L66.1 80.1 L64 85 L61.9 80.1 L57 78 L61.9 75.9 Z" fill="#B79CF0" stroke="#B79CF0" stroke-width="1.2"/>
+            <path d="M136 65 L137.8 69.2 L142 71 L137.8 72.8 L136 77 L134.2 72.8 L130 71 L134.2 69.2 Z" stroke="#FFF6E8" stroke-width="1.2"/>
+            <path d="M87 49.5 L88.35 52.65 L91.5 54 L88.35 55.35 L87 58.5 L85.65 55.35 L82.5 54 L85.65 52.65 Z" stroke="#FFF6E8" stroke-width="1.2"/>
+          </g>
+        </g>
+        <g stroke="#141818" stroke-width="4" stroke-linejoin="round">
+          <use href="#e-tail-l" fill="#F2C230"/>
+          <use href="#e-tail-r" fill="#F2C230"/>
+          <path d="M16 168 H30 V180 Z" fill="#141818"/>
+          <path d="M184 168 H170 V180 Z" fill="#141818"/>
+          <use href="#e-face" fill="#F2C230"/>
+        </g>
+        <text x="100" y="158.7" font-family="Urbanist, system-ui, sans-serif" font-weight="900" font-size="22" letter-spacing="1.5" fill="#141818" text-anchor="middle">SIDE QUEST</text>
+      </g>
+    </symbol>
   </defs>
 </svg>
 
@@ -152,7 +208,7 @@ footer p{margin:0;color:var(--muted)}
     <div class="info">
       <p class="letter">Option A</p>
       <h2>Record Q</h2>
-      <p class="idea">The record from today's badge becomes the Q in LSSQ, and the tonearm becomes its tail.</p>
+      <p class="idea">The record from today's badge becomes the Q in LSSQ, and the tonearm, needle and all, becomes its tail.</p>
       <p>This is the closest to what people already know, so it reads as a cleanup rather than a rebrand. Music is the pillar it puts first.</p>
       <div class="lockup"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-record"/></svg><span class="wm">Last Saturday<br>Side Quest</span></div>
       <ul class="sizes" aria-label="Record Q at real sizes">
@@ -208,15 +264,15 @@ footer p{margin:0;color:var(--muted)}
       <div class="lockup patch">
         <svg viewBox="0 0 200 200" aria-hidden="true">
           <defs>
-            <path id="arc-top" d="M22 100 A78 78 0 0 1 178 100"/>
-            <path id="arc-bottom" d="M10 100 A90 90 0 0 0 190 100"/>
+            <path id="arc-top" d="M25.3 100 A74.7 74.7 0 0 1 174.7 100"/>
+            <path id="arc-bottom" d="M12.7 100 A87.3 87.3 0 0 0 187.3 100"/>
           </defs>
           <circle cx="100" cy="100" r="96" fill="#E2397A"/>
           <circle cx="100" cy="100" r="66" fill="#141818"/>
           <text font-family="Urbanist, system-ui, sans-serif" font-weight="900" font-size="18" letter-spacing="2.5" fill="#141818" text-anchor="middle"><textPath href="#arc-top" startOffset="50%">LAST SATURDAY</textPath></text>
           <text font-family="Urbanist, system-ui, sans-serif" font-weight="900" font-size="18" letter-spacing="2.5" fill="#141818" text-anchor="middle"><textPath href="#arc-bottom" startOffset="50%">SIDE QUEST</textPath></text>
-          <circle cx="16" cy="100" r="4" fill="#141818"/>
-          <circle cx="184" cy="100" r="4" fill="#141818"/>
+          <circle cx="19" cy="100" r="4" fill="#141818"/>
+          <circle cx="181" cy="100" r="4" fill="#141818"/>
           <use href="#m-sunset" x="36" y="36" width="128" height="128"/>
         </svg>
         <span class="note">The full patch, for stickers, shirts and the top of the site.</span>
@@ -230,9 +286,24 @@ footer p{margin:0;color:var(--muted)}
     </div>
   </section>
 
+  <section class="opt" id="sticker">
+    <div class="stage"><svg viewBox="0 0 200 200" role="img" aria-label="Record Sunset badge: a yellow record setting like a sun behind pink mountains, framed by a cyan arch that reads Last Saturday, with a yellow Side Quest banner and a cream die-cut border"><use href="#m-badge"/></svg></div>
+    <div class="info">
+      <p class="letter">Option E &middot; New</p>
+      <h2>Record Sunset</h2>
+      <p class="idea">A's record sets like a sun behind the mountains, under the banner from today's badge. It's made to be a sticker or a sew-on patch.</p>
+      <p>Thick outlines, a die-cut border, flat colors and big type, so it holds up printed or embroidered. It's for merch, so it pairs with A for avatars and the browser tab.</p>
+      <ul class="sizes" aria-label="Record Sunset as a sticker">
+        <li><span class="laptop"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#m-badge"/></svg></span><small>On a laptop</small></li>
+        <li><span class="light"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#m-badge"/></svg></span><small>On light</small></li>
+        <li><span class="wa"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-record"/></svg></span><small>Avatar, with A</small></li>
+      </ul>
+    </div>
+  </section>
+
   <footer>
     <h2>Picking one</h2>
-    <p>These are first sketches meant to set a direction. Pick a letter, or mix two (for example, A's record in C's four colors). The chosen mark then gets refined, plus a one-color version for stamps and screen prints, before it goes to Jake.</p>
+    <p>These are sketches meant to set a direction. Pick a letter, or mix two (for example, A for avatars and E for stickers, or A's record in C's four colors). The chosen mark then gets refined, plus a one-color version for stamps and screen prints, before it goes to Jake.</p>
   </footer>
 </main>
 
