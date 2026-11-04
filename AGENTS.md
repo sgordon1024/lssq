@@ -61,6 +61,7 @@ Steve also wants a regular check-in with Jake. Setting that up is Steve's job.
 | Sketch logo mark options (round 1) | Done | `prototypes/logo-marks/`, `brand/marks/` |
 | Steve's first review notes (A, D, new E) | Done | See Decisions |
 | Striped LSSQ wordmark (F), with animation and decorations | Done | `brand/marks/f-*.svg`, `tools/make-stripes.py` |
+| F reworked into one ribbon: three thicker stripes, no black, slower animation, one-color version | Done | Same files, plus `f-stripes-mono.svg` |
 | Public repo and project site | Done | This repo, GitHub Pages |
 | Logo marks review deck | Done | `presentations/2026-11-04-logo-marks/` |
 | Steve reviews each mark and picks a direction | **Waiting on Steve** | Deck slide 9 has a "Your call" column |
@@ -84,17 +85,19 @@ All six keep LSSQ's colors. SVGs are in `brand/marks/`, PNG exports in `brand/ma
 | C, Four Pillars | `c-four-pillars.svg` | A compass star, one point per pillar (pink music, yellow play, cyan wellness, lavender connection). | Tells the whole LSSQ story; colors can carry into the site. | Hard to print in one ink; needs a one-color version. |
 | D, Last Saturday Patch | `d-patch.svg` (full), `d-sunset.svg` (small) | A striped sunset over mountains with the road in, ringed like a camp patch. | Most outdoors and nomad. Small version is just the sunset. | The full patch's text is too small for avatars. |
 | E, Record Sunset | `e-record-sunset.svg` | A's record sets like a sun behind pink mountains, in a cyan arch that reads LAST SATURDAY, under a yellow SIDE QUEST banner like today's. Cream die-cut border. | Made for stickers and embroidered patches: thick outlines, flat colors, big type. Steve loves the badge idea. | Merch only. Pair it with A for avatars and the browser tab. |
-| F, Stripe Letters | `f-stripes.svg`, `f-stripes-animated.svg` | LSSQ drawn as one set of four parallel stripes (pink, yellow, cyan, lavender) that bend through every letter, like a 70s racing stripe. L flows into the first S along the baseline. | The most retro option. The animated file draws in one stripe at a time, and the same stripes make decorations (`f-stripe-band.svg`, `f-stripe-corner.svg`). | A wordmark, so too wide for avatars. Pair it with A. |
+| F, Stripe Letters | `f-stripes.svg`, `f-stripes-animated.svg`, `f-stripes-mono.svg` | LSSQ written in one unbroken ribbon of three stripes (pink, yellow, cyan), like a 70s racing stripe that never lifts off. The L runs along the baseline into the first S, and each S's top runs straight down into the next letter. | The most retro option. In the animated file each stripe writes the whole word in turn. No outline, so it works in one ink, and the same stripes make decorations (`f-stripe-band.svg`, `f-stripe-corner.svg`). | A wordmark, so too wide for avatars. Pair it with A. |
 
 The starting recommendation is **A for the mark and E for stickers and patches**, with F as a possible wordmark and decoration. It isn't decided; Steve picks. Mixes are fine (for example, A in C's four colors).
 
 ### The stripes (F)
 
-F is generated, not drawn by hand. Edit `tools/make-stripes.py` (letter shapes, stripe colors, widths) and run `python3 tools/make-stripes.py`, then `zsh tools/export-marks.sh`. Each letter is a center line of straight runs and circular turns, and each stripe is that line offset to one side, so the stripes stay parallel through every curve.
+F is generated, not drawn by hand. Edit `tools/make-stripes.py` (letter shapes, stripe colors, widths) and run `python3 tools/make-stripes.py`, then `zsh tools/export-marks.sh`. The whole word is one center line of straight runs and circular turns, and each stripe is that line offset to one side, so the stripes stay parallel through every curve.
 
-- **Stripe spec:** four stripes, each 5 units wide, with a 1.5-unit dark line between them and a 2.5-unit dark edge. On a straight run, top to bottom: lavender, cyan, yellow, pink.
-- **Animation:** every path in `f-stripes-animated.svg` has `pathLength="1"` and a CSS dash animation inside the file, so it plays even as a plain `<img>`. It respects reduced motion. To replay it, reload the image with a new query string (the deck does this when you land on the slide).
-- **Decoration in CSS:** for a quick divider without the SVG, `background: linear-gradient(#B79CF0 0 5px, #141818 5px 6.5px, #36E2E6 6.5px 11.5px, #141818 11.5px 13px, #F2C230 13px 18px, #141818 18px 19.5px, #E2397A 19.5px 24.5px);` on a 24.5px-tall element.
+- **Shape:** down the L, along the baseline into the first S, out of its top and straight down into the second S, then the same into the Q. The links run at 41 degrees, the angle that just clears each S's lower bowl, and that sets the letter spacing. The Q's bowl closes by tucking under the link, and its tail crosses over the bowl.
+- **Crossings without black:** the ribbon is drawn once under an SVG mask that cuts it away wherever another part passes over it (the link into the Q and the tail), then those parts are drawn again on top. That's what lets the gaps stay see-through and the one-color version work.
+- **Stripe spec:** three stripes, each 8 units wide, with a 3-unit clear gap between them and no outline. On a straight run, top to bottom: cyan, yellow, pink. Cap height is 88 units on the center line.
+- **Animation:** every path in `f-stripes-animated.svg` has `pathLength="1"` and a CSS dash animation inside the file, so it plays even as a plain `<img>`. Each stripe takes 3.6 seconds to write the word, 0.6 seconds after the last, then draws the Q's tail; about 5.4 seconds in all. It respects reduced motion. To replay it, reload the image with a new query string (the deck does this when you land on the slide).
+- **Decoration in CSS:** for a quick divider without the SVG, `background: linear-gradient(#36E2E6 0 8px, transparent 8px 11px, #F2C230 11px 19px, transparent 19px 22px, #E2397A 22px 30px);` on a 30px-tall element.
 
 ### Centering lettering
 
@@ -125,7 +128,7 @@ Lettering in the badges (D and E) sits on curved paths. To center it in a band, 
 | `presentations/index.html` | List of every deck, newest first |
 | `presentations/YYYY-MM-DD-name/index.html` | One deck. Self-contained HTML slides |
 | `prototypes/logo-marks/index.html` | The current prototype: all four marks at real sizes |
-| `brand/marks/*.svg` | Each mark, 100 × 100 viewBox (D's full patch is 200 × 200, and E is 222 × 222 to leave room for its die-cut border) |
+| `brand/marks/*.svg` | Each mark, 100 × 100 viewBox (D's full patch is 200 × 200, E is 222 × 222 to leave room for its die-cut border, and F's wordmark is wide, sized by its generator) |
 | `brand/marks/png/*.png` | 1024px transparent PNG exports of each SVG. Use these, not the SVGs, wherever a mark with lettering (D's patch, E) is shown as an image, since an SVG in an `<img>` can't load Urbanist |
 | `assets/site.css` | Shared styles for the home and presentations pages |
 | `tools/export-marks.sh` | Re-exports every SVG to PNG (needs Google Chrome and python3, macOS) |
@@ -187,6 +190,7 @@ Edit the `<!-- Keep this card pointed at whatever is being worked on right now. 
 | Nov 4, 2026 | Coordinate with Jake through Steve only. |
 | Nov 4, 2026 | Steve's first notes: make A's tonearm smaller and look like an arm with a needle, not a pill; center D's lettering in the pink ring; he loves the badge idea, so add one made for stickers and patches (became E). All three are done. |
 | Nov 4, 2026 | Steve asked for an LSSQ letters option that feels like one set of multicolored stripes, very retro, in the same colors, that can animate stripe by stripe and double as decoration (became F). |
+| Nov 4, 2026 | Steve's notes on F: remove the black, connect all the letters as organically as possible, slow the animation, thicker lines (three stripes is fine), and make it one shape that works in black and white. Done: one continuous ribbon, three stripes, no outline, about 5.4 seconds. Looping the ribbon over and under the second S was tried and dropped because it read as "LS3P". |
 
 ## Open questions
 
