@@ -6,6 +6,8 @@ Open design work for [Last Saturday Side Quest](https://lastsaturdaysidequest.od
 
 This isn't LSSQ's official site. It's where a new logo, a website Jake can update himself, and event chat get designed and built, in the open, so anyone can follow along or pitch in.
 
+**Picking this up, or an AI assistant?** Start with [AGENTS.md](AGENTS.md). It has the full context, current status, decisions and how-tos.
+
 ## The plan
 
 1. **Logo mark** (now). One simple shape that keeps LSSQ's colors and 80s feel and still reads as an Instagram avatar or a 16px browser tab.
@@ -17,7 +19,8 @@ This isn't LSSQ's official site. It's where a new logo, a website Jake can updat
 | Path | What it is |
 | --- | --- |
 | `index.html` | Home page: the plan and what's being worked on now |
-| `presentations/` | Every review deck, newest first (decks live in Google Slides) |
+| `presentations/` | Every review deck, newest first. Each deck is an HTML page you open in the browser |
+| `AGENTS.md` | Full context and status for whoever picks this up next |
 | `prototypes/` | Working prototypes. `logo-marks/` is the current one |
 | `brand/marks/` | Each logo mark as an SVG, plus PNG exports in `png/` |
 | `assets/site.css` | Shared styles for the site |

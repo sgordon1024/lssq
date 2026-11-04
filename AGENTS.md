@@ -1,0 +1,178 @@
+# AGENTS.md: everything you need to pick up LSSQ Workshop
+
+This file is the handoff for any AI assistant (ChatGPT, Codex, Claude) or person taking over this work. Read it first, keep it current, and update the **Status** section whenever something changes. If this file and the code disagree, the code wins. Fix this file.
+
+Last updated: November 4, 2026.
+
+## The short version
+
+- **What:** an open, public workshop where Steve Gordon designs a new logo, an easier website and event tools for Last Saturday Side Quest (LSSQ).
+- **Why:** Steve loves LSSQ and wants a regular back-and-forth with Jake, who runs it, and to show what he can do for them if they want it.
+- **Done when:** Jake has seen a logo direction and a working site he can edit himself, and he and Steve have a regular check-in.
+- **Right now:** round 1 logo marks are drawn, and the review deck is built. Waiting on Steve to review each mark and pick a direction.
+- **Live site:** https://sgordon1024.github.io/lssq/
+- **Repo:** https://github.com/sgordon1024/lssq (public, `main` is live)
+
+## People
+
+| Who | Role | Notes |
+| --- | --- | --- |
+| Steve Gordon (GitHub `sgordon1024`) | Owner. Product designer who also codes. | Makes every decision. All contact with Jake goes through him. |
+| Jake | Leader of LSSQ. Not a web designer. | The person Steve coordinates with. His contact details are kept out of this public repo on purpose; ask Steve. |
+
+**Never contact Jake, post, or publish anything on LSSQ's behalf** unless Steve asks for that exact thing.
+
+## About LSSQ
+
+- **Last Saturday Side Quest** is a monthly weekend gathering for nomads, held somewhere new each month (a desert lot, a mountain forest, the Baja coast). The tagline: "Different location every month. Same family every time."
+- It started as single-day meetups on the last Saturday of the month and grew into weekend-long events. It's funded almost entirely by donations (Patreon, Venmo, PayPal).
+- **Four pillars:** wellness, play, music and connection. Attendees share their own gifts and talents.
+- **Voice:** warm, playful, communal. "Your people are out here."
+- **Current site:** https://lastsaturdaysidequest.odoo.com/ (Odoo free plan). One home page plus a Contact page. Sections: hero, What is LSSQ, Upcoming events, Our journey, Donate.
+- **Instagram:** @lastsaturdaysidequest
+- **Event chat today:** each event gets its own WhatsApp group, linked by hand from the site.
+
+### Problems with the current site (reviewed Nov 4, 2026)
+
+- The events list is out of date (September and Halloween 2026 events have passed) and Shastaween is listed twice.
+- The hero image doesn't load.
+- Yellow text on cyan in "Our journey" is hard to read.
+- The header logo is too small to read, and each event's WhatsApp link is added by hand.
+
+### The current logo
+
+A retro 80s badge: a yellow record on a turntable, a pink banner with "Last Saturday Side Quest" in striped lettering, stars, triangles, a lightning bolt and a cyan outline. It's fun at full size, but there is no simple mark, so it's unreadable as an Instagram avatar, a WhatsApp group icon or a browser tab icon. That's the problem round 1 solves.
+
+## The plan
+
+Work happens in this order. Don't jump ahead.
+
+1. **Logo mark (now).** One simple shape that keeps LSSQ's colors and 80s feel and still reads at 16px.
+2. **A site Jake can edit (next).** Everything on the current site, rebuilt so Jake can change it, preview it and open a pull request himself. He's not a web designer, so it has to be very simple. How he edits is not decided yet (see Open questions).
+3. **Event chat (later).** Something like WhatsApp, but just for LSSQ events. An existing service may be a better fit than a new app; decide when we get there.
+
+Steve also wants a regular check-in with Jake. Setting that up is Steve's job.
+
+## Status
+
+| Step | State | Where |
+| --- | --- | --- |
+| Review the current site and logo | Done | Findings above |
+| Sketch logo mark options (round 1) | Done | `prototypes/logo-marks/`, `brand/marks/` |
+| Public repo and project site | Done | This repo, GitHub Pages |
+| Logo marks review deck | Done | `presentations/2026-11-04-logo-marks/` |
+| Steve reviews each mark and picks a direction | **Waiting on Steve** | Deck slide 7 has a "Your call" column |
+| Refine the chosen mark, plus a one-color version | Not started | |
+| Show Jake the logo | Not started (Steve) | |
+| Set a regular check-in with Jake | Not started (Steve) | |
+| Rebuild the site so Jake can edit it | Not started | |
+| Walk Jake through editing | Not started (Steve) | |
+| Compare event chat options, then decide with Jake | Not started | |
+
+Steve also tracks this in his own task app (Master Tasker). You can't see it, so this table is the shared record.
+
+## Round 1 logo marks
+
+All four keep LSSQ's colors. SVGs are in `brand/marks/`, PNG exports in `brand/marks/png/`.
+
+| Option | File | Idea | Why it could work | Watch out |
+| --- | --- | --- | --- | --- |
+| A, Record Q | `a-record-q.svg` | The record from today's badge becomes the Q in LSSQ; the tonearm is its tail. | Closest to what people know, so it reads as a cleanup, not a rebrand. | Yellow needs its dark outline on light backgrounds. |
+| B, Quest Marker | `b-quest-marker.svg` | The "!" that floats over a side quest in a video game. | Boldest and simplest; easiest to spot in a feed. | Drops the record, so music isn't in the mark. |
+| C, Four Pillars | `c-four-pillars.svg` | A compass star, one point per pillar (pink music, yellow play, cyan wellness, lavender connection). | Tells the whole LSSQ story; colors can carry into the site. | Hard to print in one ink; needs a one-color version. |
+| D, Last Saturday Patch | `d-patch.svg` (full), `d-sunset.svg` (small) | A striped sunset over mountains with the road in, ringed like a camp patch. | Most outdoors and nomad. Small version is just the sunset. | The full patch's text is too small for avatars. |
+
+The starting recommendation is **A**. It isn't decided; Steve picks. Mixes are fine (for example, A in C's four colors).
+
+## Brand
+
+| Name | Hex | Use |
+| --- | --- | --- |
+| Banner pink | `#E2397A` | Accent, highlights |
+| Record yellow | `#F2C230` | Primary buttons, numbers |
+| Outline cyan | `#36E2E6` | Labels, links |
+| Confetti lavender | `#B79CF0` | Secondary accent |
+| Turntable black | `#141818` | Background |
+| Panel | `#1c2323` | Cards and panels |
+| Line | `#2a3333` | Borders |
+| Cream | `#FFF6E8` | Text |
+| Muted | `#a9b7b4` | Secondary text |
+
+- **Type:** Urbanist (Google Fonts), the font on LSSQ's current site. Monoton appears only in the prototype's wordmark lockups.
+- **Look:** dark background, bright 80s colors, rounded shapes. The site uses one dark theme on purpose.
+
+## What's where
+
+| Path | What it is |
+| --- | --- |
+| `index.html` | Home: what this is, the "Now" card, the plan, how to pitch in |
+| `presentations/index.html` | List of every deck, newest first |
+| `presentations/YYYY-MM-DD-name/index.html` | One deck. Self-contained HTML slides |
+| `prototypes/logo-marks/index.html` | The current prototype: all four marks at real sizes |
+| `brand/marks/*.svg` | Each mark, 100 × 100 viewBox (the full patch is 200 × 200) |
+| `brand/marks/png/*.png` | 1024px transparent PNG exports of each SVG |
+| `assets/site.css` | Shared styles for the home and presentations pages |
+| `tools/export-marks.sh` | Re-exports every SVG to PNG (needs Google Chrome and python3, macOS) |
+| `tools/render.html` | Used by the export script |
+| `README.md` | Short public intro for contributors |
+| `AGENTS.md` | This file |
+
+The site is plain HTML and CSS with no build step and no dependencies. GitHub Pages serves `main` from the repo root, so a merge to `main` goes live in about a minute. Links between pages are relative because the site lives under `/lssq/`.
+
+## How to do common things
+
+**Preview locally**
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open http://localhost:8000.
+
+**Make a new deck**
+
+1. Copy `presentations/2026-11-04-logo-marks/` to `presentations/<date>-<short-name>/`.
+2. Edit the slides. Each slide is a `<section class="slide">` on a 1280 × 720 stage. Every slide after the first has the `hidden` attribute, and each `aria-label` says "Slide N of M". The counter, Back and Next buttons, arrow keys and `#N` slide links work out the slide count on their own.
+3. Keep one message per slide and reuse the slide types already there: cover, two-column, one mark per slide, comparison table.
+4. Add the deck to the top of the list in `presentations/index.html` (copy the existing `<li class="deck">`).
+5. Point the home page's "Now" card at it if it's the current work.
+6. Check it at desktop size and at phone width (under 760px the slides stack and scroll).
+
+Decks are HTML in this repo, not Google Slides or PowerPoint. That's Steve's call for this project.
+
+**Add or change a mark**
+
+1. Put the SVG in `brand/marks/` with a 100 × 100 viewBox, using only the brand colors.
+2. Run `zsh tools/export-marks.sh` to make the PNGs.
+3. Add it to `prototypes/logo-marks/index.html`. That page draws each mark from inline SVG symbols at the top of the file, so copy the shapes into a new `<symbol>`.
+
+**Update the "Now" card**
+
+Edit the `<!-- Keep this card pointed at whatever is being worked on right now. -->` section in `index.html`.
+
+## How Steve works
+
+- **Writing:** plain English, short. Lead with the result and anything he has to do. No walls of text or long lists of caveats. Avoid em dashes.
+- **Git:** work on a branch, open a pull request, and merge it yourself once checks pass. There are no CI checks yet. Stop and ask only for something risky or destructive.
+- **Public repo:** anyone can read it. Keep personal contact details, private notes and anything Jake hasn't agreed to share out of it.
+- **Labeling:** the site always says it isn't LSSQ's official site and links to theirs.
+- **Scope:** finish the current step before starting the next. Write ideas for later down under Open questions rather than building them.
+
+## Decisions so far
+
+| Date | Decision |
+| --- | --- |
+| Nov 4, 2026 | This is a personal project for Steve, not a paid one. |
+| Nov 4, 2026 | The repo is public so other people can contribute. |
+| Nov 4, 2026 | Plain HTML and CSS on GitHub Pages, no build step. |
+| Nov 4, 2026 | Decks are HTML pages in `presentations/`, not Google Slides. |
+| Nov 4, 2026 | Every mark keeps the current logo's colors and 80s feel. Urbanist is the type. |
+| Nov 4, 2026 | Coordinate with Jake through Steve only. |
+
+## Open questions
+
+- **Which mark?** Steve is reviewing round 1. The recommendation is A.
+- **How will Jake edit the site?** It needs to be very simple, with a preview and a pull request. Options to compare when step 2 starts: editing a content file in GitHub's web editor, or a Git-based editor such as Pages CMS, Decap CMS or TinaCMS. Nothing is decided.
+- **Where will the rebuilt site live?** It could stay on GitHub Pages, with or without a custom domain. Jake decides.
+- **Event chat:** WhatsApp Communities, Discord, Geneva or something custom. Decide with Jake later.
+- **License:** none has been chosen yet. Ask Steve before adding one.
