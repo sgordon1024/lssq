@@ -60,9 +60,10 @@ Steve also wants a regular check-in with Jake. Setting that up is Steve's job.
 | Review the current site and logo | Done | Findings above |
 | Sketch logo mark options (round 1) | Done | `prototypes/logo-marks/`, `brand/marks/` |
 | Steve's first review notes (A, D, new E) | Done | See Decisions |
+| Striped LSSQ wordmark (F), with animation and decorations | Done | `brand/marks/f-*.svg`, `tools/make-stripes.py` |
 | Public repo and project site | Done | This repo, GitHub Pages |
 | Logo marks review deck | Done | `presentations/2026-11-04-logo-marks/` |
-| Steve reviews each mark and picks a direction | **Waiting on Steve** | Deck slide 8 has a "Your call" column |
+| Steve reviews each mark and picks a direction | **Waiting on Steve** | Deck slide 9 has a "Your call" column |
 | Refine the chosen mark, plus a one-color version | Not started | |
 | Show Jake the logo | Not started (Steve) | |
 | Set a regular check-in with Jake | Not started (Steve) | |
@@ -74,7 +75,7 @@ Steve also tracks this in his own task app (Master Tasker). You can't see it, so
 
 ## Round 1 logo marks
 
-All five keep LSSQ's colors. SVGs are in `brand/marks/`, PNG exports in `brand/marks/png/`. A to D are marks; E is a badge for stickers and patches.
+All six keep LSSQ's colors. SVGs are in `brand/marks/`, PNG exports in `brand/marks/png/`. A to D are marks, E is a badge for stickers and patches, and F is a wordmark.
 
 | Option | File | Idea | Why it could work | Watch out |
 | --- | --- | --- | --- | --- |
@@ -83,8 +84,19 @@ All five keep LSSQ's colors. SVGs are in `brand/marks/`, PNG exports in `brand/m
 | C, Four Pillars | `c-four-pillars.svg` | A compass star, one point per pillar (pink music, yellow play, cyan wellness, lavender connection). | Tells the whole LSSQ story; colors can carry into the site. | Hard to print in one ink; needs a one-color version. |
 | D, Last Saturday Patch | `d-patch.svg` (full), `d-sunset.svg` (small) | A striped sunset over mountains with the road in, ringed like a camp patch. | Most outdoors and nomad. Small version is just the sunset. | The full patch's text is too small for avatars. |
 | E, Record Sunset | `e-record-sunset.svg` | A's record sets like a sun behind pink mountains, in a cyan arch that reads LAST SATURDAY, under a yellow SIDE QUEST banner like today's. Cream die-cut border. | Made for stickers and embroidered patches: thick outlines, flat colors, big type. Steve loves the badge idea. | Merch only. Pair it with A for avatars and the browser tab. |
+| F, Stripe Letters | `f-stripes.svg`, `f-stripes-animated.svg` | LSSQ drawn as one set of four parallel stripes (pink, yellow, cyan, lavender) that bend through every letter, like a 70s racing stripe. L flows into the first S along the baseline. | The most retro option. The animated file draws in one stripe at a time, and the same stripes make decorations (`f-stripe-band.svg`, `f-stripe-corner.svg`). | A wordmark, so too wide for avatars. Pair it with A. |
 
-The starting recommendation is **A for the mark and E for stickers and patches**. It isn't decided; Steve picks. Mixes are fine (for example, A in C's four colors).
+The starting recommendation is **A for the mark and E for stickers and patches**, with F as a possible wordmark and decoration. It isn't decided; Steve picks. Mixes are fine (for example, A in C's four colors).
+
+### The stripes (F)
+
+F is generated, not drawn by hand. Edit `tools/make-stripes.py` (letter shapes, stripe colors, widths) and run `python3 tools/make-stripes.py`, then `zsh tools/export-marks.sh`. Each letter is a center line of straight runs and circular turns, and each stripe is that line offset to one side, so the stripes stay parallel through every curve.
+
+- **Stripe spec:** four stripes, each 5 units wide, with a 1.5-unit dark line between them and a 2.5-unit dark edge. On a straight run, top to bottom: lavender, cyan, yellow, pink.
+- **Animation:** every path in `f-stripes-animated.svg` has `pathLength="1"` and a CSS dash animation inside the file, so it plays even as a plain `<img>`. It respects reduced motion. To replay it, reload the image with a new query string (the deck does this when you land on the slide).
+- **Decoration in CSS:** for a quick divider without the SVG, `background: linear-gradient(#B79CF0 0 5px, #141818 5px 6.5px, #36E2E6 6.5px 11.5px, #141818 11.5px 13px, #F2C230 13px 18px, #141818 18px 19.5px, #E2397A 19.5px 24.5px);` on a 24.5px-tall element.
+
+### Centering lettering
 
 Lettering in the badges (D and E) sits on curved paths. To center it in a band, put the baseline half a cap height off the band's middle radius (Urbanist's cap height is 0.7 of the font size): inward for text on top, outward for text along the bottom.
 
@@ -117,6 +129,7 @@ Lettering in the badges (D and E) sits on curved paths. To center it in a band, 
 | `brand/marks/png/*.png` | 1024px transparent PNG exports of each SVG. Use these, not the SVGs, wherever a mark with lettering (D's patch, E) is shown as an image, since an SVG in an `<img>` can't load Urbanist |
 | `assets/site.css` | Shared styles for the home and presentations pages |
 | `tools/export-marks.sh` | Re-exports every SVG to PNG (needs Google Chrome and python3, macOS) |
+| `tools/make-stripes.py` | Generates mark F and its stripe decorations |
 | `tools/render.html` | Used by the export script |
 | `README.md` | Short public intro for contributors |
 | `AGENTS.md` | This file |
@@ -173,10 +186,11 @@ Edit the `<!-- Keep this card pointed at whatever is being worked on right now. 
 | Nov 4, 2026 | Every mark keeps the current logo's colors and 80s feel. Urbanist is the type. |
 | Nov 4, 2026 | Coordinate with Jake through Steve only. |
 | Nov 4, 2026 | Steve's first notes: make A's tonearm smaller and look like an arm with a needle, not a pill; center D's lettering in the pink ring; he loves the badge idea, so add one made for stickers and patches (became E). All three are done. |
+| Nov 4, 2026 | Steve asked for an LSSQ letters option that feels like one set of multicolored stripes, very retro, in the same colors, that can animate stripe by stripe and double as decoration (became F). |
 
 ## Open questions
 
-- **Which mark?** Steve is reviewing round 1. The recommendation is A for the mark, with E for stickers and patches.
+- **Which mark?** Steve is reviewing round 1. The recommendation is A for the mark, with E for stickers and patches. F could be the wordmark, and its stripes the site's decoration.
 - **How will Jake edit the site?** It needs to be very simple, with a preview and a pull request. Options to compare when step 2 starts: editing a content file in GitHub's web editor, or a Git-based editor such as Pages CMS, Decap CMS or TinaCMS. Nothing is decided.
 - **Where will the rebuilt site live?** It could stay on GitHub Pages, with or without a custom domain. Jake decides.
 - **Event chat:** WhatsApp Communities, Discord, Geneva or something custom. Decide with Jake later.

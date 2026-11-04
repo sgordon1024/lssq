@@ -25,6 +25,7 @@ This isn't LSSQ's official site. It's where a new logo, a website Jake can updat
 | `brand/marks/` | Each logo mark as an SVG, plus PNG exports in `png/` |
 | `assets/site.css` | Shared styles for the site |
 | `tools/export-marks.sh` | Re-exports every mark SVG to a 1024px PNG (needs Chrome and python3) |
+| `tools/make-stripes.py` | Builds mark F, the striped LSSQ, plus its stripe decorations (needs python3) |
 
 The site is plain HTML and CSS with no build step. GitHub Pages serves it straight from `main`.
 

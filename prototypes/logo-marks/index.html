@@ -60,6 +60,15 @@ h2{margin:-10px 0 0;font-family:var(--display);font-weight:900;font-size:clamp(3
 .patch-mark .ig,.patch-mark .wa{background:transparent}
 .laptop{width:132px;height:96px;border-radius:12px;background:var(--ink-3);display:grid;place-items:center}
 .laptop svg{width:76px;height:76px}
+.stage.wordmark{grid-template-rows:1fr auto;padding-bottom:24px}
+.stage.wordmark img{width:86%}
+.replay{font:inherit;font-size:15px;font-weight:800;color:var(--cream);background:transparent;border:2px solid var(--ink-3);border-radius:999px;padding:6px 16px;cursor:pointer}
+.replay:hover{border-color:var(--muted)}
+.replay:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.band{width:220px;display:block}
+.corner{width:72px;display:block}
+.light.wide{width:132px}
+.light.wide img{width:86%}
 
 footer{display:grid;gap:12px;max-width:68ch;padding-top:40px;border-top:1px solid var(--ink-3)}
 footer h2{margin:0;font-size:28px}
@@ -301,11 +310,36 @@ footer p{margin:0;color:var(--muted)}
     </div>
   </section>
 
+  <section class="opt" id="stripes">
+    <div class="stage wordmark">
+      <img data-replay src="../../brand/marks/f-stripes-animated.svg" alt="Stripe Letters: LSSQ drawn in four parallel stripes of pink, yellow, cyan and lavender that bend through every letter">
+      <button type="button" class="replay">Play it again</button>
+    </div>
+    <div class="info">
+      <p class="letter">Option F &middot; New</p>
+      <h2>Stripe Letters</h2>
+      <p class="idea">LSSQ drawn as one set of four stripes, like a 70s racing stripe bent into letters. Each stripe draws in one at a time.</p>
+      <p>The stripes stay parallel through every curve, so the same set works on its own as dividers, borders and corners across the site and event pages. It's a wordmark, so A still covers avatars and the browser tab.</p>
+      <ul class="sizes" aria-label="The same stripes as decoration">
+        <li><img class="band" src="../../brand/marks/f-stripe-band.svg" alt=""><small>Divider</small></li>
+        <li><img class="corner" src="../../brand/marks/f-stripe-corner.svg" alt=""><small>Corner</small></li>
+        <li><span class="light wide"><img src="../../brand/marks/f-stripes.svg" alt=""></span><small>On light</small></li>
+      </ul>
+    </div>
+  </section>
+
   <footer>
     <h2>Picking one</h2>
-    <p>These are sketches meant to set a direction. Pick a letter, or mix two (for example, A for avatars and E for stickers, or A's record in C's four colors). The chosen mark then gets refined, plus a one-color version for stamps and screen prints, before it goes to Jake.</p>
+    <p>These are sketches meant to set a direction. Pick a letter, or mix a few (for example, A for avatars, E for stickers and F as the wordmark, or A's record in C's four colors). The chosen mark then gets refined, plus a one-color version for stamps and screen prints, before it goes to Jake.</p>
   </footer>
 </main>
 
+<script>
+  // Restart the animated wordmark by loading it fresh.
+  document.querySelectorAll('.replay').forEach(b => b.addEventListener('click', () => {
+    const img = b.parentElement.querySelector('img[data-replay]');
+    img.src = img.src.split('?')[0] + '?play=' + Date.now();
+  }));
+</script>
 </body>
 </html>

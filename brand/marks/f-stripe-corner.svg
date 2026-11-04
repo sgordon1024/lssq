@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <title>LSSQ stripe corner</title>
+  <path d="M0.00 14.75 L69.25 14.75 A36.00 36.00 0 0 1 105.25 50.75 L105.25 120.00" stroke="#141818" stroke-width="29.5"/>
+  <path d="M0.00 24.50 L69.25 24.50 A26.25 26.25 0 0 1 95.50 50.75 L95.50 120.00" stroke="#E2397A" stroke-width="5"/>
+  <path d="M0.00 18.00 L69.25 18.00 A32.75 32.75 0 0 1 102.00 50.75 L102.00 120.00" stroke="#F2C230" stroke-width="5"/>
+  <path d="M0.00 11.50 L69.25 11.50 A39.25 39.25 0 0 1 108.50 50.75 L108.50 120.00" stroke="#36E2E6" stroke-width="5"/>
+  <path d="M0.00 5.00 L69.25 5.00 A45.75 45.75 0 0 1 115.00 50.75 L115.00 120.00" stroke="#B79CF0" stroke-width="5"/>
+</svg>
