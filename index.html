@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>LSSQ Workshop</title>
-<meta name="description" content="Open design work for Last Saturday Side Quest: a new logo, a site Jake can update himself, and event chat.">
+<title>LSSQ | Design in progress</title>
+<meta name="description" content="Open design work for Last Saturday Side Quest: a new logo, an easier-to-update website, and event chat.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700;800;900&display=swap">
@@ -13,11 +13,10 @@
 <body>
 <header class="top">
   <div class="top-inner">
-    <a class="brand" href="./"><span>LSSQ</span> Workshop</a>
+    <a class="brand" href="./"><span>LSSQ</span></a>
     <ul class="nav">
       <li><a href="./" aria-current="page">Home</a></li>
       <li><a href="presentations/">Presentations</a></li>
-      <li><a href="prototypes/logo-marks/">Current prototype</a></li>
       <li><a href="https://github.com/sgordon1024/lssq">GitHub</a></li>
     </ul>
   </div>
@@ -26,9 +25,23 @@
 <main class="wrap">
   <section class="intro">
     <p class="kicker">Open design work for Last Saturday Side Quest</p>
-    <h1>A new logo, an easier site and event tools for LSSQ, <em>made in the open.</em></h1>
-    <p class="lede">Last Saturday Side Quest is a monthly weekend gathering for nomads, built on music, play, wellness and connection. This workshop is where its new logo, a website Jake can update himself, and event chat get designed and built. <b>Anyone can follow along or pitch in.</b></p>
+    <h1>LSSQ, in progress.</h1>
+    <p class="lede">Last Saturday Side Quest is a monthly weekend gathering for nomads, built on music, play, wellness and connection. Follow the work on a new logo, an easier-to-update website and event chat. <b>Anyone can follow along or pitch in.</b></p>
     <p class="note">This isn't LSSQ's official site. For events, go to <a href="https://lastsaturdaysidequest.odoo.com/">lastsaturdaysidequest.odoo.com</a>.</p>
+  </section>
+
+  <section class="timeline section" aria-labelledby="plan-title">
+    <div class="timeline-heading"><h2 id="plan-title">The plan</h2><p class="note">Three steps. One at a time.</p></div>
+    <div class="timeline-stops" aria-label="Project stages">
+      <button class="timeline-stop" id="stage-logo" type="button" aria-controls="detail-logo"><span class="stop-dot" aria-hidden="true">01</span><span class="stop-name">Logo</span><span class="stop-status">Now</span></button>
+      <button class="timeline-stop" id="stage-website" type="button" aria-controls="detail-website"><span class="stop-dot" aria-hidden="true">02</span><span class="stop-name">Website</span><span class="stop-status">Next</span></button>
+      <button class="timeline-stop" id="stage-chat" type="button" aria-controls="detail-chat"><span class="stop-dot" aria-hidden="true">03</span><span class="stop-name">Event chat</span><span class="stop-status">Later</span></button>
+    </div>
+    <div class="timeline-details">
+      <div class="timeline-detail" id="detail-logo" aria-labelledby="stage-logo"><h3>A mark for every size.</h3><p>Six directions are in review. The next step is choosing one, then refining it for everything from a tiny avatar to a banner.</p><a href="presentations/2026-11-04-logo-marks/">Explore the logo directions <span aria-hidden="true">↗</span></a></div>
+      <div class="timeline-detail" id="detail-website" aria-labelledby="stage-website"><h3>Easy to keep up to date.</h3><p>A simpler way to update events and site content, with a preview before publishing. The editing approach will be explored after the logo.</p><span class="detail-note">Up next · Not started</span></div>
+      <div class="timeline-detail" id="detail-chat" aria-labelledby="stage-chat"><h3>Keep each event connected.</h3><p>A home for each event's group chat. First, compare existing services and find what fits the community.</p><span class="detail-note">Further ahead · Not started</span></div>
+    </div>
   </section>
 
   <section class="section" aria-labelledby="now-title">
@@ -44,37 +57,13 @@
       <div class="body">
         <p><span class="pill now">In review</span></p>
         <h2 id="now-title">Logo marks, round 1</h2>
-        <p>Six sketches: four simple marks that work everywhere from a 16px browser tab up to a banner, a badge made for stickers and patches, and a striped LSSQ wordmark that draws itself in. Each one keeps the colors and the 80s feel of today's badge. Steve is reviewing them one by one.</p>
+        <p>Six sketches: four simple marks that work everywhere from a 16px browser tab up to a banner, a badge made for stickers and patches, and a striped LSSQ wordmark that draws itself in. Each one keeps the colors and the 80s feel of today's badge. A direction is still to be chosen.</p>
         <div class="actions">
           <a class="btn primary" href="prototypes/logo-marks/">Open the current prototype</a>
           <a class="btn" href="presentations/2026-11-04-logo-marks/">See the deck</a>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="section" aria-labelledby="plan-title">
-    <h2 id="plan-title">The plan</h2>
-    <ol class="steps">
-      <li class="is-now">
-        <span class="step-n">1</span>
-        <h3>Logo mark</h3>
-        <p>One simple shape for LSSQ that still reads as an Instagram avatar or a WhatsApp group icon.</p>
-        <p><span class="pill now">Now</span></p>
-      </li>
-      <li>
-        <span class="step-n">2</span>
-        <h3>A site Jake can edit</h3>
-        <p>Everything on the current site, but Jake can change it, preview it and open a pull request without touching code.</p>
-        <p><span class="pill next">Next</span></p>
-      </li>
-      <li>
-        <span class="step-n">3</span>
-        <h3>Event chat</h3>
-        <p>A home for each event's group chat. It might be an existing service rather than a new app.</p>
-        <p><span class="pill">Later</span></p>
-      </li>
-    </ol>
   </section>
 
   <section class="intro" aria-labelledby="join-title">
@@ -86,9 +75,10 @@
 
 <footer class="foot">
   <div class="foot-inner">
-    <p>An open workshop started by Steve Gordon for Last Saturday Side Quest.</p>
+    <p>Independent design work for Last Saturday Side Quest.</p>
     <p><a href="https://github.com/sgordon1024/lssq">github.com/sgordon1024/lssq</a></p>
   </div>
 </footer>
+<script src="assets/timeline.js" defer></script>
 </body>
 </html>
