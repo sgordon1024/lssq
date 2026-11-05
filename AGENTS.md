@@ -82,6 +82,10 @@ Steve also wants a regular check-in with Jake. Setting that up is Steve's job.
 
 ## Status
 
+Homepage refreshed November 5: shorter public copy, LSSQ-only header, and a compact interactive plan immediately after the intro. The header prototype link is removed; the prototype remains available from the logo review card. Logo direction remains unselected.
+
+The timeline uses `assets/timeline.js` to enhance readable stage details into tabs. Check click/repeated selection, Left/Right/Home/End, visible focus, phone widths and reduced motion when changing it. Without JavaScript all stage details remain readable. No build or CI test suite is configured.
+
 | Step | State | Where |
 | --- | --- | --- |
 | Review the current site and logo | Done | Findings above |
@@ -159,6 +163,7 @@ Lettering in the badges (D and E) sits on curved paths. To center it in a band, 
 | `prototypes/logo-marks/index.html` | The current prototype: every round 1 option at real sizes |
 | `brand/marks/*.svg` | Each mark, 100 × 100 viewBox (D's full patch is 200 × 200, E is 222 × 222 to leave room for its die-cut border, and F's wordmark is wide, sized by its generator) |
 | `brand/marks/png/*.png` | 1024px transparent PNG exports of each SVG. Use these, not the SVGs, wherever a mark with lettering (D's patch, E) is shown as an image, since an SVG in an `<img>` can't load Urbanist |
+| `assets/timeline.js` | Homepage plan tabs and keyboard interaction |
 | `assets/site.css` | Shared styles for the home and presentations pages |
 | `tools/export-marks.sh` | Re-exports every SVG to PNG (needs Google Chrome and python3, macOS) |
 | `tools/make-stripes.py` | Generates mark F and its stripe decorations |
@@ -166,7 +171,7 @@ Lettering in the badges (D and E) sits on curved paths. To center it in a band, 
 | `README.md` | Short public intro for contributors |
 | `AGENTS.md` | This file |
 
-The site is plain HTML and CSS with no build step and no dependencies. GitHub Pages serves `main` from the repo root, so a merge to `main` goes live in about a minute. Links between pages are relative because the site lives under `/lssq/`.
+The site is plain HTML and CSS with a small vanilla JavaScript timeline, no build step and no dependencies. GitHub Pages serves `main` from the repo root, so a merge to `main` goes live in about a minute. Links between pages are relative because the site lives under `/lssq/`.
 
 ## How to do common things
 
