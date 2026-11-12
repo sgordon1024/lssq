@@ -62,6 +62,9 @@ p { margin: 0; }
 .mark-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .mark-grid span { aspect-ratio: 1; border-radius: 18px; background: var(--ink); display: grid; place-items: center; }
 .mark-grid img { width: 62%; height: auto; }
+.mark-grid .wide { grid-column: span 2; aspect-ratio: auto; padding: 40px 0; }
+.mark-grid .wide img, .mark-grid .cream img { width: 82%; }
+.mark-grid .cream { background: var(--cream); }
 
 /* The plan: progressive enhancement keeps all details readable without JS. */
 .timeline { gap: 20px; }

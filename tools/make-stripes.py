@@ -12,12 +12,18 @@ Run from anywhere:
 
     python3 tools/make-stripes.py
 
-It writes five files to brand/marks/:
-    f-stripes.svg           the wordmark, still
-    f-stripes-animated.svg  the same, each stripe writing the word in turn
-    f-stripes-mono.svg      the wordmark in one colour, for one-ink printing
+It writes these files to brand/marks/:
+    f-stripes.svg           the wordmark, still (the default)
+    f-stripes-animated.svg  the same, each stripe writing the word in turn, for special moments
+    f-stripes-mono.svg      the wordmark in one colour (ink), for one-ink printing
+    f-stripes-cream.svg     the wordmark in cream, for one colour on dark grounds
+    f-q.svg, f-q-mono.svg   the Q on its own, for avatars, app icons and stickers
     f-stripe-band.svg       a straight run of the stripes, for decoration
     f-stripe-corner.svg     the stripes turning a corner, for decoration
+and these pattern tiles to brand/patterns/:
+    road.svg                the ribbon snaking along in S-curves, repeats sideways
+    arches.svg              rainbow arches side by side, repeats sideways
+    glints.svg              a scatter of glint stars, repeats both ways
 """
 from math import cos, sin, tan, radians, pi
 from pathlib import Path
@@ -192,12 +198,14 @@ def word():
 TAIL_R, TAIL_OUT = 48, 20        # the tail's turn radius, and how far it runs on along the baseline
 
 
-def tail():
+def tail(cx=None, out=None):
     """The Q's tail: out of the bowl's counter and across it at 45 degrees, then
     curving down to run along the baseline, so the word ends the way the L starts."""
+    cx = xQ if cx is None else cx
+    out = TAIL_OUT if out is None else out
     c = cos(radians(45))
     run = (H - Q - 14 * c - TAIL_R * (1 - c)) / c      # lands the tail on the baseline
-    return Stroke(xQ + 14 * c, Q + 14 * c, 45).run(run).turn(TAIL_R, 45, "L").run(TAIL_OUT)
+    return Stroke(cx + 14 * c, Q + 14 * c, 45).run(run).turn(TAIL_R, 45, "L").run(out)
 
 # A hidden path sits a little past the end of its dash, so no sliver of it shows
 # at either end. The gap in the dash pattern is longer than any path.
@@ -226,6 +234,7 @@ def star(x, y, r):
 
 
 def wordmark(animated=False, mono=False):
+    """The wordmark. mono is False for colour, True for ink, or a colour of its own."""
     s, (a, b), (k0, k1) = word()
     t = tail()
     link = s.slice(a, b)
@@ -238,14 +247,7 @@ def wordmark(animated=False, mono=False):
     n = len(COLORS)
 
     defs = []
-    if mono:
-        paints = [INK] * n
-    else:
-        paints = [f"url(#f-g{i})" for i in range(n)]
-        for i, (base, (light, deep)) in enumerate(zip(COLORS, SHADES)):
-            defs.append(f'    <linearGradient id="f-g{i}" gradientUnits="userSpaceOnUse" x1="0" y1="{-HALF:g}" x2="0" y2="{H + HALF:g}">'
-                        f'<stop offset="0" stop-color="{light}"/><stop offset=".45" stop-color="{base}"/>'
-                        f'<stop offset="1" stop-color="{deep}"/></linearGradient>')
+    paints = paint_defs(mono, defs)
 
     # The ribbon is drawn once under a mask that cuts it away wherever another
     # part passes over it, then those parts are drawn again on top. The tail's
@@ -326,6 +328,77 @@ def wordmark(animated=False, mono=False):
             f"  <title>{title}</title>\n{style}  <defs>\n" + "\n".join(defs) + "\n  </defs>\n" + "\n".join(body) + "\n</svg>\n")
 
 
+def paint_defs(mono, defs):
+    """Stroke paints for each stripe: the shaded gradients in colour, or one flat colour."""
+    if mono:
+        return [INK if mono is True else mono] * len(COLORS)
+    for i, (base, (light, deep)) in enumerate(zip(COLORS, SHADES)):
+        defs.append(f'    <linearGradient id="f-g{i}" gradientUnits="userSpaceOnUse" x1="0" y1="{-HALF:g}" x2="0" y2="{H + HALF:g}">'
+                    f'<stop offset="0" stop-color="{light}"/><stop offset=".45" stop-color="{base}"/>'
+                    f'<stop offset="1" stop-color="{deep}"/></linearGradient>')
+    return [f"url(#f-g{i})" for i in range(len(COLORS))]
+
+
+def qmark(mono=False):
+    """The Q on its own, for avatars, app icons and stickers. The bowl is a closed
+    ring that starts and ends right under the tail, so its seam never shows."""
+    c = cos(radians(45))
+    ring = Stroke(Q * c, Q + Q * c, -45).turn(Q, 360, "L")
+    t = tail(0, out=4)                                  # a shorter flick keeps it compact in a round avatar
+    pts = [p for d in (-HALF, HALF) for stroke in (ring, t) for p in stroke.points(d)]
+    x0, y0 = min(p[0] for p in pts), min(p[1] for p in pts)
+    x1, y1 = max(p[0] for p in pts), max(p[1] for p in pts)
+    side = max(x1 - x0, y1 - y0) + 24                  # square, so it sits centred in a round avatar
+    vx, vy = (x0 + x1 - side) / 2, (y0 + y1 - side) / 2
+    box = f'x="{vx:.2f}" y="{vy:.2f}" width="{side:.2f}" height="{side:.2f}"'
+    defs = []
+    paints = paint_defs(mono, defs)
+    defs.append(f'    <mask id="q-under" maskUnits="userSpaceOnUse" {box}>')
+    defs.append(f'      <rect {box} fill="#fff"/>')
+    for d in offsets():
+        defs.append(f'      <path d="{t.path(d)}" stroke="#000" stroke-width="{W + 2 * GAP:g}"/>')
+    defs.append("    </mask>")
+    body = ['  <g mask="url(#q-under)">',
+            *[f'    <path d="{ring.path(d)}" stroke="{paints[i]}" stroke-width="{W:g}"/>' for i, d in enumerate(offsets())],
+            "  </g>",
+            *[f'  <path d="{t.path(d)}" stroke="{paints[i]}" stroke-width="{W:g}"/>' for i, d in enumerate(offsets())]]
+    title = "LSSQ mark F: the Q" + (" (one colour)" if mono else "")
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vx:.2f} {vy:.2f} {side:.2f} {side:.2f}" fill="none">\n'
+            f"  <title>{title}</title>\n  <defs>\n" + "\n".join(defs) + "\n  </defs>\n" + "\n".join(body) + "\n</svg>\n")
+
+
+def tile(width, height, parts, title):
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width:g} {height:g}" width="{width:g}" height="{height:g}" fill="none">\n'
+            f'  <title>{title}</title>\n  ' + "\n  ".join(parts) + "\n</svg>\n")
+
+
+def flat(stroke):
+    return [f'<path d="{stroke.path(d)}" stroke="{color}" stroke-width="{W:g}"/>' for color, d in zip(COLORS, offsets())]
+
+
+def road(r=26, pad=9):
+    """The ribbon snaking along in S-curves. One period wide, so it repeats sideways
+    with no seam; it's drawn a period past each edge so the ends never show."""
+    period, mid = 4 * r, r + HALF + pad
+    s = Stroke(-period, mid, -90)
+    for _ in range(3):
+        s.turn(r, 180, "R").turn(r, 180, "L")
+    return tile(period, 2 * mid, flat(s), "LSSQ pattern: road")
+
+
+def arches(r=34, leg=18, pad=6):
+    """A rainbow arch on two short legs, like a sunrise. Repeats sideways into a row."""
+    width, height = 2 * (r + HALF) + 2 * GAP, leg + r + HALF + pad
+    s = Stroke(width / 2 - r, height + 1, -90).run(leg + 1).turn(r, 180, "R").run(leg + 1)
+    return tile(width, height, flat(s), "LSSQ pattern: arches")
+
+
+def glints(size=160):
+    """A loose scatter of glint stars, the one that ends the animation."""
+    stars = [(28, 34, 9, CREAM), (104, 22, 5, COLORS[1]), (132, 92, 11, COLORS[1]), (58, 118, 6, CREAM), (12, 150, 4, COLORS[2])]
+    return tile(size, size, [f'<path d="{star(x, y, r)}" fill="{color}"/>' for x, y, r, color in stars], "LSSQ pattern: glints")
+
+
 def decoration(stroke, viewbox, title):
     parts = [f'<path d="{stroke.path(d)}" stroke="{color}" stroke-width="{W:g}"/>'
              for color, d in zip(COLORS, offsets())]
@@ -350,9 +423,15 @@ if __name__ == "__main__":
         "f-stripes.svg": wordmark(),
         "f-stripes-animated.svg": wordmark(animated=True),
         "f-stripes-mono.svg": wordmark(mono=True),
+        "f-stripes-cream.svg": wordmark(mono=CREAM),
+        "f-q.svg": qmark(),
+        "f-q-mono.svg": qmark(mono=True),
         "f-stripe-band.svg": band(),
         "f-stripe-corner.svg": corner(),
     }
+    patterns = out.parent / "patterns"
+    patterns.mkdir(exist_ok=True)
+    files.update({f"../patterns/{name}.svg": make() for name, make in (("road", road), ("arches", arches), ("glints", glints))})
     for name, svg in files.items():
-        (out / name).write_text(svg)
-        print(out / name)
+        (out / name).resolve().write_text(svg)
+        print((out / name).resolve())
