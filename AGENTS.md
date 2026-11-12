@@ -158,7 +158,7 @@ Lettering in the badges (D and E) sits on curved paths. To center it in a band, 
 | Cream | `#FFF6E8` | Text |
 | Muted | `#a9b7b4` | Secondary text |
 
-- **Type:** headlines in Fraunces (Google Fonts) at Black 900 with Soft 100 and Wonky on (`font-variation-settings: "SOFT" 100, "WONK" 1`). Everything else in Urbanist, the font on LSSQ's current site. Labels are Urbanist 800, caps, +16% tracking. The "stripe echo" headline treatment is a CSS `text-shadow` stack in `brand/index.html`. Monoton appears only in the prototype's wordmark lockups.
+- **Type:** headlines in Fraunces (Google Fonts) at Black 900 with Soft 100 and Wonky on (`font-variation-settings: "SOFT" 100, "WONK" 1`). Everything else in Urbanist, the font on LSSQ's current site. Labels are Urbanist 800, caps, +16% tracking. The "stripe echo" headline treatment is a CSS `text-shadow` stack in `brand/index.html`. On screen it rests in solid cream with a glimmer, and on hover the stripes spring out one at a time (registered custom properties `--e1` to `--e3` with a `linear()` spring easing); in print it's used finished. Monoton appears only in the prototype's wordmark lockups.
 - **The full brand rules** (logo use, sizes, color pairs, type scale, patterns, voice) are on the brand direction page, `brand/index.html`.
 - **Look:** dark background, bright 80s colors, rounded shapes. The site uses one dark theme on purpose.
 
@@ -240,6 +240,7 @@ Edit the `<!-- Keep this card pointed at whatever is being worked on right now. 
 | Nov 5, 2026 | Steve hands the work from Claude to ChatGPT. He'll reach out to Jake himself, from his personal email. |
 | Nov 12, 2026 | Steve picks F, the striped ribbon, and asks for a brand direction page covering colors, custom type and patterns. |
 | Nov 12, 2026 | The logo is still by default. The draw-in animation is for special moments only (first visit, event announcements, video intros). |
+| Nov 12, 2026 | Steve loves the stripe echo. It becomes a hover state: solid cream with a glimmer at rest, then the stripes bounce out in a friendly, not cheesy, way. |
 | Nov 12, 2026 | Draft 1 choices: Fraunces (soft, wonky) for headlines over Urbanist; the Q alone as the small mark; ink and cream as the two grounds; lavender only as a rare extra; deep pink for pink text on cream. All open to Steve's notes. |
 
 ## Open questions
