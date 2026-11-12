@@ -22,10 +22,12 @@ This isn't LSSQ's official site. It's where a new logo, a website Jake can updat
 | `presentations/` | Every review deck, newest first. Each deck is an HTML page you open in the browser |
 | `AGENTS.md` | Full context and status for whoever picks this up next |
 | `prototypes/` | Working prototypes. `logo-marks/` is the current one |
+| `brand/index.html` | The brand direction: logo, motion, color, type, patterns and voice |
 | `brand/marks/` | Each logo mark as an SVG, plus PNG exports in `png/` |
+| `brand/patterns/` | Stripe patterns made from the logo's ribbon |
 | `assets/site.css` | Shared styles for the site |
 | `tools/export-marks.sh` | Re-exports every mark SVG to a 1024px PNG (needs Chrome and python3) |
-| `tools/make-stripes.py` | Builds mark F, LSSQ in one striped ribbon, plus its one-color version and stripe decorations (needs python3) |
+| `tools/make-stripes.py` | Builds mark F, LSSQ in one striped ribbon, plus its Q, one-color versions, stripe decorations and patterns (needs python3) |
 
 The site is plain HTML and CSS with no build step. GitHub Pages serves it straight from `main`.
 

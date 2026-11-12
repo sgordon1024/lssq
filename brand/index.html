@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brand direction · LSSQ Workshop</title>
+<meta name="description" content="The visual direction for Last Saturday Side Quest, built on the striped ribbon logo: logo, motion, color, type, patterns and voice.">
+<link rel="icon" href="marks/f-q.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,600..900,100,1&family=Urbanist:wght@400;500;700;800;900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+/* Brand direction. Builds on site.css and adds the display face, Fraunces in its
+   LSSQ setting (Black, Soft 100, Wonky on), plus page-only pieces. */
+:root {
+  --display: "Fraunces", "Cooper Black", Georgia, serif;
+  --deep-pink: #C42566;
+  --echo-gap: var(--ink);
+}
+.bp h1, .bp h2, .bp .display { font-family: var(--display); font-weight: 900; font-variation-settings: "SOFT" 100, "WONK" 1; letter-spacing: -.01em; }
+.bp h1 { font-size: clamp(42px, 7.4vw, 84px); line-height: .98; }
+.bp h2 { font-size: clamp(30px, 4.2vw, 44px); line-height: 1.04; }
+.bp .section { gap: 28px; }
+.bp .section > .lede { margin-top: -12px; }
+figure { margin: 0; }
+code { font: 500 13px/1.3 ui-monospace, "SF Mono", Menlo, monospace; color: var(--muted); }
+
+/* The stripe echo: the three stripes trail behind the letters at the ribbon's
+   41 degree link angle, with gaps in the ground color. */
+.echo { text-shadow: 0.005em 0.004em 0 var(--echo-gap), 0.009em 0.008em 0 var(--echo-gap), 0.014em 0.012em 0 var(--echo-gap), 0.018em 0.016em 0 var(--echo-gap), 0.023em 0.020em 0 var(--cyan), 0.028em 0.024em 0 var(--cyan), 0.032em 0.028em 0 var(--cyan), 0.037em 0.032em 0 var(--cyan), 0.042em 0.036em 0 var(--cyan), 0.046em 0.040em 0 var(--cyan), 0.051em 0.044em 0 var(--cyan), 0.055em 0.048em 0 var(--cyan), 0.061em 0.053em 0 var(--echo-gap), 0.066em 0.057em 0 var(--echo-gap), 0.070em 0.061em 0 var(--echo-gap), 0.075em 0.065em 0 var(--echo-gap), 0.080em 0.070em 0 var(--sun), 0.085em 0.073em 0 var(--sun), 0.089em 0.077em 0 var(--sun), 0.094em 0.081em 0 var(--sun), 0.098em 0.085em 0 var(--sun), 0.103em 0.089em 0 var(--sun), 0.107em 0.093em 0 var(--sun), 0.112em 0.097em 0 var(--sun), 0.118em 0.102em 0 var(--echo-gap), 0.122em 0.106em 0 var(--echo-gap), 0.127em 0.110em 0 var(--echo-gap), 0.131em 0.114em 0 var(--echo-gap), 0.137em 0.119em 0 var(--pink), 0.141em 0.123em 0 var(--pink), 0.146em 0.127em 0 var(--pink), 0.150em 0.131em 0 var(--pink), 0.155em 0.134em 0 var(--pink), 0.159em 0.138em 0 var(--pink), 0.164em 0.142em 0 var(--pink), 0.168em 0.146em 0 var(--pink); }
+.on-cream { --echo-gap: var(--cream); }
+
+/* Hero */
+.hero { display: grid; gap: 22px; }
+.hero-mark { width: min(100%, 760px); height: auto; margin: 8px 0 12px -1.2%; }
+.hero .lede { max-width: 60ch; }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.toc a { padding: 7px 14px; border-radius: 999px; border: 2px solid var(--ink-3); color: var(--cream); font-size: 14px; font-weight: 800; text-decoration: none; }
+.toc a:hover { border-color: var(--muted); }
+
+/* Shared tiles and cards */
+.grid { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card { display: grid; gap: 10px; align-content: start; padding: 20px; border-radius: 20px; background: var(--ink-2); }
+.card p, .rule p { color: var(--muted); font-size: 16px; }
+.art { height: 120px; border-radius: 14px; background: var(--ink); overflow: hidden; display: grid; place-items: center; }
+.tile { display: grid; grid-template-rows: minmax(150px, 1fr) auto; gap: 12px; padding: 18px; border-radius: 20px; background: var(--ink-2); }
+.tile .stage { border-radius: 14px; display: grid; place-items: center; padding: 22px; background: var(--ink); }
+.tile.cream .stage { background: var(--cream); }
+.tile figcaption { display: grid; gap: 2px; font-size: 15px; color: var(--muted); }
+.tile figcaption b { color: var(--cream); font-size: 16px; }
+
+/* The idea */
+.road-art { background: var(--ink) url(patterns/road.svg) center / 78px auto repeat-x; }
+.fade-art { background: var(--ink); grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 18px; }
+.fade-art i { height: 100%; width: 100%; border-radius: 10px; background: linear-gradient(var(--l), var(--c) 45%, var(--d)); }
+.band-art img { width: 82%; }
+
+/* Logo */
+.logo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.logo-grid .tile.big { grid-column: span 2; }
+.logo-grid .tile .stage img { width: 86%; }
+.logo-grid .tile .stage img.q { width: 46%; }
+.logo-grid .tile.big .stage { padding: 34px; }
+.logo-grid .tile.big .stage img { width: min(88%, 520px); }
+.space-art { padding: 0 20px; }
+.space-box { position: relative; padding: 11px; outline: 1.5px dashed var(--muted); outline-offset: 0; }
+.space-box img { width: 190px; }
+.space-box span { position: absolute; left: 0; top: 0; width: 11px; height: 11px; background: var(--cyan); opacity: .45; }
+.sizes-art { display: flex; align-items: flex-end; gap: 20px; padding: 0 16px 26px; }
+.sizes-art figure { display: grid; justify-items: center; gap: 6px; }
+.sizes-art small, .donts small { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.order-art { grid-template-columns: 1fr; gap: 6px; padding: 22px 26px; place-items: stretch; align-content: center; }
+.order-art i { height: 12px; border-radius: 3px; background: var(--c); }
+.donts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.donts li { display: grid; gap: 10px; padding: 16px; border-radius: 18px; background: var(--ink-2); }
+.donts .stage { position: relative; height: 104px; border-radius: 12px; background: var(--ink); display: grid; place-items: center; overflow: hidden; }
+.donts .stage::after { content: ""; position: absolute; inset: 12px; background: linear-gradient(to top right, transparent calc(50% - 1.5px), var(--pink) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px)); opacity: .9; }
+.donts img { width: 76%; }
+.donts p { font-size: 15px; color: var(--muted); }
+.d-outline { filter: drop-shadow(2px 0 0 var(--cream)) drop-shadow(-2px 0 0 var(--cream)) drop-shadow(0 2px 0 var(--cream)) drop-shadow(0 -2px 0 var(--cream)); }
+.d-recolor { filter: hue-rotate(130deg) saturate(.7); }
+.d-stretch { transform: rotate(-9deg) scale(1, 1.45); }
+.d-type { font-family: var(--display); font-weight: 900; font-variation-settings: "SOFT" 100, "WONK" 1; font-size: 46px; line-height: 1; color: var(--sun); }
+
+/* Motion */
+.motion-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; align-items: center; }
+.motion-stage { position: relative; display: grid; place-items: center; gap: 18px; padding: 44px 28px 24px; border-radius: 24px; background: var(--ink-2); }
+.motion-stage img { width: 100%; }
+.motion-copy { display: grid; gap: 16px; }
+.motion-copy > p:not(.label) { color: var(--muted); }
+.beats { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; counter-reset: beat; }
+.beats li { display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: baseline; color: var(--muted); font-size: 16px; }
+.beats li::before { counter-increment: beat; content: "0" counter(beat); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--c); color: var(--cream); font-size: 12px; font-weight: 800; }
+.beats b { color: var(--cream); }
+button.btn { background: none; font-family: inherit; cursor: pointer; }
+button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+
+/* Color */
+.stripes-sw { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.stripes-sw li, .grounds li { display: grid; gap: 4px; padding: 14px 14px 18px; border-radius: 20px; background: var(--ink-2); }
+.stripes-sw .chip { height: 150px; border-radius: 12px; background: linear-gradient(var(--l), var(--c) 45%, var(--d)); margin-bottom: 10px; }
+.stripes-sw b, .grounds b, .support b { font-size: 17px; }
+.stripes-sw small, .grounds small, .support small { color: var(--muted); font-size: 14px; }
+.grounds { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grounds .chip { height: 96px; border-radius: 12px; background: var(--c); box-shadow: inset 0 0 0 1px var(--ink-3); margin-bottom: 10px; }
+.support { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.support li { display: grid; grid-template-columns: 40px 1fr; gap: 2px 12px; align-items: center; padding: 12px; border-radius: 16px; background: var(--ink-2); }
+.support i { grid-row: span 3; width: 40px; height: 40px; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1px var(--ink-3); }
+.balance { display: flex; height: 44px; border-radius: 12px; overflow: hidden; border: 2px solid var(--ink-3); }
+.balance span { flex: var(--f); background: var(--c); }
+.balance-key { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: -14px 0 0; padding: 0; list-style: none; font-size: 14px; color: var(--muted); }
+.pairs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pairs li { display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; align-items: center; padding: 12px 14px; border-radius: 16px; background: var(--ink-2); }
+.pairs span { grid-row: span 2; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 12px; background: var(--bg); color: var(--fg); font-family: var(--display); font-weight: 900; font-variation-settings: "SOFT" 100, "WONK" 1; font-size: 24px; box-shadow: inset 0 0 0 1px var(--ink-3); }
+.pairs b { font-size: 15px; }
+.pairs small { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pairs .big-only small { color: var(--sun); }
+
+/* Type */
+.type-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; }
+.spec { display: grid; gap: 14px; align-content: start; padding: 24px; border-radius: 20px; background: var(--ink-2); }
+.spec.display-spec { grid-row: span 2; }
+.spec-name { font-size: 13px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--cyan); }
+.spec-meta { font-size: 14px; color: var(--muted); }
+.d-sample { font-size: clamp(48px, 7vw, 88px); line-height: .95; }
+.d-alpha { font-size: 28px; line-height: 1.25; color: var(--muted); overflow-wrap: anywhere; }
+.t-sample { font-size: 19px; line-height: 1.5; }
+.l-sample { font-size: 14px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--sun); }
+.echo-block { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px 32px; align-items: center; padding: 32px 28px 36px; border-radius: 20px; background: var(--ink-2); --echo-gap: var(--ink-2); }
+.echo-block .echo { font-size: clamp(56px, 9vw, 112px); line-height: .9; padding-bottom: .15em; }
+.echo-block p:last-child { color: var(--muted); }
+.scale { width: 100%; border-collapse: collapse; font-size: 15px; }
+.scale th, .scale td { padding: 12px 10px; border-bottom: 1px solid var(--ink-3); text-align: left; vertical-align: baseline; }
+.scale th { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.scale td:last-child { color: var(--muted); }
+.scale .s { white-space: nowrap; }
+.type-rules { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.type-rules li { display: flex; gap: 12px; color: var(--muted); }
+.type-rules li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: 9px; border-radius: 50%; background: var(--sun); }
+.type-rules b { color: var(--cream); }
+
+/* Patterns */
+.patterns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.patterns li { display: grid; gap: 8px; align-content: start; padding: 14px 14px 18px; border-radius: 20px; background: var(--ink-2); }
+.patterns p { font-size: 15px; color: var(--muted); }
+.patterns a { font-size: 14px; }
+.pat { height: 150px; border-radius: 12px; background-color: var(--ink); margin-bottom: 6px; }
+.p-road { background-image: url(patterns/road.svg); background-size: 62px auto; }
+.p-arches { background: var(--cream) url(patterns/arches.svg) left bottom / auto 52px repeat-x; }
+.p-link { background-image: repeating-linear-gradient(41deg, var(--pink) 0 8px, transparent 8px 11px, var(--sun) 11px 19px, transparent 19px 22px, var(--cyan) 22px 30px, transparent 30px 58px); }
+.p-band { display: grid; align-content: center; gap: 0; padding: 0 0 0 18px; background: var(--ink) url(marks/f-stripe-corner.svg) right 14px top 14px / 84px no-repeat; }
+.p-band img { width: 70%; }
+.p-glints { background-image: url(patterns/glints.svg); background-size: 120px; }
+.p-fade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 16px; }
+.p-fade i { border-radius: 8px; background: linear-gradient(var(--l), var(--c) 45%, var(--d)); }
+
+/* In use */
+.mocks { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 16px; }
+.mock { display: grid; gap: 10px; align-content: start; }
+.mock figcaption { font-size: 14px; color: var(--muted); }
+.mock-stack { display: grid; gap: 16px; align-content: start; }
+
+.poster { position: relative; aspect-ratio: 4 / 5; padding: 26px 24px; border-radius: 18px; overflow: hidden; color: var(--ink); background: var(--cream) url(patterns/arches.svg) left bottom / auto 60px repeat-x; display: grid; align-content: start; gap: 14px; }
+.poster .pm { width: 46%; }
+.poster .pk { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--deep-pink); margin-top: 14px; }
+.poster .pt { font-size: clamp(44px, 6vw, 64px); line-height: .9; padding-bottom: .1em; }
+.poster .pd { font-size: 17px; font-weight: 800; }
+.poster .pl { font-size: 15px; font-weight: 500; }
+.poster .ps { position: absolute; left: 24px; bottom: 76px; font-family: var(--display); font-weight: 700; font-variation-settings: "SOFT" 100, "WONK" 1; font-size: 19px; }
+.sample { position: absolute; top: 14px; right: 14px; padding: 2px 8px; border-radius: 999px; background: var(--ink); color: var(--cream); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+
+.site-mock { border-radius: 18px; overflow: hidden; background: var(--ink); box-shadow: inset 0 0 0 1px var(--ink-3); }
+.sm-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--ink-3); }
+.sm-bar img { height: 26px; width: auto; }
+.sm-bar ul { display: flex; gap: 16px; margin: 0; padding: 0; list-style: none; font-size: 13px; font-weight: 800; color: var(--muted); }
+.sm-hero { display: grid; gap: 12px; padding: 30px 22px 92px; background: url(patterns/road.svg) left bottom 10px / 58px auto repeat-x; }
+.sm-hero .label { font-size: 11px; }
+.sm-hero h3 { font-family: var(--display); font-weight: 900; font-variation-settings: "SOFT" 100, "WONK" 1; font-size: clamp(30px, 4vw, 44px); line-height: 1; max-width: 12ch; }
+.sm-hero p { color: var(--muted); font-size: 15px; max-width: 40ch; }
+.sm-hero .btn { justify-self: start; padding: 9px 16px; font-size: 14px; pointer-events: none; }
+
+.ig { display: grid; gap: 14px; padding: 18px; border-radius: 18px; background: var(--ink-2); }
+.ig-head { display: flex; align-items: center; gap: 14px; }
+.ig-avatar { flex: none; width: 66px; height: 66px; border-radius: 50%; padding: 3px; background: conic-gradient(var(--pink), var(--sun), var(--cyan), var(--pink)); }
+.ig-avatar span { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; background: var(--ink); box-shadow: 0 0 0 3px var(--ink-2); }
+.ig-avatar img { width: 74%; }
+.ig-head b { display: block; font-size: 15px; }
+.ig-head small { display: block; color: var(--muted); font-size: 13px; line-height: 1.35; }
+.ig-posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
+.ig-posts > div { aspect-ratio: 1; border-radius: 6px; overflow: hidden; display: grid; place-items: center; }
+.post-1 { background: var(--ink); }
+.post-1 img { width: 80%; }
+.post-2 { background: var(--cream); color: var(--ink); --echo-gap: var(--cream); padding: 10px; }
+.post-2 p { font-family: var(--display); font-weight: 900; font-variation-settings: "SOFT" 100, "WONK" 1; font-size: clamp(18px, 2.6vw, 26px); line-height: .95; text-align: center; padding-bottom: .15em; }
+.post-3 { background: var(--ink) url(patterns/road.svg) center / 46px auto; }
+.post-3 span { white-space: nowrap; padding: 4px 10px; border-radius: 999px; background: var(--sun); color: var(--ink); font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+
+.smalls { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; padding: 18px; border-radius: 18px; background: var(--ink-2); align-items: center; }
+.chat { display: grid; gap: 12px; }
+.chat-row { display: flex; align-items: center; gap: 12px; }
+.chat-icon { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--ink); display: grid; place-items: center; }
+.chat-icon img { width: 76%; }
+.chat-row b { display: block; font-size: 14px; }
+.chat-row small { color: var(--muted); font-size: 13px; }
+.tab { display: inline-flex; align-items: center; gap: 8px; justify-self: start; max-width: 100%; padding: 8px 14px 8px 10px; border-radius: 10px 10px 0 0; background: var(--ink-3); font-size: 13px; white-space: nowrap; overflow: hidden; }
+.tab img { flex: none; width: 16px; height: 16px; }
+.sticker { justify-self: center; width: min(140px, 100%); transform: rotate(-8deg); filter: drop-shadow(5px 0 0 var(--cream)) drop-shadow(-5px 0 0 var(--cream)) drop-shadow(0 5px 0 var(--cream)) drop-shadow(0 -5px 0 var(--cream)) drop-shadow(0 6px 8px rgba(0, 0, 0, .45)); }
+
+/* Voice */
+.voice { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.voice li { display: grid; gap: 10px; align-content: start; padding: 22px; border-radius: 20px; background: var(--ink-2); }
+.voice .say { font-family: var(--display); font-weight: 800; font-variation-settings: "SOFT" 100, "WONK" 1; font-size: 26px; line-height: 1.1; }
+.voice .not { font-size: 15px; color: var(--muted); }
+.voice .not s { text-decoration-color: var(--pink); text-decoration-thickness: 2px; }
+
+@media (max-width: 900px) {
+  .three, .patterns, .voice, .stripes-sw { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .support { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pairs, .donts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .motion-grid, .type-grid, .echo-block, .mocks { grid-template-columns: 1fr; }
+  .spec.display-spec { grid-row: auto; }
+}
+@media (max-width: 600px) {
+  .three, .patterns, .voice, .stripes-sw, .logo-grid, .grounds, .support, .pairs, .smalls { grid-template-columns: 1fr; }
+  .logo-grid .tile.big { grid-column: auto; }
+  .donts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .donts li { padding: 12px; }
+  .scale .hide-sm { display: none; }
+  .post-3 span { padding: 3px 7px; font-size: 9px; letter-spacing: .06em; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="../"><span>LSSQ</span></a>
+    <ul class="nav">
+      <li><a href="../">Home</a></li>
+      <li><a href="./" aria-current="page">Brand</a></li>
+      <li><a href="../presentations/">Presentations</a></li>
+      <li><a href="https://github.com/sgordon1024/lssq">GitHub</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap bp">
+  <section class="hero" aria-labelledby="top-title">
+    <p class="kicker">Brand direction · Draft 1</p>
+    <img class="hero-mark" src="marks/f-stripes.svg" width="760" height="243" alt="The LSSQ logo: the letters LSSQ written in one unbroken ribbon of cyan, yellow and pink stripes">
+    <h1 id="top-title">Different roads. <em>One ribbon.</em></h1>
+    <p class="lede">LSSQ is somewhere new every month, with the same family every time. The ribbon says that: one line that never lifts off, with three stripes that always travel together. Everything here grows from it.</p>
+    <p class="note">Built on option F from round 1. A draft for Steve's review, November 12, 2026. This isn't LSSQ's official brand.</p>
+    <nav class="toc" aria-label="On this page">
+      <a href="#idea">Idea</a><a href="#logo">Logo</a><a href="#motion">Motion</a><a href="#color">Color</a><a href="#type">Type</a><a href="#patterns">Patterns</a><a href="#in-use">In use</a><a href="#voice">Voice</a>
+    </nav>
+  </section>
+
+  <section class="section" id="idea" aria-labelledby="idea-title">
+    <p class="label">The idea</p>
+    <h2 id="idea-title">One line that never lifts off.</h2>
+    <ul class="grid three">
+      <li class="card"><div class="art road-art" aria-hidden="true"></div><h3>Keep it moving</h3><p>One continuous line. Shapes flow into each other instead of sitting still in boxes.</p></li>
+      <li class="card"><div class="art fade-art" aria-hidden="true"><i style="--l:#63E9EC;--c:#36E2E6;--d:#1BD4D8"></i><i style="--l:#F5D060;--c:#F2C230;--d:#EAB40F"></i><i style="--l:#E96598;--c:#E2397A;--d:#D31F64"></i></div><h3>Warm, not slick</h3><p>Soft type, sunset tints and a little glint. It should feel like a road trip, not a startup.</p></li>
+      <li class="card"><div class="art band-art" aria-hidden="true"><img src="marks/f-stripe-band.svg" alt=""></div><h3>Side by side</h3><p>Three stripes, always together and always in the same order, like the people who show up.</p></li>
+    </ul>
+  </section>
+
+  <section class="section" id="logo" aria-labelledby="logo-title">
+    <p class="label">Logo</p>
+    <h2 id="logo-title">The ribbon, standing still.</h2>
+    <p class="lede">Use the still logo almost everywhere. Where the full name won't fit, use the Q.</p>
+    <div class="logo-grid">
+      <figure class="tile big"><div class="stage"><img src="marks/f-stripes.svg" alt="The color logo on black"></div><figcaption><b>Wordmark</b>The default, on black.</figcaption></figure>
+      <figure class="tile"><div class="stage"><img class="q" src="marks/f-q.svg" alt="The Q on its own, in color"></div><figcaption><b>The Q</b>Avatars, app icons, stickers, the browser tab.</figcaption></figure>
+      <figure class="tile cream"><div class="stage"><img src="marks/f-stripes.svg" alt="The color logo on cream"></div><figcaption><b>On cream</b>Posters, print and light pages.</figcaption></figure>
+      <figure class="tile cream"><div class="stage"><img src="marks/f-stripes-mono.svg" alt="The logo in black only"></div><figcaption><b>One color</b>One-ink printing, embroidery and stamps.</figcaption></figure>
+      <figure class="tile"><div class="stage"><img src="marks/f-stripes-cream.svg" alt="The logo in cream only, on black"></div><figcaption><b>One color, reversed</b>Over photos and on dark merch.</figcaption></figure>
+    </div>
+    <div class="grid three">
+      <div class="card rule"><div class="art space-art" aria-hidden="true"><div class="space-box"><span></span><img src="marks/f-stripes.svg" alt=""></div></div><h3>Clear space</h3><p>Keep one ribbon's width clear on every side, about a quarter of the logo's height.</p></div>
+      <div class="card rule"><div class="art sizes-art" aria-hidden="true"><figure><img src="marks/f-stripes.svg" alt="" style="width:96px"><small>96px</small></figure><figure><img src="marks/f-q.svg" alt="" style="width:24px"><small>24px</small></figure><figure><img src="marks/f-q.svg" alt="" style="width:16px"><small>16px</small></figure></div><h3>Smallest sizes</h3><p>The wordmark goes down to 96px wide. Below that, switch to the Q, which holds down to 16px.</p></div>
+      <div class="card rule"><div class="art order-art" aria-hidden="true"><i style="--c:var(--cyan)"></i><i style="--c:var(--sun)"></i><i style="--c:var(--pink)"></i></div><h3>Stripe order</h3><p>On a straight run it's cyan, yellow, pink, top to bottom. Always all three, always in that order.</p></div>
+    </div>
+    <h3>Please don't</h3>
+    <ul class="grid donts">
+      <li><div class="stage"><img class="d-outline" src="marks/f-stripes.svg" alt="The logo with a cream outline added"></div><p>Add an outline or a shadow.</p></li>
+      <li><div class="stage"><img class="d-recolor" src="marks/f-stripes.svg" alt="The logo in the wrong colors"></div><p>Change the colors or their order.</p></li>
+      <li><div class="stage"><img class="d-stretch" src="marks/f-stripes.svg" alt="The logo stretched and tilted"></div><p>Stretch, squash or tilt it.</p></li>
+      <li><div class="stage"><span class="d-type" role="img" aria-label="LSSQ typed out in a font">LSSQ</span></div><p>Type "LSSQ" in a font instead.</p></li>
+    </ul>
+  </section>
+
+  <section class="section" id="motion" aria-labelledby="motion-title">
+    <div class="motion-grid">
+      <div class="motion-stage">
+        <img id="anim" src="marks/f-stripes-animated.svg" alt="The logo drawing itself in, one stripe at a time, then a glint runs across it">
+        <button type="button" class="btn" id="replay">Play it again</button>
+      </div>
+      <div class="motion-copy">
+        <p class="label">Motion</p>
+        <h2 id="motion-title">Draw it in for big moments.</h2>
+        <p>The logo is still by default. Save the draw-in for special moments: the site's first visit, event announcements, video intros and reels.</p>
+        <ol class="beats">
+          <li style="--c:var(--cyan)"><span><b>Write.</b> Each stripe writes the whole word in turn, 2.7 seconds each, 0.4 seconds apart.</span></li>
+          <li style="--c:var(--sun)"><span><b>Sweep.</b> Once the bowl is done, the Q's tail sweeps over it.</span></li>
+          <li style="--c:var(--pink)"><span><b>Glint.</b> A glint runs across and a star twinkles, so it's clear it's over. About 5 seconds in all.</span></li>
+        </ol>
+        <p class="note">With reduced motion turned on, it just shows the finished logo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="color" aria-labelledby="color-title">
+    <p class="label">Color</p>
+    <h2 id="color-title">Three stripes, two grounds.</h2>
+    <p class="lede">The stripes carry the color. Black and cream do the rest of the work, so the stripes always pop.</p>
+    <ul class="grid stripes-sw">
+      <li style="--l:#63E9EC;--c:#36E2E6;--d:#1BD4D8"><span class="chip"></span><b>Outline cyan</b><code>#36E2E6</code><small>Fades from #63E9EC to #1BD4D8. Links, labels, wellness.</small></li>
+      <li style="--l:#F5D060;--c:#F2C230;--d:#EAB40F"><span class="chip"></span><b>Record yellow</b><code>#F2C230</code><small>Fades from #F5D060 to #EAB40F. Main buttons, dates, play.</small></li>
+      <li style="--l:#E96598;--c:#E2397A;--d:#D31F64"><span class="chip"></span><b>Banner pink</b><code>#E2397A</code><small>Fades from #E96598 to #D31F64. Highlights, big type, music.</small></li>
+    </ul>
+    <ul class="grid grounds">
+      <li style="--c:#141818"><span class="chip"></span><b>Turntable black</b><code>#141818</code><small>The main ground. Screens, the site, dark merch.</small></li>
+      <li style="--c:#FFF6E8"><span class="chip"></span><b>Cream</b><code>#FFF6E8</code><small>Text on black, and the ground for posters and print.</small></li>
+    </ul>
+    <ul class="grid support">
+      <li style="--c:#1c2323"><i></i><b>Panel</b><code>#1C2323</code><small>Cards</small></li>
+      <li style="--c:#2a3333"><i></i><b>Line</b><code>#2A3333</code><small>Borders</small></li>
+      <li style="--c:#a9b7b4"><i></i><b>Muted</b><code>#A9B7B4</code><small>Secondary text</small></li>
+      <li style="--c:#C42566"><i></i><b>Deep pink</b><code>#C42566</code><small>Pink text on cream</small></li>
+      <li style="--c:#B79CF0"><i></i><b>Lavender</b><code>#B79CF0</code><small>A rare extra</small></li>
+    </ul>
+    <div class="balance" role="img" aria-label="Rough balance on a typical page: about 60 percent black, 20 percent cream, then about 7 percent each of cyan and yellow and 6 percent pink">
+      <span style="--f:60;--c:#141818"></span><span style="--f:20;--c:#FFF6E8"></span><span style="--f:7;--c:#36E2E6"></span><span style="--f:7;--c:#F2C230"></span><span style="--f:6;--c:#E2397A"></span>
+    </div>
+    <ul class="balance-key" aria-hidden="true"><li>Roughly, on a typical page: mostly black, some cream, a little of each stripe.</li></ul>
+    <h3>Pairs that read</h3>
+    <ul class="grid pairs">
+      <li style="--bg:#141818;--fg:#FFF6E8"><span>Aa</span><b>Cream on black</b><small>16.7 : 1</small></li>
+      <li style="--bg:#141818;--fg:#F2C230"><span>Aa</span><b>Yellow on black</b><small>10.7 : 1</small></li>
+      <li style="--bg:#141818;--fg:#36E2E6"><span>Aa</span><b>Cyan on black</b><small>11.2 : 1</small></li>
+      <li class="big-only" style="--bg:#141818;--fg:#E2397A"><span>Aa</span><b>Pink on black</b><small>4.3 : 1, big type only</small></li>
+      <li style="--bg:#FFF6E8;--fg:#141818"><span>Aa</span><b>Black on cream</b><small>16.7 : 1</small></li>
+      <li style="--bg:#FFF6E8;--fg:#C42566"><span>Aa</span><b>Deep pink on cream</b><small>5.2 : 1</small></li>
+      <li style="--bg:#F2C230;--fg:#141818"><span>Aa</span><b>Black on yellow</b><small>10.7 : 1</small></li>
+      <li style="--bg:#36E2E6;--fg:#141818"><span>Aa</span><b>Black on cyan</b><small>11.2 : 1</small></li>
+    </ul>
+    <p class="note">Pink is for stripes, shapes and big type. Put small text on yellow or cyan in black, never in cream.</p>
+  </section>
+
+  <section class="section" id="type" aria-labelledby="type-title">
+    <p class="label">Typography</p>
+    <h2 id="type-title">Soft headlines, clear text.</h2>
+    <p class="lede">A warm 70s headline face, cut our own way, over the clean sans LSSQ already uses.</p>
+    <div class="type-grid">
+      <div class="spec display-spec">
+        <p class="spec-name">Headlines · Fraunces, LSSQ setting</p>
+        <p class="display d-sample">Your people are out here.</p>
+        <p class="display d-alpha">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789</p>
+        <p class="spec-meta">Black 900 · Soft 100 · Wonky on · Tracking −1%. Free on Google Fonts. The soft, wonky setting is what makes it ours.</p>
+      </div>
+      <div class="spec">
+        <p class="spec-name">Text · Urbanist</p>
+        <p class="t-sample">Different location every month. Same family every time. Bring a chair, something to share and whatever you're good at.</p>
+        <p class="spec-meta">Regular 400 to Black 900. Already on LSSQ's site, so nothing changes for Jake.</p>
+      </div>
+      <div class="spec">
+        <p class="spec-name">Labels · Urbanist</p>
+        <p class="l-sample">Next up · Baja coast · Nov 27 to 29</p>
+        <p class="spec-meta">ExtraBold 800 · All caps · Tracking +16%. Dates, places and small headers.</p>
+      </div>
+    </div>
+    <div class="echo-block">
+      <p class="display echo">Side Quest</p>
+      <div class="intro">
+        <p class="spec-name">Stripe echo</p>
+        <p>Our own treatment for event names and big headlines. The three stripes trail behind the letters at the same 41 degree angle as the links in the logo. Big sizes only, and once per page.</p>
+      </div>
+    </div>
+    <table class="scale">
+      <thead><tr><th>Style</th><th class="s">Size / line</th><th class="hide-sm">Face</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td><b>Display</b></td><td class="s">96 / 0.95</td><td class="hide-sm">Fraunces 900</td><td>Event names, hero lines</td></tr>
+        <tr><td><b>Headline 1</b></td><td class="s">60 / 1.0</td><td class="hide-sm">Fraunces 900</td><td>Page titles</td></tr>
+        <tr><td><b>Headline 2</b></td><td class="s">36 / 1.05</td><td class="hide-sm">Fraunces 900</td><td>Sections</td></tr>
+        <tr><td><b>Headline 3</b></td><td class="s">20 / 1.2</td><td class="hide-sm">Urbanist 800</td><td>Cards, small heads</td></tr>
+        <tr><td><b>Body</b></td><td class="s">17 / 1.55</td><td class="hide-sm">Urbanist 400 to 500</td><td>Everything you read</td></tr>
+        <tr><td><b>Label</b></td><td class="s">13, caps</td><td class="hide-sm">Urbanist 800</td><td>Dates, places, tags</td></tr>
+      </tbody>
+    </table>
+    <ul class="type-rules">
+      <li><span><b>Sentence case</b> for headlines. Short and warm.</span></li>
+      <li><span><b>Never type "LSSQ" as a headline.</b> Use the logo. In text, write Last Saturday Side Quest, or LSSQ for short.</span></li>
+      <li><span><b>Fraunces is for headlines only.</b> Everything else is Urbanist.</span></li>
+    </ul>
+  </section>
+
+  <section class="section" id="patterns" aria-labelledby="patterns-title">
+    <p class="label">Patterns</p>
+    <h2 id="patterns-title">Cut from the same ribbon.</h2>
+    <p class="lede">Every pattern uses the logo's three stripes, widths and gaps, so it all feels like one family.</p>
+    <ul class="grid patterns">
+      <li><span class="pat p-road" aria-hidden="true"></span><h3>Road</h3><p>The ribbon snaking along. Section edges, footers and merch.</p><a href="patterns/road.svg">road.svg</a></li>
+      <li><span class="pat p-arches" aria-hidden="true"></span><h3>Arches</h3><p>A row of rainbow sunrises. Along the bottom of posters and headers.</p><a href="patterns/arches.svg">arches.svg</a></li>
+      <li><span class="pat p-link" aria-hidden="true"></span><h3>Link</h3><p>The 41 degree angle between letters, as a field. Big backgrounds and the backs of shirts. Pure CSS.</p></li>
+      <li><span class="pat p-band" aria-hidden="true"><img src="marks/f-stripe-band.svg" alt=""></span><h3>Band and corner</h3><p>Dividers, and a corner to frame photos.</p><a href="marks/f-stripe-band.svg">f-stripe-band.svg</a></li>
+      <li><span class="pat p-glints" aria-hidden="true"></span><h3>Glints</h3><p>The star that ends the animation. A light scatter around big moments.</p><a href="patterns/glints.svg">glints.svg</a></li>
+      <li><span class="pat p-fade" aria-hidden="true"><i style="--l:#63E9EC;--c:#36E2E6;--d:#1BD4D8"></i><i style="--l:#F5D060;--c:#F2C230;--d:#EAB40F"></i><i style="--l:#E96598;--c:#E2397A;--d:#D31F64"></i></span><h3>Sunset fade</h3><p>Each stripe is a touch lighter at the top and deeper at the base. In the color logo only.</p></li>
+    </ul>
+  </section>
+
+  <section class="section" id="in-use" aria-labelledby="use-title">
+    <p class="label">In use</p>
+    <h2 id="use-title">How it comes together.</h2>
+    <div class="mocks">
+      <figure class="mock">
+        <div class="poster on-cream">
+          <span class="sample">Sample</span>
+          <img class="pm" src="marks/f-stripes.svg" alt="">
+          <p class="pk">Last Saturday Side Quest</p>
+          <p class="display echo pt">Baja Weekend</p>
+          <p class="pd">Fri to Sun · Nov 27 to 29</p>
+          <p class="pl">On the coast, south of Ensenada</p>
+          <p class="ps">Your people are out here.</p>
+        </div>
+        <figcaption>Event poster, on cream, with arches along the bottom.</figcaption>
+      </figure>
+      <div class="mock-stack">
+        <figure class="mock">
+          <div class="site-mock">
+            <div class="sm-bar"><img src="marks/f-stripes.svg" alt=""><ul><li>Events</li><li>About</li><li>Donate</li></ul></div>
+            <div class="sm-hero">
+              <p class="label">Next up · Nov 27 to 29</p>
+              <h3>Your people are out here.</h3>
+              <p>A weekend of music, play, wellness and connection, somewhere new every month.</p>
+              <span class="btn primary">See upcoming events</span>
+            </div>
+          </div>
+          <figcaption>Website header, with the road pattern along the bottom.</figcaption>
+        </figure>
+        <figure class="mock">
+          <div class="ig">
+            <div class="ig-head"><span class="ig-avatar"><span><img src="marks/f-q.svg" alt=""></span></span><span><b>lastsaturdaysidequest</b><small>Different location every month. Same family every time.</small></span></div>
+            <div class="ig-posts">
+              <div class="post-1"><img src="marks/f-stripes.svg" alt=""></div>
+              <div class="post-2"><p class="echo">See you out there.</p></div>
+              <div class="post-3"><span>Nov 27 to 29</span></div>
+            </div>
+          </div>
+          <figcaption>Instagram: the Q as the avatar, and a feed that mixes black and cream.</figcaption>
+        </figure>
+        <figure class="mock">
+          <div class="smalls">
+            <div class="chat">
+              <div class="chat-row"><span class="chat-icon"><img src="marks/f-q.svg" alt=""></span><span><b>LSSQ · Baja Weekend</b><small>Who's bringing the speaker?</small></span></div>
+              <span class="tab"><img src="marks/f-q.svg" alt="">Last Saturday Side Quest</span>
+            </div>
+            <img class="sticker" src="marks/f-q.svg" alt="">
+          </div>
+          <figcaption>Small sizes: the event chat icon, the browser tab and a die-cut sticker.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="voice" aria-labelledby="voice-title">
+    <p class="label">Voice</p>
+    <h2 id="voice-title">Warm, playful, communal.</h2>
+    <ul class="grid voice">
+      <li><p class="say">"Your people are out here."</p><p class="not">Not <s>"Join our vibrant community of digital nomads."</s></p></li>
+      <li><p class="say">"Bring a chair and something to share."</p><p class="not">Not <s>"Attendees are encouraged to contribute."</s></p></li>
+      <li><p class="say">"See you at the next one."</p><p class="not">Not <s>"Stay tuned for future events."</s></p></li>
+    </ul>
+  </section>
+
+  <section class="intro" aria-labelledby="next-title">
+    <h2 id="next-title">What's next</h2>
+    <p class="lede">Steve reviews this direction. Then it goes to Jake, and on into the rebuilt site.</p>
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/sgordon1024/lssq/tree/main/brand">Get the files</a>
+      <a class="btn" href="../presentations/2026-11-04-logo-marks/">See round 1</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <p>Independent design work for Last Saturday Side Quest. Not LSSQ's official site.</p>
+    <p><a href="https://github.com/sgordon1024/lssq">github.com/sgordon1024/lssq</a></p>
+  </div>
+</footer>
+<script>
+// Replay the draw-in when the motion section first comes into view, and on the button.
+(function () {
+  var img = document.getElementById("anim"), button = document.getElementById("replay");
+  if (!img || !button) return;
+  var src = img.getAttribute("src");
+  function play() { img.src = src + "?t=" + Date.now(); }
+  button.addEventListener("click", play);
+  if ("IntersectionObserver" in window) {
+    var seen = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { play(); seen.disconnect(); }
+    }, { threshold: 0.6 });
+    seen.observe(img);
+  }
+})();
+</script>
+</body>
+</html>

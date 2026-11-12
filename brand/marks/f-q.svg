@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-71.00 -31.44 150.88 150.88" fill="none">
+  <title>LSSQ mark F: the Q</title>
+  <defs>
+    <linearGradient id="f-g0" gradientUnits="userSpaceOnUse" x1="0" y1="-15" x2="0" y2="103"><stop offset="0" stop-color="#E96598"/><stop offset=".45" stop-color="#E2397A"/><stop offset="1" stop-color="#D31F64"/></linearGradient>
+    <linearGradient id="f-g1" gradientUnits="userSpaceOnUse" x1="0" y1="-15" x2="0" y2="103"><stop offset="0" stop-color="#F5D060"/><stop offset=".45" stop-color="#F2C230"/><stop offset="1" stop-color="#EAB40F"/></linearGradient>
+    <linearGradient id="f-g2" gradientUnits="userSpaceOnUse" x1="0" y1="-15" x2="0" y2="103"><stop offset="0" stop-color="#63E9EC"/><stop offset=".45" stop-color="#36E2E6"/><stop offset="1" stop-color="#1BD4D8"/></linearGradient>
+    <mask id="q-under" maskUnits="userSpaceOnUse" x="-71.00" y="-31.44" width="150.88" height="150.88">
+      <rect x="-71.00" y="-31.44" width="150.88" height="150.88" fill="#fff"/>
+      <path d="M2.12 61.68 L22.16 81.72 A59.00 59.00 0 0 0 63.88 99.00 L67.88 99.00" stroke="#000" stroke-width="14"/>
+      <path d="M9.90 53.90 L29.94 73.94 A48.00 48.00 0 0 0 63.88 88.00 L67.88 88.00" stroke="#000" stroke-width="14"/>
+      <path d="M17.68 46.12 L37.72 66.16 A37.00 37.00 0 0 0 63.88 77.00 L67.88 77.00" stroke="#000" stroke-width="14"/>
+    </mask>
+  </defs>
+  <g mask="url(#q-under)">
+    <path d="M38.89 82.89 A55.00 55.00 0 0 0 38.89 5.11 A55.00 55.00 0 0 0 -38.89 5.11 A55.00 55.00 0 0 0 -38.89 82.89 A55.00 55.00 0 0 0 38.89 82.89" stroke="url(#f-g0)" stroke-width="8"/>
+    <path d="M31.11 75.11 A44.00 44.00 0 0 0 31.11 12.89 A44.00 44.00 0 0 0 -31.11 12.89 A44.00 44.00 0 0 0 -31.11 75.11 A44.00 44.00 0 0 0 31.11 75.11" stroke="url(#f-g1)" stroke-width="8"/>
+    <path d="M23.33 67.33 A33.00 33.00 0 0 0 23.33 20.67 A33.00 33.00 0 0 0 -23.33 20.67 A33.00 33.00 0 0 0 -23.33 67.33 A33.00 33.00 0 0 0 23.33 67.33" stroke="url(#f-g2)" stroke-width="8"/>
+  </g>
+  <path d="M2.12 61.68 L22.16 81.72 A59.00 59.00 0 0 0 63.88 99.00 L67.88 99.00" stroke="url(#f-g0)" stroke-width="8"/>
+  <path d="M9.90 53.90 L29.94 73.94 A48.00 48.00 0 0 0 63.88 88.00 L67.88 88.00" stroke="url(#f-g1)" stroke-width="8"/>
+  <path d="M17.68 46.12 L37.72 66.16 A37.00 37.00 0 0 0 63.88 77.00 L67.88 77.00" stroke="url(#f-g2)" stroke-width="8"/>
+</svg>
