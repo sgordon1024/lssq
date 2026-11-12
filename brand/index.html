@@ -129,8 +129,33 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
 .t-sample { font-size: 19px; line-height: 1.5; }
 .l-sample { font-size: 14px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--sun); }
 .echo-block { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px 32px; align-items: center; padding: 32px 28px 36px; border-radius: 20px; background: var(--ink-2); --echo-gap: var(--ink-2); }
-.echo-block .echo { font-size: clamp(56px, 9vw, 112px); line-height: .9; padding-bottom: .15em; }
-.echo-block p:last-child { color: var(--muted); }
+.echo-block .echo-demo { font-size: clamp(56px, 9vw, 112px); line-height: .9; padding-bottom: .15em; }
+.echo-block .intro > p:not(.spec-name):not(.echo-hint) { color: var(--muted); }
+/* Stripe echo on hover. At rest it's solid cream with a slow glimmer in the
+   stripe colors. On hover the stripes spring out one at a time (cyan, yellow,
+   pink) while the letters lift a touch, then tuck back in reverse order. */
+@property --e1 { syntax: "<number>"; inherits: false; initial-value: 0; }
+@property --e2 { syntax: "<number>"; inherits: false; initial-value: 0; }
+@property --e3 { syntax: "<number>"; inherits: false; initial-value: 0; }
+.echo-demo { position: relative; --e1: 0; --e2: 0; --e3: 0; text-shadow: calc(var(--e1) * 0.005em) calc(var(--e1) * 0.004em) 0 var(--echo-gap), calc(var(--e1) * 0.009em) calc(var(--e1) * 0.008em) 0 var(--echo-gap), calc(var(--e1) * 0.014em) calc(var(--e1) * 0.012em) 0 var(--echo-gap), calc(var(--e1) * 0.018em) calc(var(--e1) * 0.016em) 0 var(--echo-gap), calc(var(--e1) * 0.023em) calc(var(--e1) * 0.020em) 0 var(--cyan), calc(var(--e1) * 0.028em) calc(var(--e1) * 0.024em) 0 var(--cyan), calc(var(--e1) * 0.032em) calc(var(--e1) * 0.028em) 0 var(--cyan), calc(var(--e1) * 0.037em) calc(var(--e1) * 0.032em) 0 var(--cyan), calc(var(--e1) * 0.042em) calc(var(--e1) * 0.036em) 0 var(--cyan), calc(var(--e1) * 0.046em) calc(var(--e1) * 0.040em) 0 var(--cyan), calc(var(--e1) * 0.051em) calc(var(--e1) * 0.044em) 0 var(--cyan), calc(var(--e1) * 0.055em) calc(var(--e1) * 0.048em) 0 var(--cyan), calc(var(--e2) * 0.061em) calc(var(--e2) * 0.053em) 0 var(--echo-gap), calc(var(--e2) * 0.066em) calc(var(--e2) * 0.057em) 0 var(--echo-gap), calc(var(--e2) * 0.070em) calc(var(--e2) * 0.061em) 0 var(--echo-gap), calc(var(--e2) * 0.075em) calc(var(--e2) * 0.065em) 0 var(--echo-gap), calc(var(--e2) * 0.080em) calc(var(--e2) * 0.070em) 0 var(--sun), calc(var(--e2) * 0.085em) calc(var(--e2) * 0.073em) 0 var(--sun), calc(var(--e2) * 0.089em) calc(var(--e2) * 0.077em) 0 var(--sun), calc(var(--e2) * 0.094em) calc(var(--e2) * 0.081em) 0 var(--sun), calc(var(--e2) * 0.098em) calc(var(--e2) * 0.085em) 0 var(--sun), calc(var(--e2) * 0.103em) calc(var(--e2) * 0.089em) 0 var(--sun), calc(var(--e2) * 0.107em) calc(var(--e2) * 0.093em) 0 var(--sun), calc(var(--e2) * 0.112em) calc(var(--e2) * 0.097em) 0 var(--sun), calc(var(--e3) * 0.118em) calc(var(--e3) * 0.102em) 0 var(--echo-gap), calc(var(--e3) * 0.122em) calc(var(--e3) * 0.106em) 0 var(--echo-gap), calc(var(--e3) * 0.127em) calc(var(--e3) * 0.110em) 0 var(--echo-gap), calc(var(--e3) * 0.131em) calc(var(--e3) * 0.114em) 0 var(--echo-gap), calc(var(--e3) * 0.137em) calc(var(--e3) * 0.119em) 0 var(--pink), calc(var(--e3) * 0.141em) calc(var(--e3) * 0.123em) 0 var(--pink), calc(var(--e3) * 0.146em) calc(var(--e3) * 0.127em) 0 var(--pink), calc(var(--e3) * 0.150em) calc(var(--e3) * 0.131em) 0 var(--pink), calc(var(--e3) * 0.155em) calc(var(--e3) * 0.134em) 0 var(--pink), calc(var(--e3) * 0.159em) calc(var(--e3) * 0.138em) 0 var(--pink), calc(var(--e3) * 0.164em) calc(var(--e3) * 0.142em) 0 var(--pink), calc(var(--e3) * 0.168em) calc(var(--e3) * 0.146em) 0 var(--pink); transition: --e3 .2s ease-in, --e2 .2s ease-in .05s, --e1 .2s ease-in .1s, transform .3s ease-in .05s; }
+.echo-demo::after { content: attr(data-text); content: attr(data-text) / ""; position: absolute; inset: 0; color: transparent; text-shadow: none; background: linear-gradient(115deg, transparent 45.5%, rgba(54, 226, 230, .85) 47.2%, rgba(242, 194, 48, .85) 48.6%, rgba(226, 57, 122, .85) 50%, transparent 51.7%) no-repeat; background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; animation: echo-glimmer 3.8s ease-in-out infinite; transition: opacity .15s; pointer-events: none; }
+@keyframes echo-glimmer { 0% { background-position: 100% 0; } 40%, 100% { background-position: 0 0; } }
+.echo-block:hover .echo-demo, .echo-block:focus-visible .echo-demo, .echo-block.on .echo-demo {
+  --e1: 1; --e2: 1; --e3: 1; transform: translate(-.02em, -.035em);
+  transition: --e1 .6s cubic-bezier(.3, 1.5, .5, 1), --e2 .6s cubic-bezier(.3, 1.5, .5, 1) .08s, --e3 .6s cubic-bezier(.3, 1.5, .5, 1) .16s, transform .6s cubic-bezier(.3, 1.5, .5, 1);
+  transition: --e1 .7s linear(0, 0.031, 0.111, 0.224, 0.355, 0.49, 0.622, 0.744, 0.85, 0.938, 1.008, 1.06, 1.096, 1.117, 1.126, 1.125, 1.117, 1.104, 1.088, 1.071, 1.054, 1.038, 1.024, 1.012, 1.002, 0.995, 0.989, 0.986, 0.984, 0.984, 0.985, 0.986, 1), --e2 .7s linear(0, 0.031, 0.111, 0.224, 0.355, 0.49, 0.622, 0.744, 0.85, 0.938, 1.008, 1.06, 1.096, 1.117, 1.126, 1.125, 1.117, 1.104, 1.088, 1.071, 1.054, 1.038, 1.024, 1.012, 1.002, 0.995, 0.989, 0.986, 0.984, 0.984, 0.985, 0.986, 1) .08s, --e3 .7s linear(0, 0.031, 0.111, 0.224, 0.355, 0.49, 0.622, 0.744, 0.85, 0.938, 1.008, 1.06, 1.096, 1.117, 1.126, 1.125, 1.117, 1.104, 1.088, 1.071, 1.054, 1.038, 1.024, 1.012, 1.002, 0.995, 0.989, 0.986, 0.984, 0.984, 0.985, 0.986, 1) .16s, transform .7s linear(0, 0.031, 0.111, 0.224, 0.355, 0.49, 0.622, 0.744, 0.85, 0.938, 1.008, 1.06, 1.096, 1.117, 1.126, 1.125, 1.117, 1.104, 1.088, 1.071, 1.054, 1.038, 1.024, 1.012, 1.002, 0.995, 0.989, 0.986, 0.984, 0.984, 0.985, 0.986, 1);
+}
+.echo-block:hover .echo-demo::after, .echo-block:focus-visible .echo-demo::after, .echo-block.on .echo-demo::after { opacity: 0; }
+.echo-block { cursor: default; }
+.echo-block:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+.echo-hint { font-size: 14px; font-weight: 800; color: var(--sun); }
+.touch-only { display: none; }
+@media (hover: none) { .hover-only { display: none; } .touch-only { display: inline; } }
+@media (prefers-reduced-motion: reduce) {
+  .echo-demo, .echo-block:hover .echo-demo, .echo-block:focus-visible .echo-demo, .echo-block.on .echo-demo { transition: none; transform: none; }
+  .echo-demo::after { animation: none; opacity: 0; }
+}
+
 .scale { width: 100%; border-collapse: collapse; font-size: 15px; }
 .scale th, .scale td { padding: 12px 10px; border-bottom: 1px solid var(--ink-3); text-align: left; vertical-align: baseline; }
 .scale th { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
@@ -373,11 +398,12 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
         <p class="spec-meta">ExtraBold 800 · All caps · Tracking +16%. Dates, places and small headers.</p>
       </div>
     </div>
-    <div class="echo-block">
-      <p class="display echo">Side Quest</p>
+    <div class="echo-block" tabindex="0" aria-label="Stripe echo demo. Hover, focus or tap to see the stripes come in.">
+      <p class="display echo-demo" data-text="Side Quest">Side Quest</p>
       <div class="intro">
         <p class="spec-name">Stripe echo</p>
-        <p>Our own treatment for event names and big headlines. The three stripes trail behind the letters at the same 41 degree angle as the links in the logo. Big sizes only, and once per page.</p>
+        <p>Our own treatment for event names and big headlines. On screen it rests in solid cream with a slow glimmer. On hover, the three stripes bounce out one at a time, at the same 41 degree angle as the links in the logo. In print, use it finished. Big sizes only, once per page.</p>
+        <p class="echo-hint"><span class="hover-only">Hover the card</span><span class="touch-only">Tap the card</span> to see it come in.</p>
       </div>
     </div>
     <table class="scale">
@@ -505,6 +531,13 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
       if (entries[0].isIntersecting) { play(); seen.disconnect(); }
     }, { threshold: 0.6 });
     seen.observe(img);
+  }
+})();
+// On touch screens there's no hover, so a tap toggles the stripe echo.
+(function () {
+  var card = document.querySelector(".echo-block");
+  if (card && window.matchMedia("(hover: none)").matches) {
+    card.addEventListener("click", function () { card.classList.toggle("on"); });
   }
 })();
 </script>
