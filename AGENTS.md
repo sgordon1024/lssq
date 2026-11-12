@@ -159,6 +159,7 @@ Lettering in the badges (D and E) sits on curved paths. To center it in a band, 
 | Muted | `#a9b7b4` | Secondary text |
 
 - **Type:** headlines in Fraunces (Google Fonts) at Black 900 with Soft 100 and Wonky on (`font-variation-settings: "SOFT" 100, "WONK" 1`). Everything else in Urbanist, the font on LSSQ's current site. Labels are Urbanist 800, caps, +16% tracking. The "stripe echo" headline treatment is a CSS `text-shadow` stack in `brand/index.html`. On screen it rests in solid cream with a glimmer, and on hover the stripes spring out one at a time (registered custom properties `--e1` to `--e3` with a `linear()` spring easing); in print it's used finished. Monoton appears only in the prototype's wordmark lockups.
+- **On site photos** (`brand/on-site/`): the scenes are AI-made. The projector party came from Nano Banana Pro in Weave with the real logo as input. The rest came from Figma's image generator with a blank surface, and the real logo was then placed in with a Python script (perspective, lighting, texture). The page says they're AI samples, not real LSSQ events. Keep that label.
 - **The full brand rules** (logo use, sizes, color pairs, type scale, patterns, voice) are on the brand direction page, `brand/index.html`.
 - **Look:** dark background, bright 80s colors, rounded shapes. The site uses one dark theme on purpose.
 
@@ -171,6 +172,7 @@ Lettering in the badges (D and E) sits on curved paths. To center it in a band, 
 | `presentations/YYYY-MM-DD-name/index.html` | One deck. Self-contained HTML slides |
 | `brand/index.html` | The brand direction page: logo, motion, color, type, patterns, samples and voice |
 | `brand/patterns/*.svg` | Generated stripe patterns (road, arches, glints) |
+| `brand/on-site/*.jpg` | Sample event photos for the brand page's On site section |
 | `prototypes/logo-marks/index.html` | The round 1 prototype: every option at real sizes |
 | `brand/marks/*.svg` | Each mark, 100 × 100 viewBox (D's full patch is 200 × 200, E is 222 × 222 to leave room for its die-cut border, and F's wordmark is wide, sized by its generator) |
 | `brand/marks/png/*.png` | 1024px transparent PNG exports of each SVG. Use these, not the SVGs, wherever a mark with lettering (D's patch, E) is shown as an image, since an SVG in an `<img>` can't load Urbanist |
@@ -241,6 +243,7 @@ Edit the `<!-- Keep this card pointed at whatever is being worked on right now. 
 | Nov 12, 2026 | Steve picks F, the striped ribbon, and asks for a brand direction page covering colors, custom type and patterns. |
 | Nov 12, 2026 | The logo is still by default. The draw-in animation is for special moments only (first visit, event announcements, video intros). |
 | Nov 12, 2026 | Steve loves the stripe echo. It becomes a hover state: solid cream with a glimmer at rest, then the stripes bounce out in a friendly, not cheesy, way. |
+| Nov 12, 2026 | Steve asked for an On site section with realistic photos of the brand at events. Ten sample photos: dance-party projection, blacklight banner, tattoo, patch, window cling, taped road, human ribbon, refill station, poop bags, porta-potty. |
 | Nov 12, 2026 | Draft 1 choices: Fraunces (soft, wonky) for headlines over Urbanist; the Q alone as the small mark; ink and cream as the two grounds; lavender only as a rare extra; deep pink for pink text on cream. All open to Steve's notes. |
 
 ## Open questions

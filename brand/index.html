@@ -233,6 +233,16 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
 .tab img { flex: none; width: 16px; height: 16px; }
 .sticker { justify-self: center; width: min(140px, 100%); transform: rotate(-8deg); filter: drop-shadow(5px 0 0 var(--cream)) drop-shadow(-5px 0 0 var(--cream)) drop-shadow(0 5px 0 var(--cream)) drop-shadow(0 -5px 0 var(--cream)) drop-shadow(0 6px 8px rgba(0, 0, 0, .45)); }
 
+/* On site */
+.onsite-hero { margin: 0; border-radius: 20px; overflow: hidden; background: var(--ink-2); }
+.onsite-hero img, .shots img { display: block; width: 100%; height: auto; }
+.shots { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.shots li { border-radius: 18px; overflow: hidden; background: var(--ink-2); }
+.shots figure { margin: 0; }
+.onsite-hero figcaption, .shots figcaption { display: grid; gap: 2px; padding: 12px 16px 16px; font-size: 15px; color: var(--muted); }
+.onsite-hero figcaption { padding: 16px 20px 18px; }
+.onsite-hero figcaption b, .shots figcaption b { color: var(--cream); font-size: 16px; }
+
 /* Voice */
 .voice { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .voice li { display: grid; gap: 10px; align-content: start; padding: 22px; border-radius: 20px; background: var(--ink-2); }
@@ -241,7 +251,7 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
 .voice .not s { text-decoration-color: var(--pink); text-decoration-thickness: 2px; }
 
 @media (max-width: 900px) {
-  .three, .patterns, .voice, .stripes-sw { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .three, .patterns, .voice, .stripes-sw, .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .support { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .pairs, .donts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -249,7 +259,7 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
   .spec.display-spec { grid-row: auto; }
 }
 @media (max-width: 600px) {
-  .three, .patterns, .voice, .stripes-sw, .logo-grid, .grounds, .support, .pairs, .smalls { grid-template-columns: 1fr; }
+  .three, .patterns, .voice, .stripes-sw, .logo-grid, .grounds, .support, .pairs, .smalls, .shots { grid-template-columns: 1fr; }
   .logo-grid .tile.big { grid-column: auto; }
   .donts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .donts li { padding: 12px; }
@@ -279,7 +289,7 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
     <p class="lede">LSSQ is somewhere new every month, with the same family every time. The ribbon says that: one line that never lifts off, with three stripes that always travel together. Everything here grows from it.</p>
     <p class="note">Built on option F from round 1. A draft for Steve's review, November 12, 2026. This isn't LSSQ's official brand.</p>
     <nav class="toc" aria-label="On this page">
-      <a href="#idea">Idea</a><a href="#logo">Logo</a><a href="#motion">Motion</a><a href="#color">Color</a><a href="#type">Type</a><a href="#patterns">Patterns</a><a href="#in-use">In use</a><a href="#voice">Voice</a>
+      <a href="#idea">Idea</a><a href="#logo">Logo</a><a href="#motion">Motion</a><a href="#color">Color</a><a href="#type">Type</a><a href="#patterns">Patterns</a><a href="#in-use">In use</a><a href="#on-site">On site</a><a href="#voice">Voice</a>
     </nav>
   </section>
 
@@ -490,6 +500,28 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
         </figure>
       </div>
     </div>
+  </section>
+
+  <section class="section" id="on-site" aria-labelledby="onsite-title">
+    <p class="label">On site</p>
+    <h2 id="onsite-title">Out where your people are.</h2>
+    <p class="lede">The ribbon is simple enough to tape, paint, stitch or project, so it can show up all over an event.</p>
+    <p class="note">Sample photos made with AI, with the real logo placed in. None of these are real LSSQ events.</p>
+    <figure class="onsite-hero">
+      <img src="on-site/projector.jpg" width="1264" height="848" loading="lazy" alt="The LSSQ logo projected on a white sheet strung between two camper vans at night, with people dancing under string lights">
+      <figcaption><b>Dance party</b>The draw-in, projected on a sheet between two vans. This is the kind of moment the animation is for.</figcaption>
+    </figure>
+    <ul class="grid shots">
+      <li><figure><img src="on-site/uv.jpg" width="1000" height="667" loading="lazy" alt="A black banner with the LSSQ logo glowing in cyan, yellow and pink under blacklight, above a DJ table, with a person wearing glowing stripe face paint"><figcaption><b>Blacklight banner</b>The stripe colors glow under UV. Face paint to match.</figcaption></figure></li>
+      <li><figure><img src="on-site/tattoo.jpg" width="1000" height="667" loading="lazy" alt="A forearm with the Q as a temporary tattoo, holding an enamel camp mug, with vans and a tent behind"><figcaption><b>Monthly tattoo</b>The Q, with a new one each month. Collect them all.</figcaption></figure></li>
+      <li><figure><img src="on-site/patch.jpg" width="1000" height="667" loading="lazy" alt="A round embroidered Q patch on a tan canvas jacket hanging on a van door"><figcaption><b>Patch</b>Stitched for jackets and bags. Add a small one for each place.</figcaption></figure></li>
+      <li><figure><img src="on-site/van.jpg" width="1000" height="667" loading="lazy" alt="The LSSQ logo as a window cling on the back of a camper van parked by a desert highway at sunset"><figcaption><b>Window cling</b>So LSSQ vans can spot each other on the road.</figcaption></figure></li>
+      <li><figure><img src="on-site/taped-road.jpg" width="1000" height="667" loading="lazy" alt="Three stripes of cyan, yellow and pink tape on the dirt leading to camp, past a wooden sign painted with the Q"><figcaption><b>Taped road</b>Three rolls of tape lead the way to camp, then peel right up.</figcaption></figure></li>
+      <li><figure><img src="on-site/human-ribbon.jpg" width="1000" height="667" loading="lazy" alt="A drone photo of people in cyan, yellow and pink shirts standing in three lines that form one winding ribbon on the desert floor"><figcaption><b>Human ribbon</b>Everyone wears a stripe color for one drone photo each month.</figcaption></figure></li>
+      <li><figure><img src="on-site/water.jpg" width="1000" height="667" loading="lazy" alt="A blue water jug at a refill station with an LSSQ logo sticker on it"><figcaption><b>Refill station</b>A sticker on the shared water jug.</figcaption></figure></li>
+      <li><figure><img src="on-site/poop-bags.jpg" width="1000" height="667" loading="lazy" alt="A poop-bag holder with the Q printed on its cap, clipped to a leash, with a happy dog behind"><figcaption><b>Poop bags</b>Every camp has dogs. Every dog walk gets a Q.</figcaption></figure></li>
+      <li><figure><img src="on-site/porta-potty.jpg" width="1000" height="667" loading="lazy" alt="A teal porta-potty at camp with the Q on its door sign"><figcaption><b>Porta-potty</b>Even here. Especially here.</figcaption></figure></li>
+    </ul>
   </section>
 
   <section class="section" id="voice" aria-labelledby="voice-title">
