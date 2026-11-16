@@ -29,5 +29,7 @@ if (timeline) {
       }
     });
   });
-  select(0);
+  // Open on the stage marked Now.
+  const now = stops.findIndex(stop => stop.querySelector('.stop-status')?.textContent.trim() === 'Now');
+  select(Math.max(now, 0));
 }

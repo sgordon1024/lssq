@@ -2,16 +2,17 @@
 
 This file is the handoff for any AI assistant (ChatGPT, Codex, Claude) or person taking over this work. Read it first, keep it current, and update the **Status** section whenever something changes. If this file and the code disagree, the code wins. Fix this file.
 
-Last updated: November 13, 2026.
+Last updated: November 16, 2026.
 
 ## The short version
 
 - **What:** an open, public workshop where Steve Gordon designs a new logo, an easier website and event tools for Last Saturday Side Quest (LSSQ).
 - **Why:** Steve loves LSSQ and wants a regular back-and-forth with Jake, who runs it, and to show what he can do for them if they want it.
 - **Done when:** Jake has seen a logo direction and a working site he can edit himself, and he and Steve have a regular check-in.
-- **Right now:** Steve picked F, the striped ribbon, on November 12. Two drafts are waiting on his review: the brand direction (https://sgordon1024.github.io/lssq/brand/) and the website plan (https://sgordon1024.github.io/lssq/presentations/2026-11-13-website-plan/). Still waiting on him to reach out to Jake.
+- **Right now:** Steve OKed the website plan on November 16, and a sample of the new site is live at https://sgordon1024.github.io/lssq-site/ (repo `sgordon1024/lssq-site`), with made-up events. Its editor needs a one-time sign-in setup from Steve. The brand direction (https://sgordon1024.github.io/lssq/brand/) is still waiting on his review, and he hasn't reached out to Jake yet.
 - **Live site:** https://sgordon1024.github.io/lssq/
 - **Repo:** https://github.com/sgordon1024/lssq (public, `main` is live)
+- **New site:** https://sgordon1024.github.io/lssq-site/, repo https://github.com/sgordon1024/lssq-site (public). It has its own README.
 
 ## People
 
@@ -26,31 +27,35 @@ Last updated: November 13, 2026.
 
 Steve built everything so far with Claude. On November 5 he handed the work to ChatGPT, and on November 12 Claude picked it back up for the brand direction. Whoever picks it up next: this file and the repo are the whole record; there's no other shared doc.
 
-**Where it stands (November 13)**
+**Where it stands (November 16)**
 
 - Steve picked F, the striped ribbon. The still logo is the default; the draw-in animation is for special moments only.
 - The [brand direction page](https://sgordon1024.github.io/lssq/brand/) (`brand/index.html`) sets the logo rules, motion, color, type, patterns, sample layouts and voice. It's draft 1, for Steve's review.
-- The [website plan](https://sgordon1024.github.io/lssq/presentations/2026-11-13-website-plan/) (`presentations/2026-11-13-website-plan/`) is draft 1, for Steve's review. It proposes four pages (home, events, one page per event, contact), sketches the home page in the brand style, gives each event one short form, compares four ways Jake could edit and recommends Decap CMS with drafts. It ends with four decisions for Steve.
+- The [website plan](https://sgordon1024.github.io/lssq/presentations/2026-11-13-website-plan/) (`presentations/2026-11-13-website-plan/`) is approved. On November 16 Steve OKed all four calls: Decap CMS with drafts, a small build step (Eleventy) for the new site only, a new `lssq-site` repo, and the page list as proposed.
+- The [new site](https://sgordon1024.github.io/lssq-site/) is built (the plan's step 1): home, events, one page per event, contact and a 404, in the brand style, with made-up upcoming events and the two real past ones (SQUS, Shastaween). Every page says it's a sample, not LSSQ's official site, and search engines are told to skip it.
+- The editor is set up (step 2) at `/admin/` but can't sign in yet. Previews work: every pull request gets its own copy of the site, and the editor shows a "View preview" link. Sign-in needs the helper in `lssq-site/auth/` deployed, which needs Steve's Cloudflare and GitHub accounts.
 - The six round 1 options (A to F) stay in the [deck](https://sgordon1024.github.io/lssq/presentations/2026-11-04-logo-marks/) and the [prototype](https://sgordon1024.github.io/lssq/prototypes/logo-marks/) as the record.
 - Jake hasn't seen anything yet. Steve has a short intro email drafted to send from his personal email. It links the deck and this site, says it's a passion project with no strings attached, and asks Jake for a call and a regular check-in. The draft lives with Steve, not in this repo.
 
 **Waiting on Steve**
 
-1. Review the brand direction page and send notes.
-2. Review the website plan and make its four calls: Decap CMS (or Pages CMS), a small build step for the new site only, a new `lssq-site` repo, and the page list.
-3. Send the intro email to Jake and set up the check-in. The draft links the deck; it could link the brand page instead.
+1. Set up editor sign-in, once (the steps are in the `lssq-site` README under "Set up sign-in"): deploy the helper with `npx wrangler deploy` from `lssq-site/auth/`, create a GitHub OAuth App with the callback `<helper address>/callback`, set its ID and secret with `npx wrangler secret put`, then send the helper's address so it goes in `src/admin/config.yml` as `base_url`.
+2. Review the brand direction page and send notes.
+3. Look over the sample site and send notes.
+4. Send the intro email to Jake and set up the check-in. The draft links the deck; it could link the brand page or the sample site instead.
 
 **What to do next**
 
-1. Fold Steve's notes on the brand page into the page and the generator.
-2. Fold Steve's calls on the website plan into the deck. Once he OKs it, start the plan's step 1 (build the pages with sample content) in the new repo. Don't build before he OKs it. The site uses the brand page's rules.
+1. Once Steve sends the sign-in helper's address, set `base_url` in `lssq-site/src/admin/config.yml`, then sign in at https://sgordon1024.github.io/lssq-site/admin/ and save a test draft to check that the preview link shows up.
+2. Fold Steve's notes on the brand page and the sample site in. If the brand files change, copy the changed SVGs into `lssq-site/src/brand/`.
+3. The plan's step 3 (show Jake, fill in real events, links and photos) waits on Steve and Jake. Don't add Jake as a collaborator or share the site with him until Steve says so.
 
 **Good to know**
 
 - F, its Q, its one-color versions and the patterns in `brand/patterns/` are all generated by `tools/make-stripes.py`. Don't hand-edit those SVGs; change the script and run it.
 - To check an animation frame by frame, fetch the SVG's text into a page, set it as `innerHTML`, then pause every animation from `document.getAnimations()` and set its `currentTime`. You can't pause a plain `<img>`, and a hidden browser tab may not advance it at all.
 - The PNG export needs macOS with Google Chrome. If you can't run it, say so in the pull request and Steve will re-export.
-- Every change so far is one merged pull request: #1 the deck and this file, #2 Steve's first notes on A and D plus badge E, #3 mark F, #4 F as one ribbon, #5 F polish, #6 the handoff notes, #7 the homepage timeline, #8 the brand direction, #9 the stripe echo hover, #10 the On site photos, #11 trimming them to Steve's picks, then the website plan.
+- Every change so far is one merged pull request: #1 the deck and this file, #2 Steve's first notes on A and D plus badge E, #3 mark F, #4 F as one ribbon, #5 F polish, #6 the handoff notes, #7 the homepage timeline, #8 the brand direction, #9 the stripe echo hover, #10 the On site photos, #11 trimming them to Steve's picks, #12 the website plan, then pointing the workshop at the new site. The new site's repo started with one commit to `main`; from there it's pull requests too.
 
 ## About LSSQ
 
@@ -78,12 +83,14 @@ A retro 80s badge: a yellow record on a turntable, a pink banner with "Last Satu
 Work happens in this order. Don't jump ahead.
 
 1. **Logo mark (now).** One simple shape that keeps LSSQ's colors and 80s feel and still reads at 16px.
-2. **A site Jake can edit (next).** Everything on the current site, rebuilt so Jake can change it, preview it and open a pull request himself. He's not a web designer, so it has to be very simple. The website plan recommends Decap CMS with drafts; Steve hasn't decided yet (see Open questions).
+2. **A site Jake can edit (now).** Everything on the current site, rebuilt so Jake can change it, preview it and publish it without help. Jake isn't a web designer, so it has to be very simple. Decap CMS with drafts, in its own repo, `lssq-site`. A sample is live; sign-in comes next.
 3. **Event chat (later).** Something like WhatsApp, but just for LSSQ events. An existing service may be a better fit than a new app; decide when we get there.
 
 Steve also wants a regular check-in with Jake. Setting that up is Steve's job.
 
 ## Status
+
+November 16: Steve OKed the website plan. The new site is built and live at https://sgordon1024.github.io/lssq-site/ with sample content. Previews work (checked with a test pull request, closed). The editor loads but can't sign in until Steve sets up the sign-in helper. The workshop's home page Now card and plan point to the new site, and the plan opens on the Website stage.
 
 November 13: the website plan deck is drafted and the home page's Now card and plan point to it. The logo marks deck is marked "F picked" in the deck list.
 
@@ -110,8 +117,10 @@ The timeline uses `assets/timeline.js` to enhance readable stage details into ta
 | Show Jake the logo | In progress (Steve) | Intro email drafted; Steve sends it from his personal email |
 | Set a regular check-in with Jake | In progress (Steve) | The intro email asks for one |
 | Plan the site: pages, home page sketches, editing options, recommendation | Draft 1 done | `presentations/2026-11-13-website-plan/` |
-| Steve reviews the website plan | **Waiting on Steve** | https://sgordon1024.github.io/lssq/presentations/2026-11-13-website-plan/ |
-| Rebuild the site so Jake can edit it | Not started | Waits on Steve's OK of the plan |
+| Steve reviews the website plan | Done (OKed Nov 16) | See Decisions |
+| Build the new site's pages with sample content (plan step 1) | Done | `lssq-site` repo, https://sgordon1024.github.io/lssq-site/ |
+| Editor with drafts and previews (plan step 2) | In progress | Previews work. Sign-in waits on Steve (see Waiting on Steve) |
+| Steve looks over the sample site | **Waiting on Steve** | https://sgordon1024.github.io/lssq-site/ |
 | Walk Jake through editing | Not started (Steve) | |
 | Compare event chat options, then decide with Jake | Not started | |
 
@@ -190,7 +199,7 @@ Lettering in the badges (D and E) sits on curved paths. To center it in a band, 
 | `README.md` | Short public intro for contributors |
 | `AGENTS.md` | This file |
 
-The site is plain HTML and CSS with a small vanilla JavaScript timeline, no build step and no dependencies. GitHub Pages serves `main` from the repo root, so a merge to `main` goes live in about a minute. Links between pages are relative because the site lives under `/lssq/`.
+This workshop site is plain HTML and CSS with a small vanilla JavaScript timeline, no build step and no dependencies. The new LSSQ site is a separate repo, `sgordon1024/lssq-site`, built by Eleventy with GitHub Actions; its README covers how it works. GitHub Pages serves `main` from the repo root, so a merge to `main` goes live in about a minute. Links between pages are relative because the site lives under `/lssq/`.
 
 ## How to do common things
 
@@ -251,12 +260,12 @@ Edit the `<!-- Keep this card pointed at whatever is being worked on right now. 
 | Nov 12, 2026 | Steve loves the stripe echo. It becomes a hover state: solid cream with a glimmer at rest, then the stripes bounce out in a friendly, not cheesy, way. |
 | Nov 12, 2026 | Steve asked for an On site section with realistic photos of the brand at events. Ten sample photos were made; Steve kept the dance-party projection, blacklight banner, tattoo, patch and window cling. |
 | Nov 12, 2026 | Draft 1 choices: Fraunces (soft, wonky) for headlines over Urbanist; the Q alone as the small mark; ink and cream as the two grounds; lavender only as a rare extra; deep pink for pink text on cream. All open to Steve's notes. |
+| Nov 16, 2026 | Steve OKs the website plan as proposed: Decap CMS with drafts, a small build step (Eleventy) for the new site only, a new `lssq-site` repo in his GitHub, and the page list (home, events, one page per event, contact). The workshop itself stays plain HTML with no build step. |
 
 ## Open questions
 
 - **Brand direction notes:** Steve is reviewing draft 1. Open bits: is Fraunces the right headline face, and does the stripe echo earn its place?
-- **How will Jake edit the site?** The website plan compares GitHub's editor, Pages CMS, Decap CMS and TinaCMS (checked November 2026) and recommends Decap CMS with its editorial workflow: forms, every save is a draft pull request with a preview link, and Publish merges it. It needs Jake to have a free GitHub account and a small OAuth sign-in helper (a free Cloudflare Worker). Fallback: Pages CMS, which can invite Jake by email without a GitHub account but has no preview step. Waiting on Steve.
-- **Build step for the new site:** the plan proposes Eleventy, run by GitHub Actions, to turn one content file per event into plain HTML, plus PR preview deploys on GitHub Pages. That breaks the "no build step" rule, for the new site only. Waiting on Steve.
+- **Sample site notes:** Steve hasn't looked at the new site yet.
 - **Where will the rebuilt site live?** It could stay on GitHub Pages, with or without a custom domain. Jake decides.
 - **Event chat:** WhatsApp Communities, Discord, Geneva or something custom. Decide with Jake later.
 - **License:** none has been chosen yet. Ask Steve before adding one.
