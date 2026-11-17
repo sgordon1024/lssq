@@ -83,8 +83,9 @@ h2 { font-size: 50px; line-height: 1.02; text-wrap: balance; }
 /* 3. Today's site */
 .today { grid-template-rows: auto auto auto; gap: 34px; }
 .issues { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.issues li { display: grid; gap: 8px; align-content: start; padding: 22px 24px 24px; border-radius: 20px; background: var(--panel); border-top: 4px solid var(--c, var(--pink)); }
-.issues b { font-size: 22px; }
+.issues li { display: grid; gap: 8px; align-content: start; padding: 22px 24px 24px; border-radius: 20px; background: var(--panel); }
+.issues b { display: flex; align-items: center; gap: 10px; font-size: 22px; }
+.issues b::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 50%; background: var(--c, var(--pink)); }
 .issues span { font-size: 18px; color: var(--muted); }
 
 /* 4. The pages */
@@ -105,7 +106,8 @@ h2 { font-size: 50px; line-height: 1.02; text-wrap: balance; }
 .wf .pill { width: 62px; height: 16px; border-radius: 999px; background: var(--sun); }
 .wf .pill.out { background: none; box-shadow: inset 0 0 0 2px var(--line); }
 .wf .row { display: flex; gap: 6px; align-items: center; }
-.wf .sq { flex: 1; height: 30px; border-radius: 6px; background: var(--panel); border-top: 3px solid var(--c); }
+.wf .sq { position: relative; flex: 1; height: 30px; border-radius: 6px; background: var(--panel); }
+.wf .sq::before { content: ""; position: absolute; left: 7px; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--c); }
 .wf .ev { display: grid; grid-template-columns: 34px 1fr; gap: 8px; align-items: center; padding: 6px; border-radius: 8px; background: var(--panel); }
 .wf .ev b { height: 28px; border-radius: 6px; background: var(--sun); }
 .wf .ev span { display: grid; gap: 5px; }
