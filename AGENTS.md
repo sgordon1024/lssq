@@ -177,6 +177,7 @@ Lettering in the badges (D and E) sits on curved paths. To center it in a band, 
 - **On site photos** (`brand/on-site/`): the scenes are AI-made. The projector party came from Nano Banana Pro in Weave with the real logo as input. The others came from Figma's image generator with a blank surface, and the real logo was then placed in with a Python script (perspective, lighting, texture). The page says they're AI samples, not real LSSQ events. Keep that label.
 - **The full brand rules** (logo use, sizes, color pairs, type scale, patterns, voice) are on the brand direction page, `brand/index.html`.
 - **Look:** dark background, bright 80s colors, rounded shapes. The site uses one dark theme on purpose.
+- **Cards:** never a colored border or stripe on one edge of a card (top, left or any side). On a rounded card it bends into a curve. Steve's rule for this project and everything else. To color-code a card, put a small colored dot by its title.
 
 ## What's where
 
@@ -261,6 +262,7 @@ Edit the `<!-- Keep this card pointed at whatever is being worked on right now. 
 | Nov 12, 2026 | Steve asked for an On site section with realistic photos of the brand at events. Ten sample photos were made; Steve kept the dance-party projection, blacklight banner, tattoo, patch and window cling. |
 | Nov 12, 2026 | Draft 1 choices: Fraunces (soft, wonky) for headlines over Urbanist; the Q alone as the small mark; ink and cream as the two grounds; lavender only as a rare extra; deep pink for pink text on cream. All open to Steve's notes. |
 | Nov 16, 2026 | Steve OKs the website plan as proposed: Decap CMS with drafts, a small build step (Eleventy) for the new site only, a new `lssq-site` repo in his GitHub, and the page list (home, events, one page per event, contact). The workshop itself stays plain HTML with no build step. |
+| Nov 16, 2026 | No colored edge borders on cards, ever. The pillar cards on the new site and two spots in the website plan deck now use a small dot by the title instead. |
 
 ## Open questions
 
