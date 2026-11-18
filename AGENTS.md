@@ -2,7 +2,7 @@
 
 This file is the handoff for any AI assistant (ChatGPT, Codex, Claude) or person taking over this work. Read it first, keep it current, and update the **Status** section whenever something changes. If this file and the code disagree, the code wins. Fix this file.
 
-Last updated: November 16, 2026.
+Last updated: November 18, 2026.
 
 ## The short version
 
@@ -92,6 +92,8 @@ Steve also wants a regular check-in with Jake. Setting that up is Steve's job.
 
 ## Status
 
+November 18: the stripes sit into the site better (the swell under the home page's top section and on the story page, the big Q behind Donate).
+
 November 16, later: Steve's first notes on the sample site are live (`lssq-site` #3). See Decisions.
 
 November 16: Steve OKed the website plan. The new site is built and live at https://sgordon1024.github.io/lssq-site/ with sample content. Previews work (checked with a test pull request, closed). The editor loads but can't sign in until Steve sets up the sign-in helper. The workshop's home page Now card and plan point to the new site, and the plan opens on the Website stage.
@@ -156,7 +158,7 @@ F is generated, not drawn by hand. Edit `tools/make-stripes.py` (letter shapes, 
 - **Color:** in the color files, each stripe fades from a lighter tint at the top of the letters to a deeper shade at the baseline (the shades are `SHADES` in the generator). The one-color version and the decorations stay flat.
 - **Animation:** every path in `f-stripes-animated.svg` has `pathLength="1"` and a CSS dash animation inside the file, so it plays even as a plain `<img>`. Each stripe takes 2.7 seconds to write the word, 0.4 seconds after the last. Once the bowl is complete, the tail sweeps over it, a glint runs across the word, and a star twinkles on the end of the tail and fades, so it's clear it's over. About 5 seconds in all. It respects reduced motion. To replay it, reload the image with a new query string (the deck does this when you land on the slide).
 - **The Q on its own** (`f-q.svg`, `f-q-mono.svg`): the Q's ring plus a short tail flick, in a square viewBox. Its ring starts and ends under the tail, so there's no seam. This is the mark for avatars, app icons, stickers and the browser tab, down to 16px.
-- **Patterns** (`brand/patterns/`): `road.svg` (the ribbon snaking along, tiles sideways), `arches.svg` (a row of three-stripe arches) and `glints.svg` (the closing star, scattered). All use the same stripe widths and gaps.
+- **Patterns** (`brand/patterns/`): `road.svg` (the ribbon snaking along, tiles sideways), `swell.svg` (a long, low wave of it, made of wide shallow arcs; the site's section edge), `arches.svg` (a row of three-stripe arches) and `glints.svg` (the closing star, scattered). All use the same stripe widths and gaps.
 - **Decoration in CSS:** for a quick divider without the SVG, `background: linear-gradient(#36E2E6 0 8px, transparent 8px 11px, #F2C230 11px 19px, transparent 19px 22px, #E2397A 22px 30px);` on a 30px-tall element.
 
 ### Centering lettering
@@ -269,6 +271,7 @@ Edit the `<!-- Keep this card pointed at whatever is being worked on right now. 
 | Nov 16, 2026 | Steve OKs the website plan as proposed: Decap CMS with drafts, a small build step (Eleventy) for the new site only, a new `lssq-site` repo in his GitHub, and the page list (home, events, one page per event, contact). The workshop itself stays plain HTML with no build step. |
 | Nov 16, 2026 | Steve's first notes on the sample site: animate the logo on hover; make the next-up card about the experience, with photos from past events (stock from Unsplash or Pexels if none); give the cards icons; make Our story its own page with photos; add a fun countdown on the event photo; and handle locations that aren't picked until about a month out. All done in `lssq-site` #3. |
 | Nov 16, 2026 | No colored edge borders on cards, ever. The pillar cards on the new site and two spots in the website plan deck now use a small dot by the title instead. |
+| Nov 18, 2026 | Steve asked for the stripes to sit into the site better. The road at the bottom of the home page's top section became the swell (lower, longer waves) and replaced the divider line under it; the story page uses it too. The donate band's arches became the Q, blown up and running off the edge (hanging from the top right on phones). |
 
 ## Open questions
 

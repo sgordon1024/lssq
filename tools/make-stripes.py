@@ -22,10 +22,11 @@ It writes these files to brand/marks/:
     f-stripe-corner.svg     the stripes turning a corner, for decoration
 and these pattern tiles to brand/patterns/:
     road.svg                the ribbon snaking along in S-curves, repeats sideways
+    swell.svg               a long, low wave of the ribbon, calmer than the road, repeats sideways
     arches.svg              rainbow arches side by side, repeats sideways
     glints.svg              a scatter of glint stars, repeats both ways
 """
-from math import cos, sin, tan, radians, pi
+from math import atan, cos, degrees, sin, tan, radians, pi
 from pathlib import Path
 
 INK = "#141818"
@@ -386,6 +387,19 @@ def road(r=26, pad=9):
     return tile(period, 2 * mid, flat(s), "LSSQ pattern: road")
 
 
+def swell(period=900, amp=40, pad=3):
+    """A long, low wave: the road with the drama taken out, for section edges.
+    Each half wave is one wide, shallow arc, so the stripes stay exactly parallel.
+    `amp` is the rise from trough to crest of the centre line."""
+    phi = degrees(2 * atan(2 * amp / period))          # heading at each crossing of the middle
+    r = period / (4 * sin(radians(phi)))
+    height = amp + 2 * HALF + 2 * pad
+    s = Stroke(-period, height / 2, -phi)
+    for _ in range(3):
+        s.turn(r, 2 * phi, "R").turn(r, 2 * phi, "L")
+    return tile(period, height, flat(s), "LSSQ pattern: swell")
+
+
 def arches(r=34, leg=18, pad=6):
     """A rainbow arch on two short legs, like a sunrise. Repeats sideways into a row."""
     width, height = 2 * (r + HALF) + 2 * GAP, leg + r + HALF + pad
@@ -431,7 +445,7 @@ if __name__ == "__main__":
     }
     patterns = out.parent / "patterns"
     patterns.mkdir(exist_ok=True)
-    files.update({f"../patterns/{name}.svg": make() for name, make in (("road", road), ("arches", arches), ("glints", glints))})
+    files.update({f"../patterns/{name}.svg": make() for name, make in (("road", road), ("swell", swell), ("arches", arches), ("glints", glints))})
     for name, svg in files.items():
         (out / name).resolve().write_text(svg)
         print((out / name).resolve())
