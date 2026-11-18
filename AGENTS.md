@@ -9,7 +9,7 @@ Last updated: November 18, 2026.
 - **What:** an open, public workshop where Steve Gordon designs a new logo, an easier website and event tools for Last Saturday Side Quest (LSSQ).
 - **Why:** Steve loves LSSQ and wants a regular back-and-forth with Jake, who runs it, and to show what he can do for them if they want it.
 - **Done when:** Jake has seen a logo direction and a working site he can edit himself, and he and Steve have a regular check-in.
-- **Right now:** Steve OKed the website plan on November 16, and a sample of the new site is live at https://sgordon1024.github.io/lssq-site/ (repo `sgordon1024/lssq-site`), with made-up events. His first round of notes on it is in. Its editor needs a one-time sign-in setup from Steve. The brand direction (https://sgordon1024.github.io/lssq/brand/) is still waiting on his review, and he hasn't reached out to Jake yet.
+- **Right now:** Steve OKed the website plan on November 16, and a sample of the new site is live at https://sgordon1024.github.io/lssq-site/ (repo `sgordon1024/lssq-site`), with made-up events. His first round of notes on it is in, and a new scroll-of-scenes home page is waiting on his review at a preview link (https://sgordon1024.github.io/lssq-site/pr-preview/pr-5/, `lssq-site` #5, not merged). Its editor needs a one-time sign-in setup from Steve. The brand direction (https://sgordon1024.github.io/lssq/brand/) is still waiting on his review, and he hasn't reached out to Jake yet.
 - **Live site:** https://sgordon1024.github.io/lssq/
 - **Repo:** https://github.com/sgordon1024/lssq (public, `main` is live)
 - **New site:** https://sgordon1024.github.io/lssq-site/, repo https://github.com/sgordon1024/lssq-site (public). It has its own README.
@@ -27,13 +27,14 @@ Last updated: November 18, 2026.
 
 Steve built everything so far with Claude. On November 5 he handed the work to ChatGPT, and on November 12 Claude picked it back up for the brand direction. Whoever picks it up next: this file and the repo are the whole record; there's no other shared doc.
 
-**Where it stands (November 16)**
+**Where it stands (November 18)**
 
 - Steve picked F, the striped ribbon. The still logo is the default; the draw-in animation is for special moments only.
 - The [brand direction page](https://sgordon1024.github.io/lssq/brand/) (`brand/index.html`) sets the logo rules, motion, color, type, patterns, sample layouts and voice. It's draft 1, for Steve's review.
 - The [website plan](https://sgordon1024.github.io/lssq/presentations/2026-11-13-website-plan/) (`presentations/2026-11-13-website-plan/`) is approved. On November 16 Steve OKed all four calls: Decap CMS with drafts, a small build step (Eleventy) for the new site only, a new `lssq-site` repo, and the page list as proposed.
 - The [new site](https://sgordon1024.github.io/lssq-site/) is built (the plan's step 1): home, events, one page per event, contact and a 404, in the brand style, with made-up upcoming events and the two real past ones (SQUS, Shastaween). Every page says it's a sample, not LSSQ's official site, and search engines are told to skip it.
 - Steve's first notes on the sample site are done (`lssq-site` #3): the logo draws in on hover, the next-up card leads with photos from past weekends, the pillar cards have icons, Our story is its own page, each event photo has a countdown, and an event's page says the spot is a secret (and when it drops) until it has coordinates. Four photos come from LSSQ's own site; the rest are Unsplash stock, each credited.
+- Steve loved sweet-tape.com's home page and page transitions and asked for that feel on the home page only. It's built in `lssq-site` #5 and waits on his review at the [preview](https://sgordon1024.github.io/lssq-site/pr-preview/pr-5/): a collage hero of taped photos and stickers, the tagline riding a ribbon, the pillars sliding sideways, a photo wall of past weekends, the next weekend's photo opening up, and the donate Q turning like a record. Every page gets a stripe wipe between pages and a light grain. It uses GSAP (ScrollTrigger) and Lenis, home page only; with reduced motion it's a plain scroll.
 - The editor is set up (step 2) at `/admin/` but can't sign in yet. Previews work: every pull request gets its own copy of the site, and the editor shows a "View preview" link. Sign-in needs the helper in `lssq-site/auth/` deployed, which needs Steve's Cloudflare and GitHub accounts.
 - The six round 1 options (A to F) stay in the [deck](https://sgordon1024.github.io/lssq/presentations/2026-11-04-logo-marks/) and the [prototype](https://sgordon1024.github.io/lssq/prototypes/logo-marks/) as the record.
 - Jake hasn't seen anything yet. Steve has a short intro email drafted to send from his personal email. It links the deck and this site, says it's a passion project with no strings attached, and asks Jake for a call and a regular check-in. The draft lives with Steve, not in this repo.
@@ -42,14 +43,15 @@ Steve built everything so far with Claude. On November 5 he handed the work to C
 
 1. Set up editor sign-in, once (the steps are in the `lssq-site` README under "Set up sign-in"): deploy the helper with `npx wrangler deploy` from `lssq-site/auth/`, create a GitHub OAuth App with the callback `<helper address>/callback`, set its ID and secret with `npx wrangler secret put`, then send the helper's address so it goes in `src/admin/config.yml` as `base_url`.
 2. Review the brand direction page and send notes.
-3. Look over the updated sample site and send any more notes.
+3. Review the new home page at the [preview](https://sgordon1024.github.io/lssq-site/pr-preview/pr-5/) and say whether to ship it (`lssq-site` #5), plus any more notes on the sample site.
 4. Send the intro email to Jake and set up the check-in. The draft links the deck; it could link the brand page or the sample site instead.
 
 **What to do next**
 
 1. Once Steve sends the sign-in helper's address, set `base_url` in `lssq-site/src/admin/config.yml`, then sign in at https://sgordon1024.github.io/lssq-site/admin/ and save a test draft to check that the preview link shows up.
-2. Fold Steve's notes on the brand page and the sample site in. If the brand files change, copy the changed SVGs into `lssq-site/src/brand/`.
-3. The plan's step 3 (show Jake, fill in real events, links and photos) waits on Steve and Jake. Don't add Jake as a collaborator or share the site with him until Steve says so.
+2. When Steve OKs the new home page, merge `lssq-site` #5. Until then, leave it open.
+3. Fold Steve's notes on the brand page and the sample site in. If the brand files change, copy the changed SVGs into `lssq-site/src/brand/`.
+4. The plan's step 3 (show Jake, fill in real events, links and photos) waits on Steve and Jake. Don't add Jake as a collaborator or share the site with him until Steve says so.
 
 **Good to know**
 
@@ -57,7 +59,7 @@ Steve built everything so far with Claude. On November 5 he handed the work to C
 - To check an animation frame by frame, fetch the SVG's text into a page, set it as `innerHTML`, then pause every animation from `document.getAnimations()` and set its `currentTime`. You can't pause a plain `<img>`, and a hidden browser tab may not advance it at all.
 - The PNG export needs macOS with Google Chrome. If you can't run it, say so in the pull request and Steve will re-export.
 - Steve asked for Firecrawl to find event photos. It isn't set up for this project, so the photos were found with the browser instead (LSSQ's Instagram needs a sign-in, so nothing came from there). Add the Firecrawl connector to this project if you want it next time.
-- Every change so far is one merged pull request: #1 the deck and this file, #2 Steve's first notes on A and D plus badge E, #3 mark F, #4 F as one ribbon, #5 F polish, #6 the handoff notes, #7 the homepage timeline, #8 the brand direction, #9 the stripe echo hover, #10 the On site photos, #11 trimming them to Steve's picks, #12 the website plan, #13 pointing the workshop at the new site, #14 dropping colored card edges in the plan deck. The new site's repo started with one commit to `main`; from there it's pull requests too.
+- Every change so far is one merged pull request: #1 the deck and this file, #2 Steve's first notes on A and D plus badge E, #3 mark F, #4 F as one ribbon, #5 F polish, #6 the handoff notes, #7 the homepage timeline, #8 the brand direction, #9 the stripe echo hover, #10 the On site photos, #11 trimming them to Steve's picks, #12 the website plan, #13 pointing the workshop at the new site, #14 dropping colored card edges in the plan deck, #15 noting Steve's first sample site notes, #16 the swell, #17 noting the new home page preview. The new site's repo started with one commit to `main`; from there it's pull requests too.
 
 ## About LSSQ
 
@@ -91,6 +93,8 @@ Work happens in this order. Don't jump ahead.
 Steve also wants a regular check-in with Jake. Setting that up is Steve's job.
 
 ## Status
+
+November 18, later: the sweet-tape-style home page is built and waiting on Steve's review (`lssq-site` #5, preview link above).
 
 November 18: the stripes sit into the site better (the swell under the home page's top section and on the story page, the big Q behind Donate).
 
@@ -128,6 +132,7 @@ The timeline uses `assets/timeline.js` to enhance readable stage details into ta
 | Editor with drafts and previews (plan step 2) | In progress | Previews work. Sign-in waits on Steve (see Waiting on Steve) |
 | Steve's first notes on the sample site | Done (Nov 16) | `lssq-site` #3 |
 | Steve looks over the updated sample site | **Waiting on Steve** | https://sgordon1024.github.io/lssq-site/ |
+| Home page as a scroll of scenes, stripe wipe between pages | Built, **waiting on Steve's review** | `lssq-site` #5, https://sgordon1024.github.io/lssq-site/pr-preview/pr-5/ |
 | Walk Jake through editing | Not started (Steve) | |
 | Compare event chat options, then decide with Jake | Not started | |
 
@@ -272,11 +277,12 @@ Edit the `<!-- Keep this card pointed at whatever is being worked on right now. 
 | Nov 16, 2026 | Steve's first notes on the sample site: animate the logo on hover; make the next-up card about the experience, with photos from past events (stock from Unsplash or Pexels if none); give the cards icons; make Our story its own page with photos; add a fun countdown on the event photo; and handle locations that aren't picked until about a month out. All done in `lssq-site` #3. |
 | Nov 16, 2026 | No colored edge borders on cards, ever. The pillar cards on the new site and two spots in the website plan deck now use a small dot by the title instead. |
 | Nov 18, 2026 | Steve asked for the stripes to sit into the site better. The road at the bottom of the home page's top section became the swell (lower, longer waves) and replaced the divider line under it; the story page uses it too. The donate band's arches became the Q, blown up and running off the edge (hanging from the top right on phones). |
+| Nov 18, 2026 | Steve loves sweet-tape.com, especially its page transitions, and OKed a plan to bring its feel over: only the home page becomes the big scrolling, parallax scene; the rest of the site stays straightforward and just gets the stripe wipe between pages and a light grain. Built on a branch with a preview link so he can review it before it goes live. |
 
 ## Open questions
 
 - **Brand direction notes:** Steve is reviewing draft 1. Open bits: is Fraunces the right headline face, and does the stripe echo earn its place?
-- **Sample site notes:** round 1 is done. Waiting on Steve's next look.
+- **Sample site notes:** round 1 is done. Waiting on Steve's next look, and his call on the new home page (`lssq-site` #5).
 - **Real photos:** the sample uses Unsplash stock where LSSQ has no photo. Swap in Jake's photos when he shares them.
 - **Where will the rebuilt site live?** It could stay on GitHub Pages, with or without a custom domain. Jake decides.
 - **Event chat:** WhatsApp Communities, Discord, Geneva or something custom. Decide with Jake later.
