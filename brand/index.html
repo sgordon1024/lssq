@@ -172,7 +172,8 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
 .patterns p { font-size: 15px; color: var(--muted); }
 .patterns a { font-size: 14px; }
 .pat { height: 150px; border-radius: 12px; background-color: var(--ink); margin-bottom: 6px; }
-.p-road { background-image: url(patterns/road.svg); background-size: 62px auto; }
+.p-road { background: var(--ink) url(patterns/swell.svg) left -40px bottom 20px / 320px auto repeat-x; }
+.p-road::before { content: ""; display: block; height: 62px; margin-top: 18px; background: url(patterns/road.svg) left center / 62px auto repeat-x; }
 .p-arches { background: var(--cream) url(patterns/arches.svg) left bottom / auto 52px repeat-x; }
 .p-link { background-image: repeating-linear-gradient(41deg, var(--pink) 0 8px, transparent 8px 11px, var(--sun) 11px 19px, transparent 19px 22px, var(--cyan) 22px 30px, transparent 30px 58px); }
 .p-band { display: grid; align-content: center; gap: 0; padding: 0 0 0 18px; background: var(--ink) url(marks/f-stripe-corner.svg) right 14px top 14px / 84px no-repeat; }
@@ -200,7 +201,7 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
 .sm-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--ink-3); }
 .sm-bar img { height: 26px; width: auto; }
 .sm-bar ul { display: flex; gap: 16px; margin: 0; padding: 0; list-style: none; font-size: 13px; font-weight: 800; color: var(--muted); }
-.sm-hero { display: grid; gap: 12px; padding: 30px 22px 92px; background: url(patterns/road.svg) left bottom 10px / 58px auto repeat-x; }
+.sm-hero { display: grid; gap: 12px; padding: 30px 22px 72px; background: url(patterns/swell.svg) left -30px bottom 14px / 320px auto repeat-x; }
 .sm-hero .label { font-size: 11px; }
 .sm-hero h3 { font-family: var(--display); font-weight: 900; font-variation-settings: "SOFT" 100, "WONK" 1; font-size: clamp(30px, 4vw, 44px); line-height: 1; max-width: 12ch; }
 .sm-hero p { color: var(--muted); font-size: 15px; max-width: 40ch; }
@@ -439,7 +440,7 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
     <h2 id="patterns-title">Cut from the same ribbon.</h2>
     <p class="lede">Every pattern uses the logo's three stripes, widths and gaps, so it all feels like one family.</p>
     <ul class="grid patterns">
-      <li><span class="pat p-road" aria-hidden="true"></span><h3>Road</h3><p>The ribbon snaking along. Section edges, footers and merch.</p><a href="patterns/road.svg">road.svg</a></li>
+      <li><span class="pat p-road" aria-hidden="true"></span><h3>Road and swell</h3><p>The ribbon snaking along, and a long, low swell of it. The swell for section edges on the site, the road for footers and merch.</p><p><a href="patterns/road.svg">road.svg</a> · <a href="patterns/swell.svg">swell.svg</a></p></li>
       <li><span class="pat p-arches" aria-hidden="true"></span><h3>Arches</h3><p>A row of rainbow sunrises. Along the bottom of posters and headers.</p><a href="patterns/arches.svg">arches.svg</a></li>
       <li><span class="pat p-link" aria-hidden="true"></span><h3>Link</h3><p>The 41 degree angle between letters, as a field. Big backgrounds and the backs of shirts. Pure CSS.</p></li>
       <li><span class="pat p-band" aria-hidden="true"><img src="marks/f-stripe-band.svg" alt=""></span><h3>Band and corner</h3><p>Dividers, and a corner to frame photos.</p><a href="marks/f-stripe-band.svg">f-stripe-band.svg</a></li>
@@ -475,7 +476,7 @@ button.btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
               <span class="btn primary">See upcoming events</span>
             </div>
           </div>
-          <figcaption>Website header, with the road pattern along the bottom.</figcaption>
+          <figcaption>Website header, with the swell along the bottom.</figcaption>
         </figure>
         <figure class="mock">
           <div class="ig">
