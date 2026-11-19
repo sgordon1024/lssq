@@ -2,7 +2,7 @@
 
 This file is the handoff for any AI assistant (ChatGPT, Codex, Claude) or person taking over this work. Read it first, keep it current, and update the **Status** section whenever something changes. If this file and the code disagree, the code wins. Fix this file.
 
-Last updated: November 18, 2026.
+Last updated: November 19, 2026.
 
 ## The short version
 
@@ -42,6 +42,7 @@ Steve built everything so far with Claude. On November 5 he handed the work to C
   - `npm run photos` gets phone photos ready: upright, 2000px and 1 MB at most, location data stripped (the repo is public), and HEIC turned into JPEG on a Mac.
   - `main` is protected. It only takes pull requests that pass the check. Content can go live on that alone; anything else needs Steve's review (`.github/CODEOWNERS`). Steve's own pull requests aren't held for review, so they merge normally once the check passes.
   - Tested end to end with a made-up event and a phone-sized photo, and with two previews published at once (that race is fixed in #9). The tests were closed, not merged.
+  - Photos from a phone (`lssq-site` #10): most assistants can only see photos attached in the chat, not save them. So the assistant sends Jake an upload link for his change, and he taps "choose your files", picks the photos and taps "Commit changes". Phones drop location data on browser uploads. The assistant names the photos, picks where they go, writes their descriptions and deletes the unused ones. HEIC photos only turn into JPEGs on a Mac. Making that work anywhere needs a new package (`heic-decode`), which waits on Steve's OK. One catch: a photo uploaded from a computer keeps its location in that change's history, even though it's stripped before going live.
 - The point-and-click editor at `/admin/` (Decap) is still there but can't sign in, and that's on hold until we know whether Jake wants it too. Sign-in needs the helper in `lssq-site/auth/` deployed, which needs Steve's Cloudflare and GitHub accounts. If it comes back, its photo uploads would need shrinking at build time, since Jake can't run `npm run photos` from it.
 - The six round 1 options (A to F) stay in the [deck](https://sgordon1024.github.io/lssq/presentations/2026-11-04-logo-marks/) and the [prototype](https://sgordon1024.github.io/lssq/prototypes/logo-marks/) as the record.
 - Jake hasn't seen anything yet. Steve has a short intro email drafted to send from his personal email. It links the deck and this site, says it's a passion project with no strings attached, and asks Jake for a call and a regular check-in. The draft lives with Steve, not in this repo.
@@ -49,8 +50,10 @@ Steve built everything so far with Claude. On November 5 he handed the work to C
 **Waiting on Steve**
 
 1. Review the brand direction page and send notes.
-2. When Jake is in, set him up for editing (about 15 minutes, together): a free GitHub account, add him as a collaborator on `lssq-site`, connect his AI assistant to GitHub, and walk him through `HOW-TO-UPDATE.md`.
+2. When Jake is in, set him up for editing (about 15 minutes, together): a free GitHub account, add him as a collaborator on `lssq-site`, connect his AI assistant to GitHub, sign him in to GitHub on his phone's browser, and walk him through `HOW-TO-UPDATE.md`.
 3. Send the intro email to Jake and set up the check-in. The draft links the deck; it could link the brand page or the sample site instead.
+4. Sign in to his personal Gmail in the Claude app's browser so Jake's newsletters can be found. The connected Gmail is his work account.
+5. OK or skip adding `heic-decode` to `lssq-site`, so HEIC photos convert on any computer, not just a Mac.
 
 **What to do next**
 
@@ -65,7 +68,7 @@ Steve built everything so far with Claude. On November 5 he handed the work to C
 - To check an animation frame by frame, fetch the SVG's text into a page, set it as `innerHTML`, then pause every animation from `document.getAnimations()` and set its `currentTime`. You can't pause a plain `<img>`, and a hidden browser tab may not advance it at all.
 - The PNG export needs macOS with Google Chrome. If you can't run it, say so in the pull request and Steve will re-export.
 - Steve asked for Firecrawl to find event photos. It isn't set up for this project, so the photos were found with the browser instead (LSSQ's Instagram needs a sign-in, so nothing came from there). Add the Firecrawl connector to this project if you want it next time.
-- Every change so far is one merged pull request: #1 the deck and this file, #2 Steve's first notes on A and D plus badge E, #3 mark F, #4 F as one ribbon, #5 F polish, #6 the handoff notes, #7 the homepage timeline, #8 the brand direction, #9 the stripe echo hover, #10 the On site photos, #11 trimming them to Steve's picks, #12 the website plan, #13 pointing the workshop at the new site, #14 dropping colored card edges in the plan deck, #15 noting Steve's first sample site notes, #16 the swell, #17 noting the new home page preview, #18 noting the first notes on it, #19 the wider echo gaps and the second notes, #20 noting the new home page is live, #21 noting the AI editing setup. The new site's repo started with one commit to `main`; from there it's pull requests too.
+- Every change so far is one merged pull request: #1 the deck and this file, #2 Steve's first notes on A and D plus badge E, #3 mark F, #4 F as one ribbon, #5 F polish, #6 the handoff notes, #7 the homepage timeline, #8 the brand direction, #9 the stripe echo hover, #10 the On site photos, #11 trimming them to Steve's picks, #12 the website plan, #13 pointing the workshop at the new site, #14 dropping colored card edges in the plan deck, #15 noting Steve's first sample site notes, #16 the swell, #17 noting the new home page preview, #18 noting the first notes on it, #19 the wider echo gaps and the second notes, #20 noting the new home page is live, #21 noting the AI editing setup, #22 noting phone photos and newsletters. The new site's repo started with one commit to `main`; from there it's pull requests too.
 
 ## About LSSQ
 
@@ -99,6 +102,8 @@ Work happens in this order. Don't jump ahead.
 Steve also wants a regular check-in with Jake. Setting that up is Steve's job.
 
 ## Status
+
+November 19: adding photos from a phone is simpler (`lssq-site` #10). Jake sends newsletters, and Steve wants a template for them, maybe automated. Finding past issues waits on Steve signing in to his personal email.
 
 November 18, night: Jake can update the sample site through any AI assistant (`lssq-site` #6 and #9). Tested end to end. The point-and-click editor's sign-in is on hold.
 
@@ -303,6 +308,8 @@ Edit the `<!-- Keep this card pointed at whatever is being worked on right now. 
 - **Point-and-click editor:** does Jake want Decap as well? If yes, set up sign-in and shrink its photo uploads at build time.
 - **Sign-ups:** if events need RSVPs or sign-ups, pick a service with Jake (a form or an RSVP tool) and add a sign-up link field to events. A database only makes sense if LSSQ wants its own accounts, which means holding people's details and looking after them.
 - **Real photos:** the sample uses Unsplash stock where LSSQ has no photo. Swap in Jake's photos when he shares them.
+- **Newsletters:** Jake sends newsletters. Steve wants a template Jake can fill in, and maybe automation, like a draft built from the site's upcoming events. First, read a few past issues to see what they cover and what sends them. LSSQ's site has no sign-up form and nothing turns up on the web, so they're probably in Steve's personal inbox, maybe as Patreon posts.
+- **Event photo galleries:** a past event's page shows one photo, and the home page has a few more. A strip of photos from each weekend could hold the rest. Steve's call.
 - **Where will the rebuilt site live?** It could stay on GitHub Pages, with or without a custom domain. Jake decides.
 - **Event chat:** WhatsApp Communities, Discord, Geneva or something custom. Decide with Jake later.
 - **License:** none has been chosen yet. Ask Steve before adding one.
