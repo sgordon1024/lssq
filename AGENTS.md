@@ -52,8 +52,7 @@ Steve built everything so far with Claude. On November 5 he handed the work to C
 1. Review the brand direction page and send notes.
 2. When Jake is in, set him up for editing (about 15 minutes, together): a free GitHub account, add him as a collaborator on `lssq-site`, connect his AI assistant to GitHub, sign him in to GitHub on his phone's browser, and walk him through `HOW-TO-UPDATE.md`.
 3. Send the intro email to Jake and set up the check-in. The draft links the deck; it could link the brand page or the sample site instead.
-4. Sign in to his personal Gmail in the Claude app's browser so Jake's newsletters can be found. The connected Gmail is his work account.
-5. OK or skip adding `heic-decode` to `lssq-site`, so HEIC photos convert on any computer, not just a Mac.
+4. OK or skip adding `heic-decode` to `lssq-site`, so HEIC photos convert on any computer, not just a Mac.
 
 **What to do next**
 
@@ -68,7 +67,7 @@ Steve built everything so far with Claude. On November 5 he handed the work to C
 - To check an animation frame by frame, fetch the SVG's text into a page, set it as `innerHTML`, then pause every animation from `document.getAnimations()` and set its `currentTime`. You can't pause a plain `<img>`, and a hidden browser tab may not advance it at all.
 - The PNG export needs macOS with Google Chrome. If you can't run it, say so in the pull request and Steve will re-export.
 - Steve asked for Firecrawl to find event photos. It isn't set up for this project, so the photos were found with the browser instead (LSSQ's Instagram needs a sign-in, so nothing came from there). Add the Firecrawl connector to this project if you want it next time.
-- Every change so far is one merged pull request: #1 the deck and this file, #2 Steve's first notes on A and D plus badge E, #3 mark F, #4 F as one ribbon, #5 F polish, #6 the handoff notes, #7 the homepage timeline, #8 the brand direction, #9 the stripe echo hover, #10 the On site photos, #11 trimming them to Steve's picks, #12 the website plan, #13 pointing the workshop at the new site, #14 dropping colored card edges in the plan deck, #15 noting Steve's first sample site notes, #16 the swell, #17 noting the new home page preview, #18 noting the first notes on it, #19 the wider echo gaps and the second notes, #20 noting the new home page is live, #21 noting the AI editing setup, #22 noting phone photos and newsletters. The new site's repo started with one commit to `main`; from there it's pull requests too.
+- Every change so far is one merged pull request: #1 the deck and this file, #2 Steve's first notes on A and D plus badge E, #3 mark F, #4 F as one ribbon, #5 F polish, #6 the handoff notes, #7 the homepage timeline, #8 the brand direction, #9 the stripe echo hover, #10 the On site photos, #11 trimming them to Steve's picks, #12 the website plan, #13 pointing the workshop at the new site, #14 dropping colored card edges in the plan deck, #15 noting Steve's first sample site notes, #16 the swell, #17 noting the new home page preview, #18 noting the first notes on it, #19 the wider echo gaps and the second notes, #20 noting the new home page is live, #21 noting the AI editing setup, #22 noting phone photos and newsletters, #23 noting what the newsletter looks like. The new site's repo started with one commit to `main`; from there it's pull requests too.
 
 ## About LSSQ
 
@@ -103,7 +102,7 @@ Steve also wants a regular check-in with Jake. Setting that up is Steve's job.
 
 ## Status
 
-November 19: adding photos from a phone is simpler (`lssq-site` #10). Jake sends newsletters, and Steve wants a template for them, maybe automated. Finding past issues waits on Steve signing in to his personal email.
+November 19: adding photos from a phone is simpler (`lssq-site` #10). Jake sends newsletters, and Steve wants a template for them, maybe automated. One issue turned up in Steve's personal inbox (October), and what it covers is under Open questions.
 
 November 18, night: Jake can update the sample site through any AI assistant (`lssq-site` #6 and #9). Tested end to end. The point-and-click editor's sign-in is on hold.
 
@@ -307,9 +306,13 @@ Edit the `<!-- Keep this card pointed at whatever is being worked on right now. 
 - **Jake's assistant:** which one he uses decides small things, like whether it can merge or save photo attachments itself. `lssq-site/AGENTS.md` covers both cases. Try it with him during setup.
 - **Point-and-click editor:** does Jake want Decap as well? If yes, set up sign-in and shrink its photo uploads at build time.
 - **Sign-ups:** if events need RSVPs or sign-ups, pick a service with Jake (a form or an RSVP tool) and add a sign-up link field to events. A database only makes sense if LSSQ wants its own accounts, which means holding people's details and looking after them.
-- **Real photos:** the sample uses Unsplash stock where LSSQ has no photo. Swap in Jake's photos when he shares them.
-- **Newsletters:** Jake sends newsletters. Steve wants a template Jake can fill in, and maybe automation, like a draft built from the site's upcoming events. First, read a few past issues to see what they cover and what sends them. LSSQ's site has no sign-up form and nothing turns up on the web, so they're probably in Steve's personal inbox, maybe as Patreon posts.
+- **Real photos:** the sample uses Unsplash stock where LSSQ has no photo. Swap in Jake's photos when he shares them. LSSQ already collects each weekend's photos in a Google Photos shared album, linked from its Linktree.
+- **Newsletters:** Steve wants a template Jake can fill in, and maybe automation, like a draft built from the site's upcoming events. Here's how it works today, from the one issue in Steve's inbox (October 2026, "LSSQ Newsletter"):
+  - Jake sends it from his own Gmail with everyone in BCC. People sign up through a Google Form on LSSQ's Linktree. There's no newsletter service, so there's no unsubscribe link, and Gmail caps a day's sends at about 500 people.
+  - It's plain text with a photo, in Jake's warm, loose voice. In order: thanks for the last weekend; the next one (when, where, a map link); a call to run an activity through a contribution form, with a deadline; the chat links (WhatsApp, plus Signal for sensitive things); the Linktree (photo album, feedback form, donations); the LSSQ Google Calendar; and the sign-off "With Love, LSSQ".
+  - Most of that is already on the site (the next weekend, its place, chat link and donate links), so a draft could be built from it. Still missing from the site: the contribution form, its deadline, the photo album and the feedback form.
+  - Keep the issue's text, its links and Jake's address out of this repo. They're from Steve's private inbox.
 - **Event photo galleries:** a past event's page shows one photo, and the home page has a few more. A strip of photos from each weekend could hold the rest. Steve's call.
 - **Where will the rebuilt site live?** It could stay on GitHub Pages, with or without a custom domain. Jake decides.
-- **Event chat:** WhatsApp Communities, Discord, Geneva or something custom. Decide with Jake later.
+- **Event chat:** WhatsApp Communities, Discord, Geneva or something custom. Decide with Jake later. LSSQ has since moved its chat from Instagram to a WhatsApp Community, plus Signal for sensitive things, and its Linktree links the Community.
 - **License:** none has been chosen yet. Ask Steve before adding one.
